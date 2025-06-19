@@ -1,0 +1,141 @@
+/* latin */
+@font-face {
+  font-family: 'Fjord One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(http://localhost:9001/internal/gfonts/font/fjordone/v21/zOL-4pbEnKBY_9S1jNKb7uRB.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+.text-node { background-clip: text !important; -webkit-background-clip: text !important; }
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Board */
+.board-3bde9cb0cc3c {
+  width: 100%;
+  background: #FFFFFFFF;
+  border-radius: 15px 15px 15px 15px;
+  box-shadow: 0px 0px 30px 0px #00000026;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: center;
+  padding: 11px 24px 11px 24px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+}
+
+/* Group */
+.group-3be29e368f6e {
+  position: relative;
+  height: 100%;
+  border-radius: 0px 0px 0px 0px;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 1;
+}
+
+/* Group */
+.group-3bdf1bfa0596 {
+  position: relative;
+  width: auto;
+  height: auto;
+  border-radius: 0px 0px 0px 0px;
+  display: flex;
+  align-items: end;
+  align-content: stretch;
+  justify-content: start;
+  gap: 8px;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+}
+
+/* Rectangle */
+.rectangle-3bdef56b8fb6 {
+  width: 48px;
+  height: 3px;
+  background: #000000FF;
+  border-radius: 0px 0px 0px 0px;
+  flex-shrink: 0;
+}
+
+/* Rectangle */
+.rectangle-3bdf0484a64d {
+  width: 40px;
+  height: 3px;
+  background: #000000FF;
+  border-radius: 0px 0px 0px 0px;
+  flex-shrink: 0;
+}
+
+/* Rectangle */
+.rectangle-3bdf069066f1 {
+  width: 32px;
+  height: 3px;
+  background: #000000FF;
+  border-radius: 0px 0px 0px 0px;
+  flex-shrink: 0;
+}
+
+/* NavBar Text */
+.nav-bar-tex-3bdff4288408 {
+  width: 133px;
+  height: 29px;
+  flex-shrink: 0;
+}
+.nav-bar-tex-3bdff4288408 .root-0 {
+
+
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.nav-bar-tex-3bdff4288408 .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+
+  margin-right: 1px;
+  vertical-align: top;
+}
+.nav-bar-tex-3bdff4288408 .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.nav-bar-tex-3bdff4288408 .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(0, 0, 0, 1);
+  text-transform: none;
+
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: pre;
+  font-size: 24px;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(0, 0, 0, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-family: "Fjord One";
+  font-style: normal;
+  font-weight: 400;
+}
