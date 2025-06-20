@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Vaše Správy",
-  description: "Tuto bude popisok aplikacie...",
+  description: "Development branch of Vaše Správy",
 };
 
 export default function RootLayout({
