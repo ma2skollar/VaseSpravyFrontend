@@ -1,0 +1,51 @@
+:root {
+
+    // colors
+    --main-color: #FFC485;
+    --fill-color-light: #FFFEF3;
+    --fill-color-dark: #060400;
+    --secondary-color-salmon: #FFCDBC;
+    --secondary-color-purple: #635E83;
+    --indicator-color-light-negative: #E22828;
+    --indicator-color-light-positive: #0B8500;
+    --indicator-color-dark-negative: #E32E2E;
+    --indicator-color-dark-positive: #0C8F00;
+    --bias-color-liberal: #166DFC;
+    --bias-color-conservative: #FA2F3D;
+    --bias-color-center: #FFFEF3;
+    --compass-color-top-left: #FA6661;
+    --compass-color-top-right: #8DBEFF;
+    --compass-color-bottom-left: #A5D38C;
+    --compass-color-bottom-right: #BE8EC8;
+
+    // fonts
+
+}
+
+// mobile style
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    min-height: 100svh;
+    width: 100vw; 
+    box-sizing: border-box;
+    position: relative;
+    
+    // light mode
+    background-color: var(--fill-color-light);
+
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--fill-color-dark);
+    }
+
+    // font-family: var(--text-font);
+}

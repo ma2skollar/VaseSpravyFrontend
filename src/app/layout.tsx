@@ -1,21 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Viewport } from "next";
+import './globals.scss'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// TODO: add fonts
 
 export const metadata: Metadata = {
-  title: "Vaše Správy",
-  description: "Development branch of Vaše Správy",
+  // manifest: "/site.webmanifest",
+  // icons: {
+  //   icon: [
+  //     { url: "/favicon.ico", type: "image/x-icon" },
+  //     { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+  //     { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+  //   ],
+  //   apple: "/apple-touch-icon.png",
+  // }
 };
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: "device-width",
+}
+
+
 
 export default function RootLayout({
   children,
@@ -23,10 +29,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-      </body>
+    <html lang="sk">
+      <body>{children}</body>
     </html>
   )
 }

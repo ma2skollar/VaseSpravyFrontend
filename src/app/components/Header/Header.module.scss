@@ -1,0 +1,18 @@
+.header {
+    box-sizing: border-box;
+    display: flex;
+    width: 100vw;
+    padding: 0.5rem 0.625rem;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    background-color: var(--fill-color-light);
+    // #060400 at 20% opacity
+    border-bottom: 0.5px solid #06040033;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--fill-color-dark);
+        // #FFFEF3 at 20% opacity
+        border-bottom: 0.5px solid #FFFEF333;
+    }
+}

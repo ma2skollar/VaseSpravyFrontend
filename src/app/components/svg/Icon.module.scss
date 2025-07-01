@@ -1,0 +1,8 @@
+.icon {
+    color: var(--secondary-color-purple);
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--main-color);
+    }
+
+}
