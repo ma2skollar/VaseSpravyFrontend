@@ -8,15 +8,15 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: 'Vaše Správy'
   },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FFFEF3" },
-    { media: "(prefers-color-scheme: dark)", color: "#060400" }
-  ]
 };
 
 export const viewport: Viewport = {
   initialScale: 1,
   width: "device-width",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFEF3" },
+    { media: "(prefers-color-scheme: dark)", color: "#060400" }
+  ]
 }
 
 
