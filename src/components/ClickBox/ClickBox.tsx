@@ -2,14 +2,15 @@ import styles from "./ClickBox.module.scss";
 
 type ClickBoxProps = {
     icon: React.FC;
+    href?: string;
     onClick?: () => void;
 }
 
 const ClickBox: React.FC<ClickBoxProps> = (props) => {
     return (
-        <button className={styles.clickBox} onClick={props.onClick}>
+        <a className={styles.clickBox} href={props.href} onClick={props.onClick}>
             <props.icon />
-        </button>
+        </a>
     );
 };
 

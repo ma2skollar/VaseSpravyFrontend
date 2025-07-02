@@ -2,10 +2,16 @@
 
     // colors
     --main-color: #FFC485;
+    --main-color-20: #FFC48533;
     --fill-color-light: #FFFEF3;
+    --fill-color-light-50: #FFFEF380;
+    --fill-color-light-20: #FFFEF333;
     --fill-color-dark: #060400;
+    --fill-color-dark-50: #06040080;
+    --fill-color-dark-20: #06040033;
     --secondary-color-salmon: #FFCDBC;
     --secondary-color-purple: #635E83;
+    --secondary-color-purple-20: #635E8333;
     --indicator-color-light-negative: #E22828;
     --indicator-color-light-positive: #0B8500;
     --indicator-color-dark-negative: #E32E2E;
@@ -19,6 +25,11 @@
     --compass-color-bottom-right: #BE8EC8;
 
     // fonts
+    --text-font: var(--font-inter), sans-serif;
+    --title-font: var(--font-ebgaramond), serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
 }
 

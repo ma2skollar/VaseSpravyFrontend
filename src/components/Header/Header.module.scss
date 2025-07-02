@@ -7,12 +7,10 @@
     align-items: flex-start;
 
     background-color: var(--fill-color-light);
-    // #060400 at 20% opacity
-    border-bottom: 0.5px solid #06040033;
+    border-bottom: 0.5px solid var(--fill-color-dark-20);
 
     @media (prefers-color-scheme: dark) {
         background-color: var(--fill-color-dark);
-        // #FFFEF3 at 20% opacity
-        border-bottom: 0.5px solid #FFFEF333;
+        border-bottom: 0.5px solid var(--fill-color-light-20);
     }
 }

@@ -1,8 +1,6 @@
-import type { Metadata } from "next";
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
+import { EBGaramond, Inter } from "@/fonts/fonts";
 import '../styles/globals.scss'
-
-// TODO: add fonts
 
 export const metadata: Metadata = {
   appleWebApp: {
@@ -17,9 +15,7 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#FFFEF3" },
     { media: "(prefers-color-scheme: dark)", color: "#060400" }
   ]
-}
-
-
+};
 
 export default function RootLayout({
   children,
@@ -27,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="sk">
+    <html lang="sk" className={`${EBGaramond.variable} ${Inter.variable}`}>
       <body>{children}</body>
     </html>
   )
-}
+};

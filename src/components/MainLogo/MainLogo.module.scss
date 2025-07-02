@@ -4,40 +4,37 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.6s cubic-bezier(.26,.51,.88,.99);
+
+    &--lg {
+        padding-top: 2.75rem;
+    }
 }
 
 .logo {
     display: flex;
-    width: 11.25rem;
+    width: auto;
     height: 2.75rem;
     flex-shrink: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.6s cubic-bezier(.26,.51,.88,.99);
     color: var(--fill-color-dark);
 
     @media (prefers-color-scheme: dark) {
         color: var(--fill-color-light);
     }
-}
 
-.containerLarge {
-    display: flex;
-    max-width: calc(100vw - 6.75rem);
-    padding-top: 2.75rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-}
+    &--sm {
+        height: 2.25rem;
+        width: auto;
+    }
 
-.logoLarge {
-    width: 22.5rem;
-    height: 5.5rem;
-    flex-shrink: 0;
-    transition: all 0.3s ease-in-out;
-    color: var(--fill-color-dark);
+    &--md {
+        height: 2.75rem;
+        width: auto;
+    }
 
-    @media (prefers-color-scheme: dark) {
-        color: var(--fill-color-light);
+    &--lg {
+        height: 5.5rem;
+        width: auto;
     }
 }

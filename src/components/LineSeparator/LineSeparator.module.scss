@@ -1,0 +1,31 @@
+.line {
+    width: calc(100% - 2.5rem);
+    height: 0.03125rem;
+}
+
+.default {
+    background-color: var(--fill-color-dark-20);
+
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--fill-color-light-20);
+    }
+}
+
+.colored {
+    
+    &.fullOpacity {
+        background-color: var(--secondary-color-purple);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--main-color);
+        }
+    }
+
+    &.notFullOpacity {
+        background-color: var(--secondary-color-purple-20);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--main-color-20);
+        }
+    }
+}

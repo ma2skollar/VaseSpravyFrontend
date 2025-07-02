@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Header from '../components/Header/Header'
+import Footer from '@/components/Footer/Footer'
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
@@ -13,6 +14,7 @@ export default function Home({}) {
       <main>
         <h1>Welcome to Vaše Správy</h1>
       </main>
+      <Footer />
     </>
   )
 }

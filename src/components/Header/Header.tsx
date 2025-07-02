@@ -5,24 +5,24 @@ import styles from './Header.module.scss'
 import ClickBox from "../ClickBox/ClickBox";
 import SubscribeIcon from "../svg/SubscribeIcon";
 import MenuIcon from "../svg/MenuIcon";
-import MainLogo from "../MainLogo/MainLogo";
+import MainLogo, { LogoSize } from "../MainLogo/MainLogo";
 
 const Header: React.FC = () => {
 
-    const [headerSize, setHeaderSize] = useState<boolean>(true);
+    const [headerSize, setHeaderSize] = useState<LogoSize>(LogoSize.Large);
 
     const handleSubscribeClick = () => {
-        if (headerSize) {
-            setHeaderSize(false);
+        if (headerSize === LogoSize.Large) {
+            setHeaderSize(LogoSize.Medium);
         } else {
-            setHeaderSize(true);
+            setHeaderSize(LogoSize.Large);
         }
     }
 
     return (
         <header className={styles.header}>
             <ClickBox icon={MenuIcon} />
-            <MainLogo large={headerSize} />
+            <MainLogo size={headerSize} />
             <ClickBox icon={SubscribeIcon} onClick={handleSubscribeClick}/>
         </header>
     );

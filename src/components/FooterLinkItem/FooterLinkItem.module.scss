@@ -1,0 +1,26 @@
+.item {
+    display: flex;
+    height: 3.75rem;
+    padding: 0rem 1.25rem;
+    align-items: center;
+    align-self: stretch;
+
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+
+    color: var(--fill-color-dark);
+    background-color: var(--fill-color-light);
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--fill-color-light);
+        background-color: var(--fill-color-dark);
+    }
+
+    &.centered {
+        justify-content: center;
+    }
+}
