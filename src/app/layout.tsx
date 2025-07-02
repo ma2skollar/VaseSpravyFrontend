@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
-import './globals.scss'
+import '../styles/globals.scss'
 
 // TODO: add fonts
 
