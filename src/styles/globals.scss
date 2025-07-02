@@ -1,21 +1,17 @@
 :root {
 
-    // colors
-    --main-color: #FFC485;
-    --main-color-20: #FFC48533;
-    --fill-color-light: #FFFEF3;
-    --fill-color-light-50: #FFFEF380;
-    --fill-color-light-20: #FFFEF333;
-    --fill-color-dark: #060400;
-    --fill-color-dark-50: #06040080;
-    --fill-color-dark-20: #06040033;
+    // colors - default light mode
+    --text-color: #060400;
+    --text-color-20: #06040033;
+    --text-color-50: #06040080;
+    --background-color: #FFFEF3;
+    --background-color-20: #FFFEF333;
+    --background-color-50: #FFFEF380;
+    --highlight-color: #635E83;
+    --highlight-color-20: #635E8333;
     --secondary-color-salmon: #FFCDBC;
-    --secondary-color-purple: #635E83;
-    --secondary-color-purple-20: #635E8333;
-    --indicator-color-light-negative: #E22828;
-    --indicator-color-light-positive: #0B8500;
-    --indicator-color-dark-negative: #E32E2E;
-    --indicator-color-dark-positive: #0C8F00;
+    --indicator-color-negative: #E32E2E;
+    --indicator-color-positive: #0C8F00;
     --bias-color-liberal: #166DFC;
     --bias-color-conservative: #FA2F3D;
     --bias-color-center: #FFFEF3;
@@ -23,6 +19,27 @@
     --compass-color-top-right: #8DBEFF;
     --compass-color-bottom-left: #A5D38C;
     --compass-color-bottom-right: #BE8EC8;
+
+    @media (prefers-color-scheme: dark) {
+        --text-color: #FFFEF3;
+        --text-color-20: #FFFEF333;
+        --text-color-50: #FFFEF380;
+        --background-color: #060400;
+        --background-color-20: #06040033;
+        --background-color-50: #06040080;
+        --highlight-color: #FFC485;
+        --highlight-color-20: #FFC48533;
+        --secondary-color-salmon: #FFCDBC;
+        --indicator-color-negative: #E32E2E;
+        --indicator-color-positive: #0C8F00;
+        --bias-color-liberal: #166DFC;
+        --bias-color-conservative: #FA2F3D;
+        --bias-color-center: #FFFEF3;
+        --compass-color-top-left: #FA6661;
+        --compass-color-top-right: #8DBEFF;
+        --compass-color-bottom-left: #A5D38C;
+        --compass-color-bottom-right: #BE8EC8;
+    }
 
     // fonts
     --text-font: var(--font-inter), sans-serif;
@@ -52,11 +69,5 @@ body {
     position: relative;
     
     // light mode
-    background-color: var(--fill-color-light);
-
-    @media (prefers-color-scheme: dark) {
-        background-color: var(--fill-color-dark);
-    }
-
-    // font-family: var(--text-font);
+    background-color: var(--background-color);
 }
