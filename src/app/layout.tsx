@@ -6,17 +6,12 @@ import '../styles/globals.scss'
 
 export const metadata: Metadata = {
   appleWebApp: {
-    title: "Vaše Správy"
+    title: 'Vaše Správy'
   },
-  // manifest: "/site.webmanifest",
-  // icons: {
-  //   icon: [
-  //     { url: "/favicon.ico", type: "image/x-icon" },
-  //     { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-  //     { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-  //   ],
-  //   apple: "/apple-touch-icon.png",
-  // }
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFEF3" },
+    { media: "(prefers-color-scheme: dark)", color: "#060400" }
+  ]
 };
 
 export const viewport: Viewport = {
