@@ -12,12 +12,20 @@ const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
             <LineSeparator color={true} fullOpacity={true} />
-            <FooterLinkItem centered={true} children={<MainLogo size={LogoSize.Small} />} href={""} />
-            <FooterLinkItem children={<p>Odhlásiť sa z odberu</p>} href={""} />
+            <FooterLinkItem centered={true} href={""}>
+                <MainLogo size={LogoSize.Small} />
+            </FooterLinkItem>
+            <FooterLinkItem href={""}>
+                <p>Odhlásiť sa z odberu</p>
+            </FooterLinkItem>
             <LineSeparator color={false} fullOpacity={false} />
-            <FooterLinkItem children={<p>Pomoc</p>} href={""} />
+            <FooterLinkItem href={""}>
+                <p>Pomoc</p>
+            </FooterLinkItem>
             <LineSeparator color={false} fullOpacity={false} />
-            <FooterLinkItem children={<p>Časté otázky</p>} href={""} />
+            <FooterLinkItem href={""}>
+                <p>Časté otázky</p>
+            </FooterLinkItem>
             <div className={styles.socialContainer}>
                 <ClickBox icon={FacebookIcon} href={"https://www.facebook.com/vasespravy"}/>
                 <ClickBox icon={InstagramIcon} href={"https://www.instagram.com/vasespravyoz/"}/>
