@@ -8,12 +8,5 @@
 }
 
 .colored {
-    
-    &.fullOpacity {
         background-color: var(--highlight-color);
-    }
-
-    &.notFullOpacity {
-        background-color: var(--highlight-color-20);
-    }
 }

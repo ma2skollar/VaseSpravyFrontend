@@ -11,18 +11,18 @@ import FooterLinkText from "../FooterLinkText/FooterLinkText";
 const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
-            <LineSeparator color={true} fullOpacity={true} />
+            <LineSeparator color={true} />
             <FooterLinkItem centered={true} href={""}>
                 <MainLogo size={LogoSize.Small} />
             </FooterLinkItem>
             <FooterLinkItem href={""}>
                 <p>Odhlásiť sa z odberu</p>
             </FooterLinkItem>
-            <LineSeparator color={false} fullOpacity={false} />
+            <LineSeparator color={false} />
             <FooterLinkItem href={""}>
                 <p>Pomoc</p>
             </FooterLinkItem>
-            <LineSeparator color={false} fullOpacity={false} />
+            <LineSeparator color={false} />
             <FooterLinkItem href={""}>
                 <p>Časté otázky</p>
             </FooterLinkItem>
