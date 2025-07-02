@@ -11,19 +11,6 @@ import LinkedInIcon from "../svg/LinkedinIcon";
 import FooterLinkText from "../FooterLinkText/FooterLinkText";
 
 const Footer: React.FC = () => {
-
-    const handleFacebookIconClick = () => {
-        console.log("Facebook icon clicked");
-    }
-
-    const handleInstagramIconClick = () => {
-        console.log("Instagram icon clicked");
-    }
-
-    const handleLinkedInIconClick = () => {
-        console.log("LinkedIn icon clicked");
-    }
-
     return (
         <footer className={styles.footer}>
             <LineSeparator color={true} fullOpacity={true} />
@@ -34,9 +21,9 @@ const Footer: React.FC = () => {
             <LineSeparator color={false} fullOpacity={false} />
             <FooterLinkItem children={<p>Časté otázky</p>} href={""} />
             <div className={styles.socialContainer}>
-                <ClickBox icon={FacebookIcon} onClick={handleFacebookIconClick}/>
-                <ClickBox icon={InstagramIcon} onClick={handleInstagramIconClick}/>
-                <ClickBox icon={LinkedInIcon} onClick={handleLinkedInIconClick}/>
+                <ClickBox icon={FacebookIcon} href={"https://www.facebook.com/vasespravy"}/>
+                <ClickBox icon={InstagramIcon} href={"https://www.instagram.com/vasespravyoz/"}/>
+                <ClickBox icon={LinkedInIcon} href={"https://www.linkedin.com/company/vase-spravy-oz"}/>
             </div>
             <div className={styles.footerTextLinks}>
                 <FooterLinkText text={"O nás"} href={""} />

@@ -8,7 +8,7 @@ type ClickBoxProps = {
 
 const ClickBox: React.FC<ClickBoxProps> = (props) => {
     return (
-        <a className={styles.clickBox} href={props.href} onClick={props.onClick}>
+        <a className={styles.clickBox} href={props.href} onClick={props.onClick} target='_blank'>
             <props.icon />
         </a>
     );
