@@ -5,6 +5,9 @@ import '../styles/globals.scss'
 // TODO: add fonts
 
 export const metadata: Metadata = {
+  appleWebApp: {
+    title: "Vaše Správy"
+  },
   // manifest: "/site.webmanifest",
   // icons: {
   //   icon: [
