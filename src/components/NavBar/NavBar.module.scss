@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    padding: 0rem 1.875rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    align-self: stretch;
+    background-color: var(--background-color);
+    box-sizing: border-box;
+    position: sticky;
+    border-bottom: 0.5px solid var(--text-color-20);
+
+    &.hidden {
+        display: none;
+    }
+}

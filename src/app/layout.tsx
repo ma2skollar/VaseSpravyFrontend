@@ -5,7 +5,9 @@ import '../styles/globals.scss'
 export const metadata: Metadata = {
   appleWebApp: {
     title: 'Vaše Správy'
-  }
+  },
+  title: 'Domov | Vaše Správy',
+  description: 'Description will be here...'
 };
 
 export const viewport: Viewport = {
@@ -24,6 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sk" className={`${EBGaramond.variable} ${Inter.variable}`}>
+      <head />
       <body>{children}</body>
     </html>
   )

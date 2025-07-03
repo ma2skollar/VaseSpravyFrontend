@@ -1,0 +1,23 @@
+.button {
+    all: unset;
+    display: flex;
+    padding: 0.875rem 0rem 0.775rem 0rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    box-sizing: border-box;
+    color: var(--text-color);
+    font-family: var(--text-font);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    align-self: stretch;
+    border-bottom: 0.1rem solid var(--background-color);
+
+    &.active {
+        border-bottom: 0.1rem solid var(--text-color);
+    }
+}
+
