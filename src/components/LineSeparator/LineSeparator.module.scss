@@ -1,5 +1,5 @@
 .line {
-    width: calc(100% - 2.5rem);
+    width: calc(100% - (var(--default-padding) * 2));
     height: 0.03125rem;
 }
 

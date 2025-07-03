@@ -5,7 +5,7 @@ import '../styles/globals.scss'
 export const metadata: Metadata = {
   appleWebApp: {
     title: 'Vaše Správy'
-  },
+  }
 };
 
 export const viewport: Viewport = {
@@ -18,7 +18,7 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode
 }) {
