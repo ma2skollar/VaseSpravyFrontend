@@ -8,11 +8,12 @@ export enum LogoSize {
 
 type LogoProps = {
   size: LogoSize;
+  onClick?: () => void;
 };
 
 const MainLogo: React.FC<LogoProps> = (props) => {
   return (
-    <div className={`${styles.container} ${styles[`container--${props.size}`]}`}>
+    <div className={`${styles.container} ${styles[`container--${props.size}`]}`} onClick={props.onClick}>
       <svg
         width="360"
         height="88"

@@ -19,10 +19,14 @@ const Header: React.FC = () => {
         }
     }
 
+    const handleLogoClick = () => {
+        window.location.href = '/';
+    }
+
     return (
         <header className={styles.header}>
             <ClickBox icon={MenuIcon} />
-            <MainLogo size={headerSize} />
+            <MainLogo size={headerSize} onClick={handleLogoClick}/>
             <ClickBox icon={SubscribeIcon} onClick={handleSubscribeClick}/>
         </header>
     );
