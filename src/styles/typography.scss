@@ -1,0 +1,176 @@
+:root {
+    // fonts
+    --sans-font: var(--font-inter);
+    --serif-font: var(--font-ebgaramond);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Title Typography Styles
+
+.title-serif-large {
+    font-size: 1.5rem; // 24px
+    font-weight: 500;
+    font-family: var(--serif-font);
+}
+
+.title-sans-large {
+    font-size: 1.5rem; // 24px
+    font-weight: 600;
+    font-family: var(--sans-font);
+}
+
+.title-serif-medium {
+    font-size: 1.375rem; // 22px
+    font-weight: 500;
+    font-family: var(--serif-font);
+}
+
+.title-serif-regular {
+    font-size: 1.25rem; // 20px
+    font-weight: 400;
+    font-family: var(--serif-font);
+}
+
+.title-sans-regular {
+    font-size: 1.125rem; // 18px
+    font-weight: 600;
+    font-family: var(--sans-font);
+}
+
+.title-sans-small {
+    font-size: 1rem; // 16px
+    font-weight: 600;
+    font-family: var(--sans-font);
+}
+
+// Subtitle Typography Styles
+
+.subtitle-sans-regular-important {
+    font-size: 0.875rem; // 14px
+    font-weight: 600;
+    font-family: var(--sans-font);
+}
+
+.subtitle-sans-regular {
+    font-size: 0.875rem; // 14px
+    font-weight: 400;
+    font-family: var(--sans-font);
+}
+
+.subtitle-sans-light {
+    font-size: 0.875rem; // 14px
+    font-weight: 300;
+    font-family: var(--sans-font);
+}
+
+.subtitle-sans-small {
+    font-size: 0.75rem; // 12px
+    font-weight: 400;
+    font-family: var(--sans-font);  
+}
+
+// Link Text Typography Styles
+
+.link-text-sans-large {
+    font-size: 1.125rem; // 18px
+    font-weight: 700;
+    font-family: var(--sans-font);
+}
+
+.link-text-sans-medium {
+    font-size: 1rem; // 16px
+    font-weight: 700;
+    font-family: var(--sans-font);
+}
+
+.link-text-sans-regular {
+    font-size: 0.875rem; // 14px
+    font-weight: 700;
+    font-family: var(--sans-font);
+}
+
+.link-text-sans-small {
+    font-size: 0.75rem; // 12px
+    font-weight: 400;
+    font-family: var(--sans-font);
+}
+
+// Label Typography Styles
+
+.label-sans-heavy {
+    font-size: 0.875rem; // 14px
+    font-weight: 500;
+    font-family: var(--sans-font);
+}
+
+.label-sans-large {
+    font-size: 0.875rem; // 14px
+    font-weight: 400;
+    font-family: var(--sans-font);
+}
+
+.label-sans-regular {
+    font-size: 0.75rem; // 12px
+    font-weight: 600;
+    font-family: var(--sans-font);
+}
+
+.label-sans-light {
+    font-size: 0.75rem; // 12px
+    font-weight: 400;
+    font-family: var(--sans-font);
+}
+
+.label-sans-small {
+    font-size: 0.625rem; // 10px
+    font-weight: 600;
+    font-family: var(--sans-font);
+}
+
+// Text Typography Styles
+
+.text-sans-large-important {
+    font-size: 1rem; // 16px
+    font-weight: 500;
+    font-family: var(--sans-font);
+}
+
+.text-sans-large {
+    font-size: 1rem; // 16px
+    font-weight: 300;
+    font-family: var(--sans-font);
+}
+
+.text-sans-regular-selected {
+    font-size: 0.875rem; // 14px
+    font-weight: 600;
+    font-family: var(--sans-font);
+}
+
+.text-sans-regular {
+    font-size: 0.875rem; // 14px
+    font-weight: 500;
+    font-family: var(--sans-font);
+}
+
+.text-sans-regular-unselected {
+    font-size: 0.875rem; // 14px
+    font-weight: 400;
+    font-family: var(--sans-font);
+}
+
+.text-sans-small {
+    font-size: 0.75rem; // 12px
+    font-weight: 400;
+    font-family: var(--sans-font);
+}
+
+// Input Typography Styles
+
+.input-sans-regular {
+    font-size: 1rem; // 16px
+    font-weight: 400;
+    font-family: var(--sans-font);
+}
