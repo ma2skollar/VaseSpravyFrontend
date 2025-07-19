@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { EBGaramond, Inter } from "@/fonts/fonts";
 import '../styles/globals.scss'
+import '../styles/typography.scss'
 
 export const metadata: Metadata = {
   appleWebApp: {

@@ -1,7 +1,8 @@
 import styles from './LineSeparator.module.scss';
 
 type LineSeparatorProps = {
-    color: boolean;
+    inNavMenu: boolean;
+    isColored: boolean;
 };
 
 const LineSeparator: React.FC<LineSeparatorProps> = (props) => {
@@ -9,7 +10,8 @@ const LineSeparator: React.FC<LineSeparatorProps> = (props) => {
         <div
             className={`
                 ${styles.line}
-                ${props.color ? styles.colored : styles.default}
+                ${props.inNavMenu ? styles.padded : ''}
+                ${props.isColored ? styles.colored : styles.default}
             `}
         >
         </div>

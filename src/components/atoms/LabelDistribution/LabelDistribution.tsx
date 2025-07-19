@@ -1,0 +1,22 @@
+import styles from './LabelDistribution.module.scss'
+
+export enum LabelDistributionBias {
+    Center = 'S',
+    Conservative = 'K',
+    Liberal = 'L',
+}
+
+type LabelDistributionProps = {
+    bias: LabelDistributionBias;
+    value: number;
+}
+
+const LabelDistribution: React.FC<LabelDistributionProps> = (props) => {
+    return (
+        <div className={`${styles.container} ${styles[`container--${props.bias}`]}`}>
+            <p className={`${styles.content} label-sans-small`}>{`${props.bias} ${props.value}%`}</p>
+        </div>
+    )
+}
+
+export default LabelDistribution;
