@@ -2,10 +2,10 @@
 
 import {useState} from "react";
 import styles from './Header.module.scss'
-import ClickBox from "../ClickBox/ClickBox";
-import SubscribeIcon from "../svg/SubscribeIcon";
-import MenuIcon from "../svg/MenuIcon";
-import MainLogo, { LogoSize } from "../MainLogo/MainLogo";
+import ClickBox from "../../atoms/ClickBox/ClickBox";
+import SubscribeIcon from "../../svg/SubscribeIcon";
+import MenuIcon from "../../svg/MenuIcon";
+import MainLogo, { LogoSize } from "../../atoms/LineSeparator/MainLogo/MainLogo";
 
 const Header: React.FC = () => {
 

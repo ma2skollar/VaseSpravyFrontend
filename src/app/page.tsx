@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Header from '@/components/Header/Header'
-import Footer from '@/components/Footer/Footer'
+import Header from '@/components/organisms/NavHeader/Header'
+import Footer from '@/components/organisms/Footer/Footer'
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
