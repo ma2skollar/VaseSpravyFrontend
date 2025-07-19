@@ -1,0 +1,15 @@
+.navButton {
+    display: flex;
+    height: var(--default-click-dimension);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    color: var(--text-color);
+
+    &.active {
+        border-bottom: var(--border-bottom-rg) solid var(--highlight-color);
+    }
+
+}

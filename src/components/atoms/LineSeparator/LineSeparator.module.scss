@@ -1,6 +1,10 @@
 .line {
-    width: calc(100% - (var(--default-padding) * 2));
-    height: 0.03125rem;
+    width: 100%;
+    height: var(--line-rg);
+
+    &.padded {
+        width: calc(100% - (var(--padding-lg) * 2));
+    }
 }
 
 .default {

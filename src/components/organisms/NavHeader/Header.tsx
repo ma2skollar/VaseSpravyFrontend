@@ -2,10 +2,10 @@
 
 import {useState} from "react";
 import styles from './Header.module.scss'
-import ClickBox from "../../atoms/ClickBox/ClickBox";
-import SubscribeIcon from "../../atoms/icons/SubscribeIcon";
-import MenuIcon from "../../atoms/icons/MenuIcon";
-import MainLogo, { LogoSize } from "../../atoms/LineSeparator/MainLogo/MainLogo";
+import ClickBox, { IconSize } from "../../atoms/ClickBox/ClickBox";
+import SubscribeIcon from "../../atoms/Icon/SubscribeIcon";
+import MenuIcon from "../../atoms/Icon/MenuIcon";
+import MainLogo, { LogoSize } from "../../atoms/MainLogo/MainLogo";
 
 const Header: React.FC = () => {
 
@@ -21,9 +21,9 @@ const Header: React.FC = () => {
 
     return (
         <header className={styles.header}>
-            <ClickBox icon={MenuIcon} />
+            <ClickBox iconSize={IconSize.Regular} icon={MenuIcon} />
             <MainLogo size={headerSize} />
-            <ClickBox icon={SubscribeIcon} onClick={handleSubscribeClick}/>
+            <ClickBox iconSize={IconSize.Regular} icon={SubscribeIcon} onClick={handleSubscribeClick}/>
         </header>
     );
 }
