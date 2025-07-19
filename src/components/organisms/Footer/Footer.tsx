@@ -3,9 +3,9 @@ import LineSeparator from "../../atoms/LineSeparator/LineSeparator";
 import FooterLinkItem from "../../FooterLinkItem/FooterLinkItem";
 import MainLogo, { LogoSize } from "../../atoms/LineSeparator/MainLogo/MainLogo";
 import ClickBox from "../../atoms/ClickBox/ClickBox";
-import FacebookIcon from "../../svg/FacebookIcon";
-import InstagramIcon from "../../svg/InstagramIcon";
-import LinkedInIcon from "../../svg/LinkedInIcon";
+import FacebookIcon from "../../atoms/icons/FacebookIcon";
+import InstagramIcon from "../../atoms/icons/InstagramIcon";
+import LinkedInIcon from "../../atoms/icons/LinkedInIcon";
 import FooterLinkText from "../../FooterLinkText/FooterLinkText";
 
 const Footer: React.FC = () => {

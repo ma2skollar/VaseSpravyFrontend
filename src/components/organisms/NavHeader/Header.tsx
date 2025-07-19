@@ -3,8 +3,8 @@
 import {useState} from "react";
 import styles from './Header.module.scss'
 import ClickBox from "../../atoms/ClickBox/ClickBox";
-import SubscribeIcon from "../../svg/SubscribeIcon";
-import MenuIcon from "../../svg/MenuIcon";
+import SubscribeIcon from "../../atoms/icons/SubscribeIcon";
+import MenuIcon from "../../atoms/icons/MenuIcon";
 import MainLogo, { LogoSize } from "../../atoms/LineSeparator/MainLogo/MainLogo";
 
 const Header: React.FC = () => {
