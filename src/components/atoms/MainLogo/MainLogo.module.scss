@@ -14,7 +14,7 @@
     color: var(--text-color);
     display: flex;
     width: auto;
-    height: 2.75rem;
+    height: var(--default-click-dimension);
     flex-shrink: 0;
     transition: all 0.3s ease-in-out;
 
@@ -24,7 +24,7 @@
     }
 
     &--md {
-        height: 2.75rem;
+        height: var(--default-click-dimension);
         width: auto;
     }
 

@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    
+    svg {
+        visibility: hidden;
+        color: var(--text-color);
+        width: var(--icon-xs);
+        cursor: pointer;
+    }
+
+    &.visible {
+        svg {
+            visibility: visible;
+        }
+    }
+
+    .content {
+        color: var(--text-color);
+    }
+}
+

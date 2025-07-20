@@ -1,0 +1,42 @@
+.container {
+    position: fixed;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--padding-xs) var(--padding-lg);
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-xs);
+    background-color: var(--secondary-color-salmon);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    z-index: 10;
+    min-height: fit-content;
+
+    &.hidden {
+        height: 0px;
+        padding: 0px;
+    }
+
+    svg {
+        width: var(--icon-md);
+        height: var(--icon-md);
+        color: var(--bias-label-text-black);
+
+        animation: rotate360 3s linear infinite;
+        transform-origin: center;
+
+        @keyframes rotate360 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    p {
+        color: var(--bias-label-text-black);
+    }
+}

@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    box-sizing: border-box;
+    height: 3.25rem; // 52px
+    width: 100%;
+    padding: 0rem var(--padding-xl) 0rem var(--padding-lg);
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--background-color);
+    cursor: pointer;
+
+    svg {
+        visibility: hidden;
+        width: var(--icon-rg);
+        height: var(--icon-rg);
+        color: var(--text-color);
+    }
+
+    &.visible > svg {
+        visibility: visible;
+    }
+}
+
+.linkText {
+    color: var(--text-color);
+}

@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: var(--default-click-dimension);
+    padding: 0rem var(--Spacing-Padding---padding-lg, 1.25rem);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Spacing-Gap---gap-lg, 2rem);
+    flex-shrink: 0;
+}
