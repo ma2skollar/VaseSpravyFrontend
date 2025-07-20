@@ -1,10 +1,9 @@
 .container {
     display: flex;
     max-width: calc(100vw - 6.75rem);
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 0.6s cubic-bezier(.26,.51,.88,.99);
+    transition: all 0.3s ease-in-out;
 
     &--lg {
         padding-top: 2.75rem;
@@ -17,7 +16,7 @@
     width: auto;
     height: 2.75rem;
     flex-shrink: 0;
-    transition: all 0.6s cubic-bezier(.26,.51,.88,.99);
+    transition: all 0.3s ease-in-out;
 
     &--sm {
         height: 2.25rem;
