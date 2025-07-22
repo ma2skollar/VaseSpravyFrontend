@@ -1,21 +1,22 @@
 'use client'
-
-import { useState } from 'react';
 import styles from './ArticleImageContainer.module.scss';
+import { useAppSelector } from '@/lib/hooks';
+import UpdatingPopup from '../UpdatingPopup/UpdatingPopup';
 
 type ArticleImageContainerProps = {
-    imageUrl: string;
+    imageUrl?: string;
     altText?: string;
     caption?: string;
 }
 
 const ArticleImageContainer: React.FC<ArticleImageContainerProps> = (props) => {
 
-    // TODO: Use state for image loading status
-    const [isLoading, setIsLoading] = useState(false);
+    const isUpdating = useAppSelector((state) => state.articleUpdating)
 
     return (
-        <div></div>
+        <div>
+            <UpdatingPopup visible={isUpdating.isUpdating} />
+        </div>
     )
 }
 

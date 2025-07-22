@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { EBGaramond, Inter } from "@/fonts/fonts";
 import '../styles/globals.scss'
 import '../styles/typography.scss'
+import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {
   appleWebApp: {
@@ -25,7 +26,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sk" className={`${EBGaramond.variable} ${Inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <StoreProvider>
+          {children}
+        </StoreProvider>
+      </body>
     </html>
   )
 };
