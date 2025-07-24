@@ -6,7 +6,7 @@ type BlockTitleProps = {
     iconVisible: boolean;
 }
 
-const BlockTitle: React.FC<BlockTitleProps> = (props) => {
+const BlockTitle = (props: BlockTitleProps) => {
     return (
         <div className={`${styles.container} ${props.iconVisible ? styles.visible : ''}`}>
             <h3 className={`${styles.content} title-sans-regular`}>{props.text}</h3>

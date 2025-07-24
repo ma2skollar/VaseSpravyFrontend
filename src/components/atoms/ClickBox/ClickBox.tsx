@@ -14,7 +14,7 @@ type ClickBoxProps = {
     onClick?: () => void;
 }
 
-const ClickBox: React.FC<ClickBoxProps> = (props) => {
+const ClickBox = (props: ClickBoxProps) => {
     return (
         <a className={`${styles.clickBox} ${styles[`icon-${props.iconSize}`]}`} href={props.href} onClick={props.onClick} target='_blank'>
             <props.icon />

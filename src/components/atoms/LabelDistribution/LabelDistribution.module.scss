@@ -3,6 +3,7 @@
     padding: var(--padding-mn) var(--padding-lg);
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 
     &--S {
         background-color: var(--bias-color-center);

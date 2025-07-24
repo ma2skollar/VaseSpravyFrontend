@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Description will be here...',
 }
 
-export default function Home({}) {
+export default function Home() {
   return (
     <>
       <Header/>
