@@ -7,9 +7,9 @@ import MenuIcon from "../../atoms/Icon/MenuIcon";
 import MainLogo from "../../atoms/MainLogo/MainLogo";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
-const Header: React.FC = () => {
+const Header = () => {
     const dispatch = useAppDispatch();
-    const headerSize = useAppSelector((state) => state.headerResize)
+    const headerSize = useAppSelector(state => state.headerResizeReducer)
     const handleSubscribeClick = () => {
         dispatch({ type: 'headerResize/toggleResize' });
     }

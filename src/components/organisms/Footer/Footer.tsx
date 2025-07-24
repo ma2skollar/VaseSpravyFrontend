@@ -8,7 +8,7 @@ import InstagramIcon from "../../atoms/Icon/InstagramIcon";
 import LinkedInIcon from "../../atoms/Icon/LinkedInIcon";
 import FooterLinkText from "../../FooterLinkText/FooterLinkText";
 
-const Footer: React.FC = () => {
+const Footer = () => {
     return (
         <footer className={styles.footer}>
             <LineSeparator color={true} />

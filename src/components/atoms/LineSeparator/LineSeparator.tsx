@@ -5,7 +5,7 @@ type LineSeparatorProps = {
     isColored: boolean;
 };
 
-const LineSeparator: React.FC<LineSeparatorProps> = (props) => {
+const LineSeparator = (props: LineSeparatorProps) => {
     return (
         <div
             className={`

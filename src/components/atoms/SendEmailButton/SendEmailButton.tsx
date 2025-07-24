@@ -6,7 +6,7 @@ type SendEmailButtonProps = {
     onClick?: () => void;
 };
 
-const SendEmailButton: React.FC<SendEmailButtonProps> = (props) => {
+const SendEmailButton = (props: SendEmailButtonProps) => {
     return (
         <button
             className={`${styles.sendEmailButton} ${props.isDisabled ? styles.disabled : ''} link-text-sans-medium`}
