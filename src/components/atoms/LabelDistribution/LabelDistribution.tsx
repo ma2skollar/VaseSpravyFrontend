@@ -11,7 +11,7 @@ type LabelDistributionProps = {
     value: number;
 }
 
-const LabelDistribution: React.FC<LabelDistributionProps> = (props) => {
+const LabelDistribution = (props: LabelDistributionProps) => {
     return (
         <div className={`${styles.container} ${styles[`container--${props.bias}`]}`}>
             <p className={`${styles.content} label-sans-small`}>{`${props.bias} ${props.value}%`}</p>

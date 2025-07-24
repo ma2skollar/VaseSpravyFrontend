@@ -1,0 +1,38 @@
+.container {
+    width: 440px;
+    display: flex;
+    padding: var(--padding-rg) var(--padding-lg);
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+    aspect-ratio: 225/150;
+    box-sizing: border-box;
+    position: relative;
+
+    img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        object-fit: fill;
+        z-index: -1;
+    }
+
+    .imageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(6, 4, 0, 0.00) 68.16%, #060400 100%);
+        z-index: 1;
+    }
+
+    p {
+        color: var(--bias-label-text-white);
+        text-align: center;
+        z-index: 2;
+    }
+}

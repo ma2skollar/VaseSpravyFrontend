@@ -5,7 +5,7 @@ type UpdatingPopupProps = {
     visible: boolean;
 }
 
-const UpdatingPopup: React.FC<UpdatingPopupProps> = (props) => {
+const UpdatingPopup = (props: UpdatingPopupProps) => {
     return (
         <div className={`${styles.container} ${props.visible ? '' : styles.hidden}`}>
             <RefreshIcon />
