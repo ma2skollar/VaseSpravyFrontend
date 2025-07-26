@@ -1,6 +1,6 @@
-import ErrorCircleIcon from '@/components/atoms/Icon/ErrorCircleIcon';
+import ErrorCircleIcon from '@/components/atoms/Icon/Material/ErrorCircleIcon';
 import styles from './OnClickStatus.module.scss';
-import CheckCircleIcon from '@/components/atoms/Icon/CheckCircleIcon';
+import CheckCircleIcon from '@/components/atoms/Icon/Material/CheckCircleIcon';
 
 type OnClickStatusProps = {
     success: boolean;
