@@ -5,7 +5,7 @@ import ArrowUpIcon from '@/components/atoms/Icon/Material/ArrowUpIcon';
 type DropdownControllerProps = {
     label: string;
     active: boolean;
-    onClick?: () => void;
+    onClick: () => void;
 }
 
 const DropdownController = (props: DropdownControllerProps) => {
