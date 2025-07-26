@@ -1,0 +1,80 @@
+.switchComponentButton {
+    width: var(--default-click-dimension); // 44px
+    height: var(--default-click-dimension); // 44px
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    background-color: var(--disabled-btn-color);
+    border-radius: var(--border-radius-sm);
+
+    .content {
+        position: relative;
+        color: var(--bias-label-text-white);
+        z-index: 999;
+    }
+
+    &--L {
+        &.selected {
+            height: 3.125rem; // 50px
+            border-radius: var(--border-radius-rg);
+            background-color: var(--bias-color-liberal);
+            flex: 1 0 0;
+
+            .content {
+                color: var(--bias-label-text-white);
+            }
+        }
+    }
+
+    &--S {
+        &.selected {
+            height: 3.125rem; // 50px
+            border-radius: var(--border-radius-rg);
+            background-color: var(--bias-color-center);
+            flex: 1 0 0;
+            
+            .content {
+                color: var(--bias-label-text-black);
+            }
+        }
+    }
+
+    &--K {
+        &.selected {
+            height: 3.125rem; // 50px
+            border-radius: var(--border-radius-rg);
+            background-color: var(--bias-color-conservative);
+            flex: 1 0 0;
+            
+            .content {
+                color: var(--bias-label-text-white);
+            }
+        }
+    }
+
+    &--P {
+        position: relative;
+
+        svg {
+            transform: scale(0.048);
+        }
+        
+        &.selected {
+            width: 100%;
+            height: 3.125rem; // 50px
+            border-radius: var(--border-radius-rg);
+            background-color: var(--highlight-color);
+            flex: 1 0 0;
+            
+            .content {
+                color: var(--background-color);
+            }
+
+            svg {
+                transform: scale(0.08);
+            }
+        }
+    }
+}
