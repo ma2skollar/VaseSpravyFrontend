@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    height: 3.75rem; // 60px
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    color: var(--text-color);
+    text-decoration: none;
+
+    svg {
+        color: var(--text-color);
+    }
+}

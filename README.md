@@ -9,13 +9,10 @@
 
 molecules to do:
 
-- SearchResultItem
-- MailInfoContainer
+- ArticleSourcesFilter
 
 - InformationDescriptionLabel
-- ArticleListItem
 - SearchBar
 - AboutStoryCard
-- ArticleSourcesFilter
 - ArticleTitle
 - CoverageDetail

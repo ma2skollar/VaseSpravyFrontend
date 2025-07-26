@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 import Header from '@/components/molecules/Header/Header'
 import styles from './Home.module.scss'
-import BaseInfo from '@/components/molecules/BaseInfo/BaseInfo'
-import { BiasMarkerType } from '@/components/atoms/BiasMarker/BiasMarker'
-import SmeCustomIcon from '@/components/atoms/Icon/Custom/SmeCustomIcon'
+import ArticleSourcesFilter from '@/components/molecules/ArticleSourcesFilter/ArticleSourcesFilter'
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
@@ -15,8 +13,15 @@ export default function Home() {
     <>
       <Header/>
       <main className={styles.container}>
-        <BaseInfo searchResult={true} sourceBias={BiasMarkerType.Conservative} sourceLogo={SmeCustomIcon} />
-        <BaseInfo searchResult={false} location='New York' category='Politics' />
+        <ArticleSourcesFilter title={'Retardi'} options={[
+          { option: 'SME', selected: true },
+          { option: 'Denník N', selected: false },
+          { option: 'HNonline', selected: false },
+          { option: 'Aktuality', selected: false },
+          { option: 'Pravda', selected: false },
+          { option: 'Topky', selected: false },
+          { option: 'Nový Čas', selected: false },
+        ]} />
       </main>
     </>
   )
