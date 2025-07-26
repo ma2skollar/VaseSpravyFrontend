@@ -5,13 +5,13 @@ export enum BiasMarkerType {
     Liberal = 'Liberálne',
     Center = 'Stred',
     Conservative = 'Konzervatívne',
-    Special = 'Porovnanie'
+    Compare = 'Porovnanie'
 }
 
 type SwitchComponentButtonProps = {
-    onClick?: () => void;
     bias: BiasMarkerType;
     isSelected?: boolean;
+    onClick?: () => void;
 }
 
 const SwitchComponentButton: React.FC<SwitchComponentButtonProps> = (props) => {
