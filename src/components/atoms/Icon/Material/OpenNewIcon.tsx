@@ -1,4 +1,4 @@
-import styles from "./Icon.module.scss";
+import styles from "./../Icon.module.scss";
 
 const OpenNewIcon = () => {
     return (

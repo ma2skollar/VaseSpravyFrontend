@@ -14,7 +14,7 @@ type SwitchComponentButtonProps = {
     onClick?: () => void;
 }
 
-const SwitchComponentButton: React.FC<SwitchComponentButtonProps> = (props) => {
+const SwitchComponentButton = (props: SwitchComponentButtonProps) => {
     return (
         <button
             className={`${styles.switchComponentButton} ${props.isSelected ? styles.selected : ''} ${styles[`switchComponentButton--${props.bias.charAt(0)}`]}`}

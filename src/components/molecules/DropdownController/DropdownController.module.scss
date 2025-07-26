@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: var(--default-click-dimension);
+    padding: 0 var(--padding-rg);
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--highlight-color);
+
+    span {
+        color: var(--background-color);
+    }
+
+    svg {
+        color: var(--background-color);
+        width: var(--icon-rg);
+    }
+}

@@ -2,8 +2,8 @@
 
 import styles from './Header.module.scss'
 import ClickBox, { IconSize } from "../../atoms/ClickBox/ClickBox";
-import SubscribeIcon from "../../atoms/Icon/SubscribeIcon";
-import MenuIcon from "../../atoms/Icon/MenuIcon";
+import SubscribeIcon from "../../atoms/Icon/Material/SubscribeIcon";
+import MenuIcon from "../../atoms/Icon/Material/MenuIcon";
 import MainLogo from "../../atoms/MainLogo/MainLogo";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { toggleResize } from '@/lib/features/headerResizeSlice';

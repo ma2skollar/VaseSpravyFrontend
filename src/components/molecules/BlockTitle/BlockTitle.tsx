@@ -1,5 +1,5 @@
 import styles from './BlockTitle.module.scss'
-import InfoIcon from '@/components/atoms/Icon/InfoIcon'
+import InfoIcon from '@/components/atoms/Icon/Material/InfoIcon'
 
 type BlockTitleProps = {
     text: string;

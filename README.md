@@ -11,14 +11,11 @@ molecules to do:
 
 - SearchResultItem
 - MailInfoContainer
-- BaseInfo
 
 - InformationDescriptionLabel
 - ArticleListItem
 - SearchBar
 - AboutStoryCard
 - ArticleSourcesFilter
-- OwnershipDropdown
-- DropdownItem
 - ArticleTitle
 - CoverageDetail

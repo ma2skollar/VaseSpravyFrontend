@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import Header from '@/components/molecules/Header/Header'
-import HoverSwitchComponent from '@/components/molecules/HoverSwitchComponent/HoverSwitchComponent'
 import styles from './Home.module.scss'
+import BaseInfo from '@/components/molecules/BaseInfo/BaseInfo'
+import { BiasMarkerType } from '@/components/atoms/BiasMarker/BiasMarker'
+import SmeCustomIcon from '@/components/atoms/Icon/Custom/SmeCustomIcon'
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
@@ -13,7 +15,8 @@ export default function Home() {
     <>
       <Header/>
       <main className={styles.container}>
-        <HoverSwitchComponent />
+        <BaseInfo searchResult={true} sourceBias={BiasMarkerType.Conservative} sourceLogo={SmeCustomIcon} />
+        <BaseInfo searchResult={false} location='New York' category='Politics' />
       </main>
     </>
   )

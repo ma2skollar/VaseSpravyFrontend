@@ -1,5 +1,5 @@
 import styles from './UpdatingPopup.module.scss';
-import RefreshIcon from '@/components/atoms/Icon/RefreshIcon';
+import RefreshIcon from '@/components/atoms/Icon/Material/RefreshIcon';
 
 type UpdatingPopupProps = {
     visible: boolean;
