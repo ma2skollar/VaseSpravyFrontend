@@ -6,12 +6,13 @@ import SubscribeIcon from "../../atoms/Icon/SubscribeIcon";
 import MenuIcon from "../../atoms/Icon/MenuIcon";
 import MainLogo from "../../atoms/MainLogo/MainLogo";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { toggleResize } from '@/lib/features/headerResizeSlice';
 
 const Header = () => {
     const dispatch = useAppDispatch();
     const headerSize = useAppSelector(state => state.headerResizeReducer)
     const handleSubscribeClick = () => {
-        dispatch({ type: 'headerResize/toggleResize' });
+        dispatch(toggleResize());
     }
 
     return (
