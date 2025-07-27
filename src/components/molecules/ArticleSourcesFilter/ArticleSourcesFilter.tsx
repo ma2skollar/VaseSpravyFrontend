@@ -8,27 +8,24 @@ import DropdownItem from '../DropdownItem/DropdownItem';
 type OptionsType = {
     option: string;
     selected: boolean;
+    onClick: () => void;
 }
 
 type ArticleSourcesFilterProps = {
     title: string;
+    expanded: boolean;
+    onClick: () => void;
     options: OptionsType[];
 }
 
 const ArticleSourcesFilter = (props: ArticleSourcesFilterProps) => {
-    const [expanded, setExpanded] = useState(false);
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    }
-
     return (
         <ul className={styles.container}>
-            <DropdownController label={props.title} active={expanded} onClick={handleExpandClick}/>
-            <ul className={styles.dropdown} style={{display: expanded ? 'block' : 'none'}}>
-                {props.options.map(({option, selected}) => (
+            <DropdownController label={props.title} active={props.expanded} onClick={props.onClick}/>
+            <ul className={styles.dropdown} style={{display: props.expanded ? 'block' : 'none'}}>
+                {props.options.map(({option, selected, onClick}) => (
                     <li key={option}>
-                        <DropdownItem label={option} selected={selected} />
+                        <DropdownItem label={option} selected={selected} onClick={onClick} />
                     </li>
                 ))}
             </ul>
