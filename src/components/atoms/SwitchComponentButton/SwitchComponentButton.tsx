@@ -8,7 +8,7 @@ export enum BiasMarkerType {
     Compare = 'Porovnanie'
 }
 
-type SwitchComponentButtonProps = {
+interface SwitchComponentButtonProps {
     bias: BiasMarkerType;
     isSelected?: boolean;
     onClick?: () => void;

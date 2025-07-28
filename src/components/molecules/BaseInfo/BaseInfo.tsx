@@ -1,7 +1,7 @@
 import BiasMarker, { BiasMarkerType } from '@/components/atoms/BiasMarker/BiasMarker';
 import styles from './BaseInfo.module.scss';
 
-type BaseInfoProps = {
+interface BaseInfoProps {
     searchResult: boolean;
     category?: string;
     location?: string;

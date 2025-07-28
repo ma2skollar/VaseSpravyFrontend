@@ -1,6 +1,6 @@
 import styles from './SendEmailButton.module.scss';
 
-type SendEmailButtonProps = {
+interface SendEmailButtonProps {
     text: string;
     isDisabled: boolean;
     onClick?: () => void;

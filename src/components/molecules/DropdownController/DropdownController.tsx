@@ -2,7 +2,7 @@ import ArrowDownIcon from '@/components/atoms/Icon/Material/ArrowDownIcon';
 import styles from './DropdownController.module.scss';
 import ArrowUpIcon from '@/components/atoms/Icon/Material/ArrowUpIcon';
 
-type DropdownControllerProps = {
+interface DropdownControllerProps {
     label: string;
     active: boolean;
     onClick: () => void;

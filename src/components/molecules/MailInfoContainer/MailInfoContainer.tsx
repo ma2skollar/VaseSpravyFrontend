@@ -1,7 +1,7 @@
 import MailIcon from '@/components/atoms/Icon/Material/MailIcon';
 import styles from './MailInfoContainer.module.scss';
 
-type MailInfoContainerProps = {
+interface MailInfoContainerProps {
     title: string;
     description: string;
     email: string;

@@ -7,7 +7,7 @@ export enum IconSize {
     Custom = "cs",
 }
 
-type ClickBoxProps = {
+interface ClickBoxProps {
     // TODO: Refator React.FC for svg icons so that it is cleaner and uses typescript correctly
     icon: React.FC;
     iconSize: IconSize;

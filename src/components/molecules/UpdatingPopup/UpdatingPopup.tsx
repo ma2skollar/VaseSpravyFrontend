@@ -1,7 +1,7 @@
 import styles from './UpdatingPopup.module.scss';
 import RefreshIcon from '@/components/atoms/Icon/Material/RefreshIcon';
 
-type UpdatingPopupProps = {
+interface UpdatingPopupProps {
     visible: boolean;
 }
 

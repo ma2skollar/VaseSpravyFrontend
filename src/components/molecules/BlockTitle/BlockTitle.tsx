@@ -1,7 +1,7 @@
 import styles from './BlockTitle.module.scss'
 import InfoIcon from '@/components/atoms/Icon/Material/InfoIcon'
 
-type BlockTitleProps = {
+interface BlockTitleProps {
     text: string;
     iconVisible: boolean;
 }

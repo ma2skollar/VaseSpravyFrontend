@@ -1,7 +1,7 @@
 import LabelDistribution, { LabelDistributionBias } from '@/components/atoms/LabelDistribution/LabelDistribution';
 import styles from './ArticleImageContainer.module.scss';
 
-type ArticleImageContainerProps = {
+interface ArticleImageContainerProps {
     imageUrl: string;
     altText: string;
     distribution: {

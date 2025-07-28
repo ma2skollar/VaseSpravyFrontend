@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-xs);
+    position: relative;
+
+    h4 {
+        color: var(--text-color);
+    }
+
+    svg {
+        height: var(--icon-xs);
+        width: var(--icon-xs);
+        color: var(--text-color);
+        cursor: pointer;
+    }
+
+    p {
+        position: absolute;
+        width: 20rem;
+        height: auto;
+        bottom: 2rem;
+        box-sizing: border-box;
+        padding: var(--padding-rg);
+        background-color: var(--text-color);
+        color: var(--highlight-color-alt);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .visible {
+        display: block;
+    }
+}
