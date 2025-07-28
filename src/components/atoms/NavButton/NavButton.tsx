@@ -1,6 +1,6 @@
 import styles from './NavButton.module.scss';
 
-type NavButtonProps = {
+interface NavButtonProps {
     text: string;
     isActive: boolean;
     onClick?: () => void;

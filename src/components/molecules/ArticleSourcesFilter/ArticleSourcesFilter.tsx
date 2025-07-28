@@ -5,13 +5,13 @@ import styles from './ArticleSourcesFilter.module.scss';
 import DropdownController from '../DropdownController/DropdownController';
 import DropdownItem from '../DropdownItem/DropdownItem';
 
-type OptionsType = {
+interface OptionsType {
     option: string;
     selected: boolean;
     onClick: () => void;
 }
 
-type ArticleSourcesFilterProps = {
+interface ArticleSourcesFilterProps {
     title: string;
     expanded: boolean;
     onClick: () => void;

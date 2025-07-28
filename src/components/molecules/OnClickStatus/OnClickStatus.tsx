@@ -2,7 +2,7 @@ import ErrorCircleIcon from '@/components/atoms/Icon/Material/ErrorCircleIcon';
 import styles from './OnClickStatus.module.scss';
 import CheckCircleIcon from '@/components/atoms/Icon/Material/CheckCircleIcon';
 
-type OnClickStatusProps = {
+interface OnClickStatusProps {
     success: boolean;
 };
 

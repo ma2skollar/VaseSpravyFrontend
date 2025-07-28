@@ -6,7 +6,7 @@ export enum BiasMarkerType {
     Liberal = 'Liberálny',
 }
 
-type BiasMarkerProps = {
+interface BiasMarkerProps {
     bias: BiasMarkerType;
 };
 

@@ -6,7 +6,7 @@ export enum LogoSize {
   Large = "lg",
 }
 
-type LogoProps = {
+interface LogoProps {
   size: LogoSize;
 };
 

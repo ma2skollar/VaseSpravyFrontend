@@ -2,7 +2,7 @@ import CheckBoxCheckedIcon from '@/components/atoms/Icon/Material/CheckBoxChecke
 import styles from './DropdownItem.module.scss';
 import CheckBoxIcon from '@/components/atoms/Icon/Material/CheckBoxIcon';
 
-type DropdownItemProps = {
+interface DropdownItemProps {
     label: string;
     selected: boolean;
     onClick?: () => void;

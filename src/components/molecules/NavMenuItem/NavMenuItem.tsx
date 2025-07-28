@@ -1,7 +1,7 @@
 import styles from './NavMenuItem.module.scss';
 import { IconSize } from '@/components/atoms/ClickBox/ClickBox';
 
-type NavMenuItemProps = {
+interface NavMenuItemProps {
     // TODO: Refator React.FC for svg icons so that it is cleaner and uses typescript correctly
     icon: React.FC;
     iconSize: IconSize;

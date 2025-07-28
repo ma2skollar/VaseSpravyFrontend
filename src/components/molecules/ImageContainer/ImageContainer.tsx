@@ -1,6 +1,6 @@
 import styles from './ImageContainer.module.scss'
 
-type ImageContainerProps = {
+interface ImageContainerProps {
     imageUrl: string;
     altText: string;
     imageLabel: string;

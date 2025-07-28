@@ -1,7 +1,7 @@
 import OpenNewIcon from '@/components/atoms/Icon/Material/OpenNewIcon';
 import styles from './SeachResultItem.module.scss';
 
-type SearchResultItemProps = {
+interface SearchResultItemProps {
     category: string;
     href?: string;
     onClick?: () => void;

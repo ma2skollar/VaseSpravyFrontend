@@ -1,6 +1,6 @@
 import styles from './LineSeparator.module.scss';
 
-type LineSeparatorProps = {
+interface LineSeparatorProps {
     inNavMenu: boolean;
     isColored: boolean;
 };

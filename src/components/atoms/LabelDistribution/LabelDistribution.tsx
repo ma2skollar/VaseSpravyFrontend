@@ -6,7 +6,7 @@ export enum LabelDistributionBias {
     Liberal = 'L',
 }
 
-type LabelDistributionProps = {
+interface LabelDistributionProps {
     bias: LabelDistributionBias;
     value: number;
 }

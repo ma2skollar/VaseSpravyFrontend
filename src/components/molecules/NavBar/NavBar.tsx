@@ -4,7 +4,7 @@ import NavButton from '@/components/atoms/NavButton/NavButton';
 import styles from './NavBar.module.scss';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 
-type NavBarProps = {
+interface NavBarProps {
     canSwitchContent: boolean;
     contentPrimaryText: string;
     contentSecondaryText?: string;
