@@ -15,4 +15,3 @@ molecules to do:
 
 - AboutStoryCard
 - SearchBar
-- CoverageDetail
