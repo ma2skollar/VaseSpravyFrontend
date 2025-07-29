@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Header from '@/components/organisms/NavHeader/Header'
-import ArticleImageContainer from '@/components/molecules/ArticleImageContainer/ArticleImageContainer'
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
@@ -12,7 +11,6 @@ export default function Home({}) {
     <>
       <Header/>
       <main>
-        
       </main>
     </>
   )
