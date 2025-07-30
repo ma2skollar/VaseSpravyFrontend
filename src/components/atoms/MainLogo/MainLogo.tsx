@@ -6,11 +6,11 @@ export enum LogoSize {
   Large = "lg",
 }
 
-type LogoProps = {
+interface LogoProps {
   size: LogoSize;
 };
 
-const MainLogo: React.FC<LogoProps> = (props) => {
+const MainLogo = (props: LogoProps) => {
   return (
     <div className={`${styles.container} ${styles[`container--${props.size}`]}`}>
       <svg

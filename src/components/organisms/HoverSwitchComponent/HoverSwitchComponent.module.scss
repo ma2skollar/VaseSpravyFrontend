@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    width: calc(100% - 0.625rem * 2);
+    padding: var(--padding-sm) var(--padding-rg);
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-xs);
+    box-sizing: border-box;
+
+    border-radius: var(--border-radius-lg);
+    border: var(--stroke-rg) solid var(--text-color-20);
+    background-color: var(--glass-overlay-color);
+    backdrop-filter: blur(4px);
+}

@@ -58,7 +58,6 @@ button {
 
 p,
 h1, h2, h3, h4, h5, h6,
-ul, ol, li,
 dl, dt, dd,
 blockquote,
 figure,
@@ -70,4 +69,30 @@ caption,
 address {
     margin: 0;
     padding: 0;
+}
+
+// List Reset Styles
+
+ul, ol, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+// Form Element Reset Styles
+
+form,
+label,
+input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: inherit;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }

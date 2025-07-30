@@ -3,12 +3,12 @@ import LineSeparator from "../../atoms/LineSeparator/LineSeparator";
 import FooterLinkItem from "../../FooterLinkItem/FooterLinkItem";
 import MainLogo, { LogoSize } from "../../atoms/MainLogo/MainLogo";
 import ClickBox from "../../atoms/ClickBox/ClickBox";
-import FacebookIcon from "../../atoms/Icon/FacebookIcon";
-import InstagramIcon from "../../atoms/Icon/InstagramIcon";
-import LinkedInIcon from "../../atoms/Icon/LinkedInIcon";
+import FacebookIcon from "../../atoms/Icon/Social/FacebookIcon";
+import InstagramIcon from "../../atoms/Icon/Social/InstagramIcon";
+import LinkedInIcon from "../../atoms/Icon/Social/LinkedInIcon";
 import FooterLinkText from "../../FooterLinkText/FooterLinkText";
 
-const Footer: React.FC = () => {
+const Footer = () => {
     return (
         <footer className={styles.footer}>
             <LineSeparator color={true} />

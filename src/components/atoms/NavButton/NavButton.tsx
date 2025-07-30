@@ -1,12 +1,12 @@
 import styles from './NavButton.module.scss';
 
-type NavButtonProps = {
+interface NavButtonProps {
     text: string;
     isActive: boolean;
-    onClick: () => void;
+    onClick?: () => void;
 };
 
-const NavButton: React.FC<NavButtonProps> = (props) => {
+const NavButton = (props: NavButtonProps) => {
     return (
         <button
             className={`${styles.navButton} ${props.isActive ? styles.active : ''} link-text-sans-regular`}

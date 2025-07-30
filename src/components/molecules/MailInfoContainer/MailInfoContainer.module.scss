@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: var(--gap-xs);
+    text-decoration: none;
+
+    svg {
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
+    }
+
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--gap-xs);
+        flex: 1 0 0;
+
+        p {
+            align-self: stretch;
+            color: var(--text-color);
+        }
+
+        .titleContainer {
+            h2 {
+                align-self: stretch;
+                color: var(--text-color);
+            }
+
+            p {
+                align-self: stretch;
+                color: var(--text-color-50);
+            }
+        }
+    }
+}

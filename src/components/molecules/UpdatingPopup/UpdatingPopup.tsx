@@ -1,11 +1,11 @@
 import styles from './UpdatingPopup.module.scss';
-import RefreshIcon from '@/components/atoms/Icon/RefreshIcon';
+import RefreshIcon from '@/components/atoms/Icon/Material/RefreshIcon';
 
-type UpdatingPopupProps = {
+interface UpdatingPopupProps {
     visible: boolean;
 }
 
-const UpdatingPopup: React.FC<UpdatingPopupProps> = (props) => {
+const UpdatingPopup = (props: UpdatingPopupProps) => {
     return (
         <div className={`${styles.container} ${props.visible ? '' : styles.hidden}`}>
             <RefreshIcon />

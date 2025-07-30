@@ -6,11 +6,11 @@ export enum BiasMarkerType {
     Liberal = 'Liberálny',
 }
 
-type BiasMarkerProps = {
+interface BiasMarkerProps {
     bias: BiasMarkerType;
 };
 
-const BiasMarker: React.FC<BiasMarkerProps> = (props) => {
+const BiasMarker = (props: BiasMarkerProps) => {
     return (
         <div className={`${styles.container} ${styles[`container--${props.bias.charAt(0)}`]}`}>
             <p className={`${styles.content} label-sans-small`}>{props.bias}</p>

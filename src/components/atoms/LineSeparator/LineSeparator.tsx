@@ -1,11 +1,11 @@
 import styles from './LineSeparator.module.scss';
 
-type LineSeparatorProps = {
+interface LineSeparatorProps {
     inNavMenu: boolean;
     isColored: boolean;
 };
 
-const LineSeparator: React.FC<LineSeparatorProps> = (props) => {
+const LineSeparator = (props: LineSeparatorProps) => {
     return (
         <div
             className={`

@@ -1,7 +1,8 @@
 import styles from './NavMenuItem.module.scss';
 import { IconSize } from '@/components/atoms/ClickBox/ClickBox';
 
-type NavMenuItemProps = {
+interface NavMenuItemProps {
+    // TODO: Refator React.FC for svg icons so that it is cleaner and uses typescript correctly
     icon: React.FC;
     iconSize: IconSize;
     iconVisible: boolean;
@@ -10,14 +11,12 @@ type NavMenuItemProps = {
     onClick?: () => void;
 }
 
-
-
-const NavMenuItem: React.FC<NavMenuItemProps> = (props) => {
+const NavMenuItem = (props: NavMenuItemProps) => {
     return (
         <a className={`${styles.container} ${props.iconVisible ? styles.visible : ''}`} onClick={props.onClick} href={props.href} target='_self'>
-            <p className={`${styles.linkText} link-text-sans-regular`}>
+            <span className={`${styles.linkText} link-text-sans-regular`}>
                 {props.linkText}    
-            </p>
+            </span>
             <props.icon />
         </a>
     )
