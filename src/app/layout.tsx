@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { EBGaramond, Inter } from "@/fonts/fonts";
-import '../styles/globals.scss'
-import '../styles/typography.scss'
+import '@/styles/globals.scss'
+import '@/styles/typography.scss'
 import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {

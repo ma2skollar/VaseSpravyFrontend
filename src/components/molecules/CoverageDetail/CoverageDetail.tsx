@@ -1,8 +1,8 @@
-import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
-import BlockTitle from '../BlockTitle/BlockTitle';
 import styles from './CoverageDetail.module.scss';
+import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
 import OpenFullIcon from '@/components/atoms/Icon/Material/OpenFullIcon';
 import CompassBackground from '@/components/atoms/CompassBackground/CompassBackground';
+import BlockTitle from '@/components/molecules/BlockTitle/BlockTitle';
 
 export enum CoverageDetailType {
     Distribution,

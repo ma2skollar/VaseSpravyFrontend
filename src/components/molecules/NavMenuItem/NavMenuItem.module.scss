@@ -11,12 +11,7 @@
     cursor: pointer;
 
     svg {
-        visibility: hidden;
         color: var(--text-color);
-    }
-
-    &.visible > svg {
-        visibility: visible;
     }
 }
 

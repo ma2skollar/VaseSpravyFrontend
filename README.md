@@ -13,6 +13,7 @@ molecules to do:
 
 organisms to do:
 
+- ArticleListItem
 - NavMenuOverlay
 - Header
 - NavMenu
@@ -20,7 +21,5 @@ organisms to do:
 - PopupContainerOverlay
 - CoverageItemsContainer
 - ArticleContainer
-- ArticleListItem
-- Footer
 - SubscriptionPopup
 - SingleArticleListFilter

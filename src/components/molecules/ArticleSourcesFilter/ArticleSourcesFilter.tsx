@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import styles from './ArticleSourcesFilter.module.scss';
-import DropdownController from '../DropdownController/DropdownController';
-import DropdownItem from '../DropdownItem/DropdownItem';
+import DropdownController from '@/components/molecules/DropdownController/DropdownController';
+import DropdownItem from '@/components/molecules/DropdownItem/DropdownItem';
 
 interface OptionsType {
     option: string;

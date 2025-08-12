@@ -1,23 +1,22 @@
+import VaseSpravyIcon from '@/components/atoms/Icon/Custom/VaseSpravyIcon';
 import styles from './NavMenuItem.module.scss';
-import { IconSize } from '@/components/atoms/ClickBox/ClickBox';
 
 interface NavMenuItemProps {
     // TODO: Refator React.FC for svg icons so that it is cleaner and uses typescript correctly
-    icon: React.FC;
-    iconSize: IconSize;
-    iconVisible: boolean;
-    linkText: string;
+    linkText: string | React.ReactNode;
+    icon?: React.FC;
+    iconVisible?: boolean;
     href?: string;
     onClick?: () => void;
 }
 
-const NavMenuItem = (props: NavMenuItemProps) => {
+const NavMenuItem = ({ icon: Icon = VaseSpravyIcon, iconVisible = false, linkText, href, onClick }: NavMenuItemProps) => {
     return (
-        <a className={`${styles.container} ${props.iconVisible ? styles.visible : ''}`} onClick={props.onClick} href={props.href} target='_self'>
+        <a className={styles.container} onClick={onClick} href={href} target='_self'>
             <span className={`${styles.linkText} link-text-sans-regular`}>
-                {props.linkText}    
+                {linkText}    
             </span>
-            <props.icon />
+            {iconVisible && <Icon />}
         </a>
     )
 }

@@ -1,6 +1,6 @@
-import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
-import BaseInfo from '../BaseInfo/BaseInfo';
 import styles from './ArticleTitle.module.scss';
+import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
+import BaseInfo from '@/components/molecules/BaseInfo/BaseInfo';
 import ShareIcon from '@/components/atoms/Icon/Material/ShareIcon';
 
 interface ArticleTitleProps {
