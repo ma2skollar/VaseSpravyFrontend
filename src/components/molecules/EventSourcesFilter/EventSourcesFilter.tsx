@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './ArticleSourcesFilter.module.scss';
+import styles from './EventSourcesFilter.module.scss';
 import DropdownController from '@/components/molecules/DropdownController/DropdownController';
 import DropdownItem from '@/components/molecules/DropdownItem/DropdownItem';
 
@@ -10,14 +10,14 @@ interface OptionsType {
     onClick: () => void;
 }
 
-interface ArticleSourcesFilterProps {
+interface EventSourcesFilterProps {
     title: string;
     expanded: boolean;
     onClick: () => void;
     options: OptionsType[];
 }
 
-const ArticleSourcesFilter = (props: ArticleSourcesFilterProps) => {
+const EventSourcesFilter = (props: EventSourcesFilterProps) => {
     return (
         <ul className={styles.container}>
             <DropdownController label={props.title} active={props.expanded} onClick={props.onClick}/>
@@ -33,4 +33,4 @@ const ArticleSourcesFilter = (props: ArticleSourcesFilterProps) => {
     )
 }
 
-export default ArticleSourcesFilter;
+export default EventSourcesFilter;

@@ -13,17 +13,17 @@ interface BaseInfoProps {
 const BaseInfo = (props: BaseInfoProps) => {
     if (props.searchResult) {
         return (
-            <div className={styles.containerSearchResult}>
-                {props.sourceLogo && <props.sourceLogo />}
-                {props.sourceBias && <BiasMarker bias={props.sourceBias} />}
-            </div>
-        )
-    } else {
-        return (
             <div className={styles.containerArticle}>
                 <p className='subtitle-sans-light'>{props.category}</p>
                 <p className='subtitle-sans-light'>∙</p>
                 <p className='subtitle-sans-light'>{props.location}</p>
+            </div>
+        )
+    } else {
+        return (
+            <div className={styles.containerSearchResult}>
+                {props.sourceLogo && <props.sourceLogo />}
+                {props.sourceBias && <BiasMarker bias={props.sourceBias} />}
             </div>
         )
     }

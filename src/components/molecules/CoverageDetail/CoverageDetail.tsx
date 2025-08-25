@@ -10,6 +10,7 @@ export enum CoverageDetailType {
     Ownership
 }
 
+
 interface BaseCoverageDetailProps {
     title: string;
     onClick?: () => void;

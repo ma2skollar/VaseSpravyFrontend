@@ -5,9 +5,11 @@ import '@/styles/typography.scss'
 import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {
+  title: 'Vaše Správy',
+  description: 'Description will be here...',
   appleWebApp: {
     title: 'Vaše Správy'
-  }
+  },
 };
 
 export const viewport: Viewport = {

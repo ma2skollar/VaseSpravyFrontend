@@ -1,7 +1,7 @@
 import LabelDistribution, { LabelDistributionBias } from '@/components/atoms/LabelDistribution/LabelDistribution';
-import styles from './ArticleImageContainer.module.scss';
+import styles from './EventImageContainer.module.scss';
 
-interface ArticleImageContainerProps {
+interface EventImageContainerProps {
     imageUrl: string;
     altText: string;
     distribution: {
@@ -11,7 +11,7 @@ interface ArticleImageContainerProps {
     }
 }
 
-const ArticleImageContainer = (props: ArticleImageContainerProps) => {
+const EventImageContainer = (props: EventImageContainerProps) => {
     
     const getHightestDistribution = () => {
         const values = Object.values(props.distribution);
@@ -55,4 +55,4 @@ const ArticleImageContainer = (props: ArticleImageContainerProps) => {
     )
 }
 
-export default ArticleImageContainer;
+export default EventImageContainer;

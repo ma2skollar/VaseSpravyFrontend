@@ -8,6 +8,7 @@
     flex-shrink: 0;
     box-sizing: border-box;
     position: relative;
+    width: 100%;
 
     img {
         position: absolute;
@@ -15,7 +16,7 @@
         width: 100%;
         top: 0;
         left: 0;
-        object-fit: fill;
+        object-fit: cover;
         z-index: -1;
     }
 

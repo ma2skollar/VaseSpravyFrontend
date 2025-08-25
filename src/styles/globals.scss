@@ -20,12 +20,10 @@ body {
     padding: 0;
     top: 0;
     left: 0;
-    width: 100vw;
-    overflow-x: hidden;
-    min-height: 100svh;
-    width: 100vw; 
+    width: auto;
+    max-width: 100%;
+    min-height: 100svh; 
     box-sizing: border-box;
-    position: relative;
     
     // light mode
     background-color: var(--background-color);

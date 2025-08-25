@@ -9,16 +9,15 @@ export const headerResizeSlice = createSlice({
     name: 'headerResize',
     initialState,
     reducers: {
-        toggleResize: (state) => {
-            if (state.isResizing === LogoSize.Large) {
-                state.isResizing = LogoSize.Medium; // Change to medium size
-            } else {
-                state.isResizing = LogoSize.Large; // Change back to large size
-            }
+        sizeLarge: (state) => {
+            state.isResizing = LogoSize.Large;
+        },
+        sizeMedium: (state) => {
+            state.isResizing = LogoSize.Medium;
         }
     }
 })
 
-export const { toggleResize } = headerResizeSlice.actions;
+export const { sizeLarge, sizeMedium } = headerResizeSlice.actions;
 
 export default headerResizeSlice.reducer;

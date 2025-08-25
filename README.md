@@ -13,13 +13,10 @@ molecules to do:
 
 organisms to do:
 
-- ArticleListItem
 - NavMenuOverlay
-- Header
 - NavMenu
 - PopupDistributionDetail
 - PopupContainerOverlay
 - CoverageItemsContainer
-- ArticleContainer
 - SubscriptionPopup
 - SingleArticleListFilter
