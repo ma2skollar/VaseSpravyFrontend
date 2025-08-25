@@ -13,10 +13,7 @@ molecules to do:
 
 organisms to do:
 
-- NavMenuOverlay
 - NavMenu
-- PopupDistributionDetail
-- PopupContainerOverlay
-- CoverageItemsContainer
-- SubscriptionPopup
+- PopupDistributionDetail - Compass
+- SubscriptionPopup - finished without proper functionality
 - SingleArticleListFilter

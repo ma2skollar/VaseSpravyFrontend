@@ -58,33 +58,9 @@ const InputBar = ({ isSearchBar, action, promptText = 'Hľadaj udalosť alebo ka
 export default InputBar;
 
 
-/*
-import { redirect } from 'next/navigation';
 
-export default async function SearchPage({ searchParams }: { searchParams: { query?: string } }) {
-  const query = searchParams.query?.trim();
-
-  if (!query) {
-    return <p>Prosím zadajte hľadaný výraz.</p>;
-  }
-
-  // Fetch data from your backend (can be REST or GraphQL)
-  const results = await fetch(`https://api.example.com/search?q=${encodeURIComponent(query)}`).then(res => res.json());
-
-  return (
-    <div>
-      <h1>Výsledky pre "{query}"</h1>
-      // Display results
-      {results.length === 0 ? (
-        <p>Nenašli sa žiadne výsledky.</p>
-      ) : (
-        <ul>{results.map((item) => <li key={item.id}>{item.title}</li>)}</ul>
-      )}
-    </div>
-  );
-}
-*/
-
+// Fetch data from your backend (can be REST or GraphQL)
+// const results = await fetch(`https://api.example.com/search?q=${encodeURIComponent(query)}`).then(res => res.json());
 
 // Recommended Implementation
 // 1. Form submits with GET to /search page

@@ -7,6 +7,9 @@ import { useEffect } from 'react'
 import { useAppDispatch } from '@/lib/hooks'
 import { sizeLarge, sizeMedium } from '@/lib/features/headerResizeSlice'
 import EventContainer from '@/components/organisms/EventContainer/EventContainer'
+import OverlayContainer from '@/components/atoms/OverlayContainer/OverlayContainer'
+import CoverageDetailContainer from '@/components/organisms/CoverageDetailContainer/CoverageDetailContainer'
+import SubscriptionPopup from '@/components/organisms/SubscriptionPopup/SubscriptionPopup'
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -26,6 +29,9 @@ export default function Home() {
     <>
       <Header/>
       <main className={styles.container}>
+        <OverlayContainer>
+          <SubscriptionPopup onClick={() => {}} />
+        </OverlayContainer>
         <EventContainer title="Nice balls BIRD" category='BIRD balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
           liberal: 20,
           conservative: 45,

@@ -10,7 +10,6 @@ export enum CoverageDetailType {
     Ownership
 }
 
-
 interface BaseCoverageDetailProps {
     title: string;
     onClick?: () => void;
@@ -23,9 +22,11 @@ interface DistributionCoverageDetailProps extends BaseCoverageDetailProps {
 
 interface StatsCoverageDetailProps extends BaseCoverageDetailProps {
     type: CoverageDetailType.Stats;
-    center: number;
-    liberal: number;
-    conservative: number;
+    distribution: {
+        center: number;
+        liberal: number;
+        conservative: number;
+    }
     publishedAgo: number;
     publishedUnit: string;
     updatedAgo: number;
@@ -56,7 +57,6 @@ const CoverageDetail = (props: CoverageDetailProps) => {
     // calculate width of the compass = 1/4 of the available width = 100% minus padding / 4
     const compassWidth = `calc(100% - 3rem) / 4`; // Assuming 1rem padding on each side
 
-
     return (
         <div className={styles.container}>
             <BlockTitle text={props.title} iconVisible={props.type === CoverageDetailType.Distribution ? false : true} />
@@ -71,23 +71,23 @@ const CoverageDetail = (props: CoverageDetailProps) => {
                 {props.type === CoverageDetailType.Stats && <>
                     <div className={styles.contentRow}>
                         <p className='text-sans-large'>Celkové množstvo zdrojov</p>
-                        <p className='text-sans-large-important'>{props.center + props.liberal + props.conservative}</p>
+                        <p className='text-sans-large-important'>{props.distribution.center + props.distribution.liberal + props.distribution.conservative}</p>
                     </div>
                     <div className={styles.contentRow}>
                         <p className='text-sans-large'>Stredné zdroje</p>
-                        <p className='text-sans-large-important'>{props.center}</p>
+                        <p className='text-sans-large-important'>{props.distribution.center}</p>
                     </div>
                     <div className={styles.contentRow}>
                         <p className='text-sans-large'>Liberálne zdroje</p>
-                        <p className='text-sans-large-important'>{props.liberal}</p>
+                        <p className='text-sans-large-important'>{props.distribution.liberal}</p>
                     </div>
                     <div className={styles.contentRow}>
                         <p className='text-sans-large'>Konzervatívne zdroje</p>
-                        <p className='text-sans-large-important'>{props.conservative}</p>
+                        <p className='text-sans-large-important'>{props.distribution.conservative}</p>
                     </div>
                     <div className={styles.contentRow}>
                         <p className='text-sans-large'>Distribúcia politickej zaujatosti</p>
-                        <p className='text-sans-large-important'>{`${calculateHighestBiasPercentage(props.liberal, props.center, props.conservative)}%`}</p>
+                        <p className='text-sans-large-important'>{`${calculateHighestBiasPercentage(props.distribution.liberal, props.distribution.center, props.distribution.conservative)}%`}</p>
                     </div>
                     <div className={styles.contentRow}>
                         <p className='text-sans-large'>Naposledy aktualizované</p>
