@@ -1,4 +1,5 @@
 import styles from './ImageContainer.module.scss'
+import Image from 'next/image';
 
 interface ImageContainerProps {
     imageUrl: string;
@@ -9,7 +10,7 @@ interface ImageContainerProps {
 const ImageContainer = (props: ImageContainerProps) => {
     return (
         <div className={styles.container}>
-            <img src={props.imageUrl} alt={props.altText} />
+            <Image src={props.imageUrl} alt={props.altText} />
             <div className={styles.imageOverlay}></div>
             <p className={`label-sans-light`}>{props.imageLabel}</p>
         </div>

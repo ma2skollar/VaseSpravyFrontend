@@ -3,7 +3,6 @@
 import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
 import styles from './InputBar.module.scss';
 import CloseIcon from '@/components/atoms/Icon/Material/CloseIcon';
-import SearchIcon from '@/components/atoms/Icon/Material/SearchIcon';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
 export type InputBarHandle = {

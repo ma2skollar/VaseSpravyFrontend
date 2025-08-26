@@ -1,5 +1,6 @@
-import LabelDistribution, { LabelDistributionBias } from '@/components/atoms/LabelDistribution/LabelDistribution';
 import styles from './EventImageContainer.module.scss';
+import LabelDistribution, { LabelDistributionBias } from '@/components/atoms/LabelDistribution/LabelDistribution';
+import Image from 'next/image';
 
 interface EventImageContainerProps {
     imageUrl: string;
@@ -37,7 +38,7 @@ const EventImageContainer = (props: EventImageContainerProps) => {
     
     return (
         <div className={styles.container}>
-            <img src={props.imageUrl} alt={props.altText} />
+            <Image src={props.imageUrl} alt={props.altText} />
             <div className={styles.imageOverlay}></div>
             <div className={styles.distribution}>
                 <div className={styles.distributionVisual}>

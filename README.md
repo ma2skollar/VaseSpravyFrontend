@@ -14,6 +14,9 @@ molecules to do:
 organisms to do:
 
 - NavMenu
-- PopupDistributionDetail - Compass
-- SubscriptionPopup - finished without proper functionality
 - SingleArticleListFilter
+- PopupDistributionDetail - Compass
+
+pages to do:
+
+- everything except home
