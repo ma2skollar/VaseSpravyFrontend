@@ -3,7 +3,7 @@
 import Header from '@/components/molecules/Header/Header'
 import styles from './Home.module.scss'
 import Footer from '@/components/organisms/Footer/Footer'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch } from '@/lib/hooks'
 import { sizeLarge, sizeMedium } from '@/lib/features/headerResizeSlice'
 import EventContainer from '@/components/organisms/EventContainer/EventContainer'
@@ -13,6 +13,12 @@ import SubscriptionPopup from '@/components/organisms/SubscriptionPopup/Subscrip
 
 export default function Home() {
   const dispatch = useAppDispatch();
+  const [subscribeOpen, setSubscribeOpen] = useState(false);
+
+  const handleSubscribeClick = () => {
+    if (!subscribeOpen) setSubscribeOpen(true);
+    else setSubscribeOpen(false);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +33,10 @@ export default function Home() {
 
   return (
     <>
-      <Header/>
+      <Header onMenuClick={() => {alert('Clicked Menu!')}} onSubscribeClick={handleSubscribeClick}/>
+      <OverlayContainer isVisible={subscribeOpen}>
+        <SubscriptionPopup onClick={handleSubscribeClick} />
+      </OverlayContainer>
       <main className={styles.container}>
         <OverlayContainer>
           <SubscriptionPopup onClick={() => {}} />

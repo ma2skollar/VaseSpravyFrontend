@@ -1,43 +1,22 @@
 'use client'
 
 import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
-import styles from './InputBar.module.scss';
+import styles from './SearchBar.module.scss';
 import CloseIcon from '@/components/atoms/Icon/Material/CloseIcon';
 import SearchIcon from '@/components/atoms/Icon/Material/SearchIcon';
-import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
-export type InputBarHandle = {
-    submit: () => Promise<{ ok: boolean; status: number; data?: unknown }>;
-}
-
-interface InputBarProps {
+interface SearchBarProps {
     action: string;
     promptText?: string;
 }
 
-const InputBar = forwardRef<InputBarHandle, InputBarProps>(({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }, ref) => {
+const SearchBar = ({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }: SearchBarProps) => {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    useImperativeHandle(ref, () => ({
-        submit: async () => {
-            try {
-                const res = await fetch(action, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: inputValue }),
-                });
-                let data: unknown = undefined;
-                try { data = await res.json(); } catch {}
-                return { ok: res.ok, status: res.status, data };
-            } catch {
-                return { ok: false, status: 0 };
-            }
-        },
-    }));
-
-    const handleClearInput = () => {
+    const handleClearSearch = () => {
         setInputValue('');
         inputRef.current?.focus();
     }
@@ -45,7 +24,7 @@ const InputBar = forwardRef<InputBarHandle, InputBarProps>(({ action, promptText
     const showClearButton = inputValue.length > 0;
 
     return (
-        <form className={styles.container} role="search" method="post" action={action} onSubmit={e => e.preventDefault()}>
+        <form className={styles.container} role="search" method="get" action={action}>
             <div className={styles.content}>
                 {(isFocused || inputValue) && <label htmlFor="input" className="label-sans-light">{promptText}</label>}
                 <input ref={inputRef}
@@ -61,13 +40,28 @@ const InputBar = forwardRef<InputBarHandle, InputBarProps>(({ action, promptText
             </div>
             <span className={styles.icons}>
                 {showClearButton && <>
-                    <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={handleClearInput}/>
+                    <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={handleClearSearch}/>
+                    <div></div>
                 </>}
+                <button type='submit'>
+                    <ClickBox icon={SearchIcon} iconSize={IconSize.Regular} />
+                </button>
             </span>
         </form>
     );
-});
+}
 
-InputBar.displayName = 'InputBar';
+export default SearchBar;
 
-export default InputBar;
+
+
+// Fetch data from your backend (can be REST or GraphQL)
+// const results = await fetch(`https://api.example.com/search?q=${encodeURIComponent(query)}`).then(res => res.json());
+
+// Recommended Implementation
+// 1. Form submits with GET to /search page
+
+// You let the browser do the navigation with query params like /search?query=concert.
+// 2. The /search page (or API) then fetches the real data
+
+// This is where your backend comes in — you call it from a Next.js server component or getServerSideProps.

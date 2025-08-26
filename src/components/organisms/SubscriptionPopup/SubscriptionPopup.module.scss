@@ -11,6 +11,11 @@
     background-color: var(--background-color);
     color: var(--text-color);
 
+    h2 {
+        width: calc(100% - 1.5rem);
+        hyphens: auto;
+    }
+
     & > a {
         position: absolute;
         top: 0;

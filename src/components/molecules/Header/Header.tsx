@@ -7,14 +7,19 @@ import MenuIcon from "@/components/atoms/Icon/Material/MenuIcon";
 import MainLogo from "@/components/atoms/MainLogo/MainLogo";
 import { useAppSelector } from "@/lib/hooks";
 
-const Header = () => {
+interface HeaderProps {
+    onMenuClick: () => void;
+    onSubscribeClick: () => void;
+}
+
+const Header = (props: HeaderProps) => {
     const headerSize = useAppSelector(state => state.headerResizeReducer)
 
     return (
         <header className={styles.header}>
-            <ClickBox iconSize={IconSize.Regular} icon={MenuIcon} />
+            <ClickBox iconSize={IconSize.Regular} icon={MenuIcon} onClick={props.onMenuClick} />
             <MainLogo size={headerSize.isResizing} />
-            <ClickBox iconSize={IconSize.Regular} icon={SubscribeIcon} onClick={() => {}}/>
+            <ClickBox iconSize={IconSize.Regular} icon={SubscribeIcon} onClick={props.onSubscribeClick} />
         </header>
     );
 }
