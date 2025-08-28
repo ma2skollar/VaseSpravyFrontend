@@ -3,6 +3,7 @@ import { EBGaramond, Inter } from "@/fonts/fonts";
 import '@/styles/globals.scss'
 import '@/styles/typography.scss'
 import StoreProvider from "./StoreProvider";
+import ClientTransition from "./ClientTransition";
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
@@ -30,7 +31,9 @@ export default function RootLayout({
     <html lang="sk" className={`${EBGaramond.variable} ${Inter.variable}`}>
       <body>
         <StoreProvider>
-          {children}
+          <ClientTransition>
+            {children}
+          </ClientTransition>
         </StoreProvider>
       </body>
     </html>

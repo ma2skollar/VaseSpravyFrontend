@@ -17,9 +17,12 @@ export const headerSlice = createSlice({
         resizeMedium: (state) => {
             state.headerSize = LogoSize.Medium;
         },
-        openNavMenu: (state) => {
-            state.navMenuOpen = true;
-            state.subscribePopupOpen = false;
+        toggleNavMenu: (state) => {
+            if (state.navMenuOpen) state.navMenuOpen = false;
+            else {
+                state.navMenuOpen = true;
+                state.subscribePopupOpen = false;
+            }
         },
         closeNavMenu: (state) => {
             state.navMenuOpen = false;
@@ -34,6 +37,6 @@ export const headerSlice = createSlice({
     }
 })
 
-export const { resizeLarge, resizeMedium, openNavMenu, closeNavMenu, openSubscribePopup, closeSubscribePopup } = headerSlice.actions;
+export const { resizeLarge, resizeMedium, toggleNavMenu, closeNavMenu, openSubscribePopup, closeSubscribePopup } = headerSlice.actions;
 
 export default headerSlice.reducer;

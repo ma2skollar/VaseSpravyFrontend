@@ -5,12 +5,11 @@ import styles from '@/app/Page.module.scss'
 import Footer from '@/components/organisms/Footer/Footer'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { closeSubscribePopup, openSubscribePopup, resizeLarge, resizeMedium } from '@/lib/features/headerSlice'
+import { closeSubscribePopup, openSubscribePopup, resizeLarge, resizeMedium, closeNavMenu, toggleNavMenu } from '@/lib/features/headerSlice'
 import EventContainer from '@/components/organisms/EventContainer/EventContainer'
 import OverlayContainer from '@/components/atoms/OverlayContainer/OverlayContainer'
 import SubscriptionPopup from '@/components/organisms/SubscriptionPopup/SubscriptionPopup'
 import NavMenu from '@/components/organisms/NavMenu/NavMenu'
-import { closeNavMenu, openNavMenu } from '@/lib/features/headerSlice'
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +29,7 @@ const Home = () => {
 
   return (
     <>
-      <Header onMenuClick={() => dispatch(openNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} />
+      <Header onMenuClick={() => dispatch(toggleNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} />
       <OverlayContainer isVisible={subscribePopupOpen} isNavBackdrop={false} onClose={() => dispatch(closeSubscribePopup())}>
         <SubscriptionPopup onClick={() => dispatch(closeSubscribePopup())} />
       </OverlayContainer>

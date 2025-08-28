@@ -1,7 +1,7 @@
 import Header from '@/components/molecules/Header/Header';
 import styles from './OverlayContainer.module.scss';
 import { useAppDispatch } from '@/lib/hooks';
-import { openNavMenu, openSubscribePopup } from '@/lib/features/headerSlice';
+import { openSubscribePopup, toggleNavMenu } from '@/lib/features/headerSlice';
 
 interface OverlayContainerProps {
     isVisible: boolean;
@@ -21,7 +21,7 @@ const OverlayContainer = (props: OverlayContainerProps) => {
 
     return (
         <div className={`${styles.container} ${props.isNavBackdrop ? '' : styles.centered}`} style={{ display: props.isVisible ? 'flex' : 'none' }} onClick={handleBackdropClick}>
-            {props.isNavBackdrop && <Header onMenuClick={() => dispatch(openNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} />}
+            {props.isNavBackdrop && <Header onMenuClick={() => dispatch(toggleNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} />}
             {props.children}
         </div>
     );

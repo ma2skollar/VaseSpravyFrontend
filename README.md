@@ -5,7 +5,7 @@
 ### Links
 
 - [Redux in Next.js](https://redux.js.org/usage/nextjs)
-- [Redux Fireship](https://www.youtube.com/watch?v=_shA5Xwe8_4)
+- [Motion for React](https://motion.dev/docs/react)
 
 molecules to do:
 
@@ -16,9 +16,7 @@ organisms to do:
 - SingleArticleListFilter
 - PopupDistributionDetail - Compass
 
-pages to do:
-
-- everything except home
+<!-- TODO: IMPLEMENT NavBar on main Page, create all static pages -->
 
 pages links:
 
