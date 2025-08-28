@@ -7,8 +7,14 @@
     background-color: var(--bg-overlay-color);
     z-index: 10;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
+
+    &.centered {
+        justify-content: center;
+        align-items: center;
+    }
 }

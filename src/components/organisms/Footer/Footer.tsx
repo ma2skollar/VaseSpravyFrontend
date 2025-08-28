@@ -16,22 +16,22 @@ const Footer = () => {
             <NavMenuItem linkText={<MainLogo size={LogoSize.Small} />} href="/" />
             <NavMenuItem linkText="Odhlásiť sa z odberu" onClick={() => {}} />
             <LineSeparator inNavMenu={false} isColored={false} />
-            <NavMenuItem linkText="Pomoc" onClick={() => {}} />
+            <NavMenuItem linkText="Pomoc" href="/pomoc/" />
             <LineSeparator inNavMenu={false} isColored={false} />
-            <NavMenuItem linkText="Časté otázky" onClick={() => {}} />
+            <NavMenuItem linkText="Časté otázky" href="/pomoc/#faq" />
             <div className={styles.socialContainer}>
                 <ClickBox icon={FacebookIcon} href={"https://www.facebook.com/vasespravy"} iconSize={IconSize.Regular}/>
                 <ClickBox icon={InstagramIcon} href={"https://www.instagram.com/vasespravyoz/"} iconSize={IconSize.Regular}/>
                 <ClickBox icon={LinkedInIcon} href={"https://www.linkedin.com/company/vase-spravy-oz"} iconSize={IconSize.Regular}/>
             </div>
             <div className={styles.footerTextLinks}>
-                <a className="link-text-sans-small" href={""}>O nás</a>
-                <a className="link-text-sans-small" href={""}>Kontaktujte nás</a>
-                <a className="link-text-sans-small" href={""}>Ako to funguje</a>
-                <a className="link-text-sans-small" href={""}>Cookies</a>
-                <a className="link-text-sans-small" href={""}>Pomôžte nám</a>
-                <a className="link-text-sans-small" href={""}>Zásady ochrany osobných údajov</a>
-                <a className="link-text-sans-small" href={""}>Mapa stránky</a>
+                <a className="link-text-sans-small" href={"/o-nas/"}>O nás</a>
+                <a className="link-text-sans-small" href={"/kontakt/"}>Kontaktujte nás</a>
+                <a className="link-text-sans-small" href={"/ako-to-funguje/"}>Ako to funguje</a>
+                <a className="link-text-sans-small" href={"/pravne/cookies/"}>Cookies</a>
+                <a className="link-text-sans-small" href={"/pomozte-nam/"}>Pomôžte nám</a>
+                <a className="link-text-sans-small" href={"/pravne/ochrana-osobnych-udajov/"}>Zásady ochrany osobných údajov</a>
+                <a className="link-text-sans-small" href={"/sitemap.xml"}>Mapa stránky</a>
             </div>
             <div className={styles.bottomText}>
                 <p className="text-sans-small">©2025 Vaše Správy o. z.</p>

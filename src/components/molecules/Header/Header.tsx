@@ -1,5 +1,3 @@
-'use client';
-
 import styles from './Header.module.scss'
 import ClickBox, { IconSize } from "@/components/atoms/ClickBox/ClickBox";
 import SubscribeIcon from "@/components/atoms/Icon/Material/SubscribeIcon";
@@ -13,12 +11,12 @@ interface HeaderProps {
 }
 
 const Header = (props: HeaderProps) => {
-    const headerSize = useAppSelector(state => state.headerResizeReducer)
+    const headerState = useAppSelector(state => state.headerReducer)
 
     return (
         <header className={styles.header}>
             <ClickBox iconSize={IconSize.Regular} icon={MenuIcon} onClick={props.onMenuClick} />
-            <MainLogo size={headerSize.isResizing} />
+            <MainLogo size={headerState.headerSize} />
             <ClickBox iconSize={IconSize.Regular} icon={SubscribeIcon} onClick={props.onSubscribeClick} />
         </header>
     );

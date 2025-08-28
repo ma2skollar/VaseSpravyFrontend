@@ -7,14 +7,13 @@ interface LineSeparatorProps {
 
 const LineSeparator = (props: LineSeparatorProps) => {
     return (
-        <div
+        <hr
             className={`
                 ${styles.line}
                 ${props.inNavMenu ? styles.padded : ''}
                 ${props.isColored ? styles.colored : styles.default}
             `}
-        >
-        </div>
+        />
     )
 }
 

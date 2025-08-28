@@ -10,7 +10,7 @@ interface ImageContainerProps {
 const ImageContainer = (props: ImageContainerProps) => {
     return (
         <div className={styles.container}>
-            <Image src={props.imageUrl} alt={props.altText} />
+            <img src={props.imageUrl} alt={props.altText} />
             <div className={styles.imageOverlay}></div>
             <p className={`label-sans-light`}>{props.imageLabel}</p>
         </div>

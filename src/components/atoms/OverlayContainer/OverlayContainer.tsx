@@ -1,13 +1,27 @@
+import Header from '@/components/molecules/Header/Header';
 import styles from './OverlayContainer.module.scss';
+import { useAppDispatch } from '@/lib/hooks';
+import { openNavMenu, openSubscribePopup } from '@/lib/features/headerSlice';
 
 interface OverlayContainerProps {
     isVisible: boolean;
     children: React.ReactNode;
+    isNavBackdrop: boolean;
+    onClose: () => void;
 }
 
 const OverlayContainer = (props: OverlayContainerProps) => {
+    const dispatch = useAppDispatch();
+
+    const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.target === e.currentTarget) {
+            props.onClose();
+        }
+    };
+
     return (
-        <div className={styles.container} style={{ display: props.isVisible ? 'flex' : 'none' }}>
+        <div className={`${styles.container} ${props.isNavBackdrop ? '' : styles.centered}`} style={{ display: props.isVisible ? 'flex' : 'none' }} onClick={handleBackdropClick}>
+            {props.isNavBackdrop && <Header onMenuClick={() => dispatch(openNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} />}
             {props.children}
         </div>
     );

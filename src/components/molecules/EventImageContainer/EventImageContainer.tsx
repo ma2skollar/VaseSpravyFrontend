@@ -38,7 +38,7 @@ const EventImageContainer = (props: EventImageContainerProps) => {
     
     return (
         <div className={styles.container}>
-            <Image src={props.imageUrl} alt={props.altText} />
+            <img src={props.imageUrl} alt={props.altText} />
             <div className={styles.imageOverlay}></div>
             <div className={styles.distribution}>
                 <div className={styles.distributionVisual}>

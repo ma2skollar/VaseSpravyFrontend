@@ -13,10 +13,26 @@ molecules to do:
 
 organisms to do:
 
-- NavMenu
 - SingleArticleListFilter
 - PopupDistributionDetail - Compass
 
 pages to do:
 
 - everything except home
+
+pages links:
+
+- /
+- /ako-to-funguje/
+- /pomozte-nam/
+- /kategorie/politika/domaca/
+- /kategorie/politika/zahranicna/
+- /regiony/zapadne/
+- /regiony/stredne/
+- /regiony/vychodne/
+- /o-nas/
+- /kontakt/
+- /pravne/ochrana-osobnych-udajov/
+- /pravne/cookies/
+- /pomoc/
+- /pomoc/#faq

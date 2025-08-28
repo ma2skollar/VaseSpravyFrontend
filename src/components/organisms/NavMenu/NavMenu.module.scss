@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    box-sizing: border-box;
+    width: clamp(350px, 90%, 500px);
+    padding: var(--padding-lg) 0 var(--padding-xl) 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-xs);
+    background-color: var(--background-color);
+
+    .search {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 var(--padding-lg);
+    }
+
+    ul, li, .section {
+        width: 100%;
+    }
+
+    .section > ul > li > a {
+        padding-left: var(--padding-xl);
+    }
+}
