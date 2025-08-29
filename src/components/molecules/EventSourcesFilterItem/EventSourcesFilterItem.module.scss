@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    width: calc(100% - 2rem);
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     border-radius: var(--border-radius-rg);
@@ -11,5 +11,9 @@
         width: 100%;
         flex-direction: column;
         align-items: flex-start;
+
+        li {
+            width: 100%;
+        }
     }
 }

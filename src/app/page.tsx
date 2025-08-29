@@ -10,12 +10,15 @@ import EventContainer from '@/components/organisms/EventContainer/EventContainer
 import OverlayContainer from '@/components/atoms/OverlayContainer/OverlayContainer'
 import SubscriptionPopup from '@/components/organisms/SubscriptionPopup/SubscriptionPopup'
 import NavMenu from '@/components/organisms/NavMenu/NavMenu'
+import NavBar from '@/components/molecules/NavBar/NavBar'
+import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventSourcesFilter'
 
 const Home = () => {
   const dispatch = useAppDispatch();
   const navMenuOpen = useAppSelector(state => state.headerReducer).navMenuOpen;
   const subscribePopupOpen = useAppSelector(state => state.headerReducer).subscribePopupOpen;
-  
+  const navBarPrimarySelected = useAppSelector(state => state.navBarSwitchReducer).primarySelected;
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY < 88) dispatch(resizeLarge());
@@ -36,8 +39,8 @@ const Home = () => {
       <OverlayContainer isVisible={navMenuOpen} isNavBackdrop={true} onClose={() => dispatch(closeNavMenu())}>
         <NavMenu />
       </OverlayContainer>
+      <NavBar canSwitchContent={true} contentPrimaryText={'Najčítanejšie udalosti'} contentSecondaryText={'Najnovšie udalosti'} />
       <main className={styles.container}>
-        
         <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
           liberal: 20,
           conservative: 45,

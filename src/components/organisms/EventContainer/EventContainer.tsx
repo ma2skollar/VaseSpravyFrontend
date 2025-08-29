@@ -1,8 +1,6 @@
-
 import EventImageContainer from '@/components/molecules/EventImageContainer/EventImageContainer';
 import styles from './EventContainer.module.scss';
 import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem';
-
 
 interface EventContainerProps {
     title: string;

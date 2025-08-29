@@ -13,7 +13,6 @@ molecules to do:
 
 organisms to do:
 
-- SingleArticleListFilter
 - PopupDistributionDetail - Compass
 
 <!-- TODO: IMPLEMENT NavBar on main Page, create all static pages -->
