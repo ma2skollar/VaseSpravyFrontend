@@ -21,7 +21,7 @@ const OverlayContainer = (props: OverlayContainerProps) => {
 
     return (
         <div className={`${styles.container} ${props.isNavBackdrop ? '' : styles.centered}`} style={{ display: props.isVisible ? 'flex' : 'none' }} onClick={handleBackdropClick}>
-            {props.isNavBackdrop && <Header onMenuClick={() => dispatch(toggleNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} />}
+            {props.isNavBackdrop && <Header onMenuClick={() => dispatch(toggleNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} onLogoClick={() => window.location.href = '/'} />}
             {props.children}
         </div>
     );
