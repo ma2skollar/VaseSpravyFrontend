@@ -7,9 +7,9 @@ interface TitleListItemProps {
     article: boolean;
     title: string;
     link?: string;
-    publishedAgo?: string;
+    publishedAgo?: number;
     publishedUnit?: string;
-    sourceLogo?: React.FC;
+    sourceLogo?: React.ComponentType;
     sourceBias?: BiasMarkerType;
     category?: string;
     location?: string;

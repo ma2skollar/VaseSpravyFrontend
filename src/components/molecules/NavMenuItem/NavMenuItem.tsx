@@ -2,9 +2,8 @@ import VaseSpravyIcon from '@/components/atoms/Icon/Custom/VaseSpravyIcon';
 import styles from './NavMenuItem.module.scss';
 
 interface NavMenuItemProps {
-    // TODO: Refator React.FC for svg icons so that it is cleaner and uses typescript correctly
     linkText: string | React.ReactNode;
-    icon?: React.FC;
+    icon?: React.ComponentType;
     iconVisible?: boolean;
     href?: string;
     onClick?: () => void;

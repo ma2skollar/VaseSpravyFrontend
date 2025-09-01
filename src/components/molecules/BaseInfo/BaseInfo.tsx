@@ -5,8 +5,7 @@ interface BaseInfoProps {
     searchResult: boolean;
     category?: string;
     location?: string;
-    // TODO: Refator React.FC for svg icons so that it is cleaner and uses typescript correctly
-    sourceLogo?: React.FC;
+    sourceLogo?: React.ComponentType;
     sourceBias?: BiasMarkerType;
 }
 

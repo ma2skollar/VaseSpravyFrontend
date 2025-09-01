@@ -7,11 +7,17 @@ import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator';
 import ArrowDownIcon from '@/components/atoms/Icon/Material/ArrowDownIcon';
 import { useState } from 'react';
 import ArrowUpIcon from '@/components/atoms/Icon/Material/ArrowUpIcon';
+import { RemoveScroll } from 'react-remove-scroll';
+import { useAppSelector } from '@/lib/hooks';
+import { LogoSize } from '@/components/atoms/MainLogo/MainLogo';
 
 const NavMenu = () => {
 
     const [categoryOpen, setCategoryOpen] = useState(false);
     const [regionOpen, setRegionOpen] = useState(false);
+
+    const navMenuOpen = useAppSelector(state => state.headerReducer).navMenuOpen;
+    const headerState = useAppSelector(state => state.headerReducer).headerSize;
 
     const handleCategoryToggle = () => {
         if (!categoryOpen) setCategoryOpen(true);
@@ -24,6 +30,7 @@ const NavMenu = () => {
     }
 
     return (
+        // <RemoveScroll enabled={navMenuOpen}>
         <nav className={styles.container} aria-label="Primary">
             <div className={styles.search} role='search'>
                 <SearchBar action={'https://api.vasespravy.sk/event/search'} />
@@ -81,6 +88,7 @@ const NavMenu = () => {
             </ul>
             <LineSeparator inNavMenu={true} isColored={true} />
         </nav>
+        // </RemoveScroll>
     )
 }
 

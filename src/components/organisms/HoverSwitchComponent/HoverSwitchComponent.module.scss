@@ -1,4 +1,8 @@
 .container {
+    position: sticky;
+    z-index: 3;
+    bottom: var(--gap-lg);
+
     display: flex;
     width: calc(100% - 0.625rem * 2);
     padding: var(--padding-sm) var(--padding-rg);

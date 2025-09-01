@@ -19,7 +19,16 @@
         width: 100%;
     }
 
-    .section > ul > li > a {
-        padding-left: var(--padding-xl);
+    .section {
+        ul {
+            max-height: none;
+            overflow: visible;
+
+            li {
+                a {
+                    padding-left: var(--padding-xl);
+                }
+            }
+        }
     }
 }

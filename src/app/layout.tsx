@@ -4,6 +4,7 @@ import '@/styles/globals.scss'
 import '@/styles/typography.scss'
 import StoreProvider from "./StoreProvider";
 import ClientTransition from "./ClientTransition";
+import ClientLayout from "./ClientLayout";
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
@@ -32,7 +33,9 @@ export default function RootLayout({
       <body>
         <StoreProvider>
           <ClientTransition>
-            {children}
+            <ClientLayout>
+              {children}
+            </ClientLayout>
           </ClientTransition>
         </StoreProvider>
       </body>

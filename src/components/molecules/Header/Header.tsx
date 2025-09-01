@@ -8,6 +8,7 @@ import { useAppSelector } from "@/lib/hooks";
 interface HeaderProps {
     onMenuClick: () => void;
     onSubscribeClick: () => void;
+    onLogoClick: () => void;
 }
 
 const Header = (props: HeaderProps) => {
@@ -16,7 +17,7 @@ const Header = (props: HeaderProps) => {
     return (
         <header className={styles.header}>
             <ClickBox iconSize={IconSize.Regular} icon={MenuIcon} onClick={props.onMenuClick} />
-            <MainLogo size={headerState.headerSize} />
+            <MainLogo size={headerState.headerSize} onClick={props.onLogoClick} />
             <ClickBox iconSize={IconSize.Regular} icon={SubscribeIcon} onClick={props.onSubscribeClick} />
         </header>
     );
