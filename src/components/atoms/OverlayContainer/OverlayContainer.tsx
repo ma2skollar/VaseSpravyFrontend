@@ -2,6 +2,7 @@ import Header from '@/components/molecules/Header/Header';
 import styles from './OverlayContainer.module.scss';
 import { useAppDispatch } from '@/lib/hooks';
 import { openSubscribePopup, toggleNavMenu } from '@/lib/features/headerSlice';
+import { RemoveScroll } from 'react-remove-scroll';
 
 interface OverlayContainerProps {
     isVisible: boolean;
@@ -22,7 +23,9 @@ const OverlayContainer = (props: OverlayContainerProps) => {
     return (
         <div className={`${styles.container} ${props.isNavBackdrop ? '' : styles.centered}`} style={{ display: props.isVisible ? 'flex' : 'none' }} onClick={handleBackdropClick}>
             {props.isNavBackdrop && <Header onMenuClick={() => dispatch(toggleNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} onLogoClick={() => window.location.href = '/'} />}
-            {props.children}
+            <RemoveScroll enabled={props.isVisible} removeScrollBar={true}>
+                {props.children}
+            </RemoveScroll>
         </div>
     );
 }

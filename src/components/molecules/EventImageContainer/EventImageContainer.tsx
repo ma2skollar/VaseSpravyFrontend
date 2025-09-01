@@ -1,6 +1,5 @@
 import styles from './EventImageContainer.module.scss';
 import LabelDistribution, { LabelDistributionBias } from '@/components/atoms/LabelDistribution/LabelDistribution';
-import Image from 'next/image';
 
 interface EventImageContainerProps {
     imageUrl: string;

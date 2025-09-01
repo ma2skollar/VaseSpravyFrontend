@@ -17,17 +17,17 @@ const SubscriptionPopup = (props: SubscriptionPopupProps) => {
     // TODO: Implement submitting, and response handling
 
     const formRef = useRef<InputBarHandle>(null);
-    const [submitting, setSubmitting] = useState(false);
+    // const [submitting, setSubmitting] = useState(false);
     const [statusVisible, setStatusVisible] = useState(false);
     const [subscribeSuccess, setSubscribeSuccess] = useState(false);
 
     const handleSendEmailButtonClick = async () => {
-        setSubmitting(true);
+        // setSubmitting(true);
         setStatusVisible(false);
         const res = await formRef.current!.submit();   // 👈 await the Promise
         setSubscribeSuccess(res.ok);
         setStatusVisible(true);
-        setSubmitting(false);
+        // setSubmitting(false);
     };
 
 

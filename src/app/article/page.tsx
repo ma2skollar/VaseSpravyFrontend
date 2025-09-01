@@ -12,7 +12,6 @@ import ImageContainer from '@/components/molecules/ImageContainer/ImageContainer
 import SearchBar from '@/components/molecules/SearchBar/SearchBar'
 import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem'
 import CoverageDetailContainer from '@/components/organisms/CoverageDetailContainer/CoverageDetailContainer'
-import EventContainer from '@/components/organisms/EventContainer/EventContainer'
 import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventSourcesFilter'
 import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
 import { useState } from 'react'

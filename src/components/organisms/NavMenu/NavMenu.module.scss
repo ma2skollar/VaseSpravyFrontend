@@ -32,3 +32,8 @@
         }
     }
 }
+
+.scrollContainer {
+    overflow-y: scroll;
+    width: clamp(350px, 90%, 500px);
+}

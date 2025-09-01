@@ -1,5 +1,4 @@
 import styles from './ImageContainer.module.scss'
-import Image from 'next/image';
 
 interface ImageContainerProps {
     imageUrl: string;

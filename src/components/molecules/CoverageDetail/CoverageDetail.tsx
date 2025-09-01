@@ -55,7 +55,7 @@ const CoverageDetail = (props: CoverageDetailProps) => {
     }
 
     // calculate width of the compass = 1/4 of the available width = 100% minus padding / 4
-    const compassWidth = `calc(100% - 3rem) / 4`; // Assuming 1rem padding on each side
+    // const compassWidth = `calc(100% - 3rem) / 4`; // Assuming 1rem padding on each side
 
     return (
         <div className={styles.container}>
