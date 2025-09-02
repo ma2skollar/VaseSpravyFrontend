@@ -4,6 +4,7 @@
     align-items: center;
     gap: var(--gap-xs);
     position: relative;
+    cursor: pointer;
 
     h4 {
         color: var(--text-color);
@@ -21,11 +22,13 @@
         width: 20rem;
         height: auto;
         bottom: 2rem;
+        right: 0;
         box-sizing: border-box;
         padding: var(--padding-rg);
         background-color: var(--text-color);
         color: var(--highlight-color-alt);
         transition: all 0.3s ease-in-out;
+        z-index: 5;
     }
 
     .hidden {

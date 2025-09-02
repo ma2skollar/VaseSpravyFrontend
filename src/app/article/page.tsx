@@ -17,9 +17,13 @@ import CoverageDetailContainer from '@/components/organisms/CoverageDetailContai
 import DistributionDetailPopup from '@/components/organisms/DistributionDetailPopup/DistributionDetailPopup'
 import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventSourcesFilter'
 import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
+import { closeDistributionDetail } from '@/lib/features/singleArticleSlice'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { useState } from 'react'
 
 const Home = () => {
+  const dispatch = useAppDispatch();
+
   const eventData = {
     id: 0,
     title: "Prezident sa zúčastnil na inauguračnej omši pápeža Leva XIV.",
@@ -39,12 +43,18 @@ const Home = () => {
   }
 
   const [filterVisible, setFilterVisible] = useState(false);
-  const [distributionDetailVisible, setDistributionDetailVisible] = useState(true);
+
+  const distributionDetailVisible = useAppSelector(state => state.singleArticleReducer).isDistributionDetailOpen;
 
   return (
     <main className={styles.container}>
-      <OverlayContainer isVisible={distributionDetailVisible} isNavBackdrop={false} onClose={() => {setDistributionDetailVisible(!distributionDetailVisible)}}>
-        <DistributionDetailPopup description={''} articleIndicators={[]} onClose={() => {setDistributionDetailVisible(!distributionDetailVisible)}} />
+      <OverlayContainer isVisible={distributionDetailVisible} isNavBackdrop={false} onClose={() => {dispatch(closeDistributionDetail())}}>
+        <DistributionDetailPopup description={''} articleIndicators={[
+          { id: 1, backgroundImageLink: './dennik-n_circle-icon.png', economicBias: -0.2, politicalBias: 0.8 },
+          { id: 2, backgroundImageLink: './hn_circle-icon.png', economicBias: 0.4, politicalBias: -0.6 },
+          { id: 3, backgroundImageLink: './sme_circle-icon.png', economicBias: 0.6, politicalBias: -0.4 },
+          { id: 4, backgroundImageLink: './sme_circle-icon.png', economicBias: -0.8, politicalBias: 0.2 },
+        ]} onClose={() => {dispatch(closeDistributionDetail())}} />
       </OverlayContainer>
       <EventTitle title={eventData.title} category={eventData.category} location={eventData.location} onClick={() => alert('Shared event!')} publishedAgo={18} publishedUnit={'hodinami'} updatedAgo={24} updatedUnit={'minútami'} />
       <ImageContainer imageUrl={'https://m.smedata.sk/api-media/media/image/sme/1/90/9095791/9095791_1200x.jpg?rev=4'} altText={'Pellé a papa spolu dohadujú program po ukončení oficiálneho programu.'} imageLabel={'Pellé a papa spolu dohadujú program po ukončení oficiálneho programu.'} />

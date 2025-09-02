@@ -39,18 +39,33 @@ const SearchBar = ({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }:
                     placeholder={isFocused ? '' : promptText}/>
             </div>
             <span className={styles.icons}>
-                {showClearButton ? <>
-                    <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={handleClearSearch}/>
-                    <div></div>
-                    <button type='submit'>
-                    <ClickBox icon={SearchIcon} iconSize={IconSize.Regular} />
+                {showClearButton ? 
+                    <>
+                        <ClickBox 
+                            icon={CloseIcon} 
+                            iconSize={IconSize.Regular} 
+                            onClick={handleClearSearch}
+                        />
+                        <div></div>
+                        <button type='submit'>
+                            <ClickBox 
+                                icon={SearchIcon} 
+                                iconSize={IconSize.Regular} 
+                            />
+                        </button>
+                    </>:
+                    <button 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            inputRef.current?.focus();
+                        }}
+                    >
+                        <ClickBox 
+                            icon={SearchIcon} 
+                            iconSize={IconSize.Regular}
+                        />
                     </button>
-                </>:<button onClick={(e) => {
-                        e.preventDefault();
-                        inputRef.current?.focus();
-                    }}>
-                    <ClickBox icon={SearchIcon} iconSize={IconSize.Regular} />
-                </button>}
+                }
             </span>
         </form>
     );
@@ -58,7 +73,30 @@ const SearchBar = ({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }:
 
 export default SearchBar;
 
-
+/**<span className={styles.icons}>
+    {showClearButton ?
+        <>
+            <ClickBox
+                icon={CloseIcon}
+                iconSize={IconSize.Regular}
+                onClick={handleClearSearch}
+            />
+            <div></div>
+            <button type='submit'>
+                <ClickBox
+                    icon={SearchIcon}
+                    iconSize={IconSize.Regular}
+                />
+            </button>
+        </> :
+—————- done until here ————
+        <button onClick={(e) => {
+                        e.preventDefault();
+                        inputRef.current?.focus();
+                    }}>
+                    <ClickBox icon={SearchIcon} iconSize={IconSize.Regular} />
+                </button>}
+</span> */
 
 // Fetch data from your backend (can be REST or GraphQL)
 // const results = await fetch(`https://api.example.com/search?q=${encodeURIComponent(query)}`).then(res => res.json());

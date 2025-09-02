@@ -1,23 +1,18 @@
 # Development Notes
 
-## Implementing Redux
-
-### Links
+## Links
 
 - [Redux in Next.js](https://redux.js.org/usage/nextjs)
 - [Motion for React](https://motion.dev/docs/react)
 
-molecules to do:
+## ToDo
 
-- AboutStoryCard
+- import all sources icons
+- populate all static pages
+- set up fetching of dynamic pages
+- animations using motion package
 
-organisms to do:
-
-- PopupDistributionDetail - Compass
-
-<!-- TODO: IMPLEMENT NavBar on main Page, create all static pages -->
-
-pages links:
+static pages links:
 
 - /
 - /ako-to-funguje/
