@@ -5,6 +5,8 @@ import '@/styles/typography.scss'
 import StoreProvider from "./StoreProvider";
 import ClientTransition from "./ClientTransition";
 import ClientLayout from "./ClientLayout";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
@@ -38,6 +40,8 @@ export default function RootLayout({
             </ClientLayout>
           </ClientTransition>
         </StoreProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

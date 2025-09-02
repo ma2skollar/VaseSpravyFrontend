@@ -7,6 +7,7 @@
 
 ## ToDo
 
+- fix header disappear on modal
 - import all sources icons
 - populate all static pages
 - set up fetching of dynamic pages
