@@ -8,9 +8,9 @@ interface BlockTitleProps {
 
 const BlockTitle = (props: BlockTitleProps) => {
     return (
-        <div className={`${styles.container} ${props.iconVisible ? styles.visible : ''}`}>
+        <div className={styles.container}>
             <h3 className={`${styles.content} title-sans-regular`}>{props.text}</h3>
-            <InfoIcon />
+            {props.iconVisible && <InfoIcon />}
         </div>
     )
 }

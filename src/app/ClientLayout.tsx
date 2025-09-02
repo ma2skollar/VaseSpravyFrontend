@@ -33,7 +33,7 @@ const ClientLayout = (props: ClientLayoutProps) => {
         <>
             <Header onMenuClick={() => dispatch(toggleNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} onLogoClick={() => window.location.href = '/'}/>
             <OverlayContainer isVisible={subscribePopupOpen} isNavBackdrop={false} onClose={() => dispatch(closeSubscribePopup())}>
-                <SubscriptionPopup onClick={() => dispatch(closeSubscribePopup())} />
+                <SubscriptionPopup onClose={() => dispatch(closeSubscribePopup())} />
             </OverlayContainer>
             <OverlayContainer isVisible={navMenuOpen} isNavBackdrop={true} onClose={() => dispatch(closeNavMenu())}>
                 <NavMenu />

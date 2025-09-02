@@ -36,6 +36,7 @@ interface StatsCoverageDetailProps extends BaseCoverageDetailProps {
 interface OwnershipCoverageDetailProps extends BaseCoverageDetailProps {
     type: CoverageDetailType.Ownership;
     // ownership
+    infoDescription: string;
 }
 
 type CoverageDetailProps = 
@@ -59,7 +60,8 @@ const CoverageDetail = (props: CoverageDetailProps) => {
 
     return (
         <div className={styles.container}>
-            <BlockTitle text={props.title} iconVisible={props.type === CoverageDetailType.Distribution ? false : true} />
+            {props.type === CoverageDetailType.Distribution ? <BlockTitle text={props.title} iconVisible={false} />
+            :<BlockTitle text={props.title} iconVisible={true} />}
             {props.type === CoverageDetailType.Distribution && <ClickBox icon={OpenFullIcon} iconSize={IconSize.Regular} onClick={props.onClick} />}
             <div className={styles.content}>
                 {props.type === CoverageDetailType.Distribution && <>

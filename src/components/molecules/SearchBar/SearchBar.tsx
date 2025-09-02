@@ -39,13 +39,18 @@ const SearchBar = ({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }:
                     placeholder={isFocused ? '' : promptText}/>
             </div>
             <span className={styles.icons}>
-                {showClearButton && <>
+                {showClearButton ? <>
                     <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={handleClearSearch}/>
                     <div></div>
-                </>}
-                <button type='submit'>
+                    <button type='submit'>
                     <ClickBox icon={SearchIcon} iconSize={IconSize.Regular} />
-                </button>
+                    </button>
+                </>:<button onClick={(e) => {
+                        e.preventDefault();
+                        inputRef.current?.focus();
+                    }}>
+                    <ClickBox icon={SearchIcon} iconSize={IconSize.Regular} />
+                </button>}
             </span>
         </form>
     );

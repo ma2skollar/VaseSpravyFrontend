@@ -7,11 +7,14 @@ import SmeCustomIcon from '@/components/atoms/Icon/Custom/SmeCustomIcon'
 import FilterIcon from '@/components/atoms/Icon/Material/FilterIcon'
 import InfoIcon from '@/components/atoms/Icon/Material/InfoIcon'
 import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator'
+import OverlayContainer from '@/components/atoms/OverlayContainer/OverlayContainer'
 import EventTitle from '@/components/molecules/EventTitle/EventTitle'
 import ImageContainer from '@/components/molecules/ImageContainer/ImageContainer'
+import InformationDescriptionLabel from '@/components/molecules/InformationDescriptionLabel/InformationDescriptionLabel'
 import SearchBar from '@/components/molecules/SearchBar/SearchBar'
 import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem'
 import CoverageDetailContainer from '@/components/organisms/CoverageDetailContainer/CoverageDetailContainer'
+import DistributionDetailPopup from '@/components/organisms/DistributionDetailPopup/DistributionDetailPopup'
 import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventSourcesFilter'
 import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
 import { useState } from 'react'
@@ -36,9 +39,13 @@ const Home = () => {
   }
 
   const [filterVisible, setFilterVisible] = useState(false);
+  const [distributionDetailVisible, setDistributionDetailVisible] = useState(true);
 
   return (
     <main className={styles.container}>
+      <OverlayContainer isVisible={distributionDetailVisible} isNavBackdrop={false} onClose={() => {setDistributionDetailVisible(!distributionDetailVisible)}}>
+        <DistributionDetailPopup description={''} articleIndicators={[]} onClose={() => {setDistributionDetailVisible(!distributionDetailVisible)}} />
+      </OverlayContainer>
       <EventTitle title={eventData.title} category={eventData.category} location={eventData.location} onClick={() => alert('Shared event!')} publishedAgo={18} publishedUnit={'hodinami'} updatedAgo={24} updatedUnit={'minútami'} />
       <ImageContainer imageUrl={'https://m.smedata.sk/api-media/media/image/sme/1/90/9095791/9095791_1200x.jpg?rev=4'} altText={'Pellé a papa spolu dohadujú program po ukončení oficiálneho programu.'} imageLabel={'Pellé a papa spolu dohadujú program po ukončení oficiálneho programu.'} />
       <article className={styles.summary}>
@@ -48,10 +55,7 @@ const Home = () => {
           <li className='text-sans-large'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</li>
           <li className='text-sans-large'>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li>
         </ul>
-        <div className={styles.summaryAIInfo}>
-          <InfoIcon />
-          <span className='label-sans-light'>Zhrnutia sú vytvorené pomocou umelej inteligencie.</span>
-        </div>
+        <InformationDescriptionLabel label={'Zhrnutia sú vytvorené pomocou umelej inteligencie.'} description={'Na zhrnutia článkov využívame vlastné modely umelej inteligencie. Neustále pracujeme na ich zlepšovaní a vyvíjame presnejšie metódy na sumarizáciu. Ak si všimnete chybu, dajte nám vedieť.'} />
       </article>
       <HoverSwitchComponent />
       {/* TODO: Make sticky */}

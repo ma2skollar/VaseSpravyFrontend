@@ -9,7 +9,7 @@ import SendEmailButton from '@/components/atoms/SendEmailButton/SendEmailButton'
 import InputBar, { InputBarHandle } from '@/components/molecules/InputBar/InputBar';
 
 interface SubscriptionPopupProps {
-    onClick: () => void;
+    onClose: () => void;
 }
 
 const SubscriptionPopup = (props: SubscriptionPopupProps) => {
@@ -33,13 +33,13 @@ const SubscriptionPopup = (props: SubscriptionPopupProps) => {
 
     return(
         <div className={styles.container}>
+            <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={props.onClose} />
             <h2 className='title-sans-regular'>Chcete aby sme Vás informovali o nových udalostiach a prehľade ich politickej zaujatosti?</h2>
             <p className='text-sans-small'>Pomocou svojej e-mailovej adresy sa prihlásite na odber.</p>
             <InputBar ref={formRef} action={'https://api.vasespravy.sk/subscribe/init'} promptText='Zadajte Váš e-mail'/>
             <SendEmailButton text={'Prihlásiť sa na odber'} isDisabled={false} onClick={handleSendEmailButtonClick}/>
             {statusVisible && <OnClickStatus success={subscribeSuccess} />}
             <p className='text-sans-small'>Zadaním e-mailovej adresy a prihlásením sa na odber prehlasujete že ste dôkladne oboznámení a suhlasíte so <a href='' className={styles.textLink}>Zásadami ochrany osobných údajov</a> a <a href='' className={styles.textLink}>Pravidlami používania cookies</a>.</p>
-            <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={props.onClick} />
         </div>
     )
 }
