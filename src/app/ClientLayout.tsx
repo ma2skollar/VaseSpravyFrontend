@@ -5,7 +5,7 @@ import Footer from '@/components/organisms/Footer/Footer'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { closeSubscribePopup, openSubscribePopup, resizeLarge, resizeMedium, closeNavMenu, toggleNavMenu } from '@/lib/features/headerSlice'
-import OverlayContainer from '@/components/atoms/OverlayContainer/OverlayContainer'
+import OverlayContainer from '@/components/molecules/OverlayContainer/OverlayContainer'
 import SubscriptionPopup from '@/components/organisms/SubscriptionPopup/SubscriptionPopup'
 import NavMenu from '@/components/organisms/NavMenu/NavMenu'
 
@@ -31,13 +31,25 @@ const ClientLayout = (props: ClientLayoutProps) => {
 
     return (
         <>
-            <Header onMenuClick={() => dispatch(toggleNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} onLogoClick={() => window.location.href = '/'}/>
-            <OverlayContainer isVisible={subscribePopupOpen} isNavBackdrop={false} onClose={() => dispatch(closeSubscribePopup())}>
-                <SubscriptionPopup onClose={() => dispatch(closeSubscribePopup())} />
-            </OverlayContainer>
-            <OverlayContainer isVisible={navMenuOpen} isNavBackdrop={true} onClose={() => dispatch(closeNavMenu())}>
+            <Header 
+                onMenuClick={() => dispatch(toggleNavMenu())} 
+                onSubscribeClick={() => dispatch(openSubscribePopup())} 
+                onLogoClick={() => window.location.href = '/'}
+            />
+            {subscribePopupOpen &&<OverlayContainer
+                isNavBackdrop={false} 
+                onClose={() => dispatch(closeSubscribePopup())}
+            >
+                <SubscriptionPopup 
+                    onClose={() => dispatch(closeSubscribePopup())} 
+                />
+            </OverlayContainer>}
+            {navMenuOpen &&<OverlayContainer
+                isNavBackdrop={true} 
+                onClose={() => dispatch(closeNavMenu())}
+            >
                 <NavMenu />
-            </OverlayContainer>
+            </OverlayContainer>}
             {props.children}
             <Footer />
         </>

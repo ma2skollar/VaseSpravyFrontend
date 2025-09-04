@@ -7,7 +7,7 @@ import SmeCustomIcon from '@/components/atoms/Icon/Custom/SmeCustomIcon'
 import FilterIcon from '@/components/atoms/Icon/Material/FilterIcon'
 import InfoIcon from '@/components/atoms/Icon/Material/InfoIcon'
 import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator'
-import OverlayContainer from '@/components/atoms/OverlayContainer/OverlayContainer'
+import OverlayContainer from '@/components/molecules/OverlayContainer/OverlayContainer'
 import EventTitle from '@/components/molecules/EventTitle/EventTitle'
 import ImageContainer from '@/components/molecules/ImageContainer/ImageContainer'
 import InformationDescriptionLabel from '@/components/molecules/InformationDescriptionLabel/InformationDescriptionLabel'
@@ -48,14 +48,14 @@ const Home = () => {
 
   return (
     <main className={styles.container}>
-      <OverlayContainer isVisible={distributionDetailVisible} isNavBackdrop={false} onClose={() => {dispatch(closeDistributionDetail())}}>
+      {distributionDetailVisible && <OverlayContainer isNavBackdrop={false} onClose={() => {dispatch(closeDistributionDetail())}}>
         <DistributionDetailPopup description={''} articleIndicators={[
           { id: 1, backgroundImageLink: './dennik-n_circle-icon.png', economicBias: -0.2, politicalBias: 0.8 },
           { id: 2, backgroundImageLink: './hn_circle-icon.png', economicBias: 0.4, politicalBias: -0.6 },
           { id: 3, backgroundImageLink: './sme_circle-icon.png', economicBias: 0.6, politicalBias: -0.4 },
           { id: 4, backgroundImageLink: './sme_circle-icon.png', economicBias: -0.8, politicalBias: 0.2 },
         ]} onClose={() => {dispatch(closeDistributionDetail())}} />
-      </OverlayContainer>
+      </OverlayContainer>}
       <EventTitle title={eventData.title} category={eventData.category} location={eventData.location} onClick={() => alert('Shared event!')} publishedAgo={18} publishedUnit={'hodinami'} updatedAgo={24} updatedUnit={'minútami'} />
       <ImageContainer imageUrl={'https://m.smedata.sk/api-media/media/image/sme/1/90/9095791/9095791_1200x.jpg?rev=4'} altText={'Pellé a papa spolu dohadujú program po ukončení oficiálneho programu.'} imageLabel={'Pellé a papa spolu dohadujú program po ukončení oficiálneho programu.'} />
       <article className={styles.summary}>
