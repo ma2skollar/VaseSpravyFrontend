@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    position: relative;
+    width: calc(100vw - 3.75rem);
+    padding: var(--padding-lg);
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--gap-sm);
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    h2 {
+        width: calc(100% - 1.5rem);
+        hyphens: auto;
+    }
+
+    & > a {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .textLink {
+        color: var(--highlight-color);
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

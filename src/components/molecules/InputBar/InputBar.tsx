@@ -3,21 +3,40 @@
 import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
 import styles from './InputBar.module.scss';
 import CloseIcon from '@/components/atoms/Icon/Material/CloseIcon';
-import SearchIcon from '@/components/atoms/Icon/Material/SearchIcon';
-import { useRef, useState } from 'react';
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
-interface SearchBarProps {
-    isSearchBar: boolean;
+export type InputBarHandle = {
+    submit: () => Promise<{ ok: boolean; status: number; data?: unknown }>;
+}
+
+interface InputBarProps {
     action: string;
     promptText?: string;
 }
 
-const InputBar = ({ isSearchBar, action, promptText = 'Hľadaj udalosť alebo kategóriu' }: SearchBarProps) => {
+const InputBar = forwardRef<InputBarHandle, InputBarProps>(({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }, ref) => {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const handleClearSearch = () => {
+    useImperativeHandle(ref, () => ({
+        submit: async () => {
+            try {
+                const res = await fetch(action, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: inputValue }),
+                });
+                let data: unknown = undefined;
+                try { data = await res.json(); } catch {}
+                return { ok: res.ok, status: res.status, data };
+            } catch {
+                return { ok: false, status: 0 };
+            }
+        },
+    }));
+
+    const handleClearInput = () => {
         setInputValue('');
         inputRef.current?.focus();
     }
@@ -25,8 +44,7 @@ const InputBar = ({ isSearchBar, action, promptText = 'Hľadaj udalosť alebo ka
     const showClearButton = inputValue.length > 0;
 
     return (
-        <form className={styles.container} role="search" method={isSearchBar ? "get" : "post"} action={action}>
-            {/* ADD Search Action */}
+        <form className={styles.container} role="search" method="post" action={action} onSubmit={e => e.preventDefault()}>
             <div className={styles.content}>
                 {(isFocused || inputValue) && <label htmlFor="input" className="label-sans-light">{promptText}</label>}
                 <input ref={inputRef}
@@ -42,54 +60,13 @@ const InputBar = ({ isSearchBar, action, promptText = 'Hľadaj udalosť alebo ka
             </div>
             <span className={styles.icons}>
                 {showClearButton && <>
-                    <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={handleClearSearch}/>
-                    {isSearchBar && <div></div>}
+                    <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={handleClearInput}/>
                 </>}
-                {isSearchBar && 
-                    <button type='submit'>
-                        <ClickBox icon={SearchIcon} iconSize={IconSize.Regular} />
-                    </button>
-                }
             </span>
         </form>
     );
-}
+});
+
+InputBar.displayName = 'InputBar';
 
 export default InputBar;
-
-
-/*
-import { redirect } from 'next/navigation';
-
-export default async function SearchPage({ searchParams }: { searchParams: { query?: string } }) {
-  const query = searchParams.query?.trim();
-
-  if (!query) {
-    return <p>Prosím zadajte hľadaný výraz.</p>;
-  }
-
-  // Fetch data from your backend (can be REST or GraphQL)
-  const results = await fetch(`https://api.example.com/search?q=${encodeURIComponent(query)}`).then(res => res.json());
-
-  return (
-    <div>
-      <h1>Výsledky pre "{query}"</h1>
-      // Display results
-      {results.length === 0 ? (
-        <p>Nenašli sa žiadne výsledky.</p>
-      ) : (
-        <ul>{results.map((item) => <li key={item.id}>{item.title}</li>)}</ul>
-      )}
-    </div>
-  );
-}
-*/
-
-
-// Recommended Implementation
-// 1. Form submits with GET to /search page
-
-// You let the browser do the navigation with query params like /search?query=concert.
-// 2. The /search page (or API) then fetches the real data
-
-// This is where your backend comes in — you call it from a Next.js server component or getServerSideProps.

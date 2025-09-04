@@ -8,11 +8,12 @@ export enum LogoSize {
 
 interface LogoProps {
   size: LogoSize;
+  onClick?: () => void;
 };
 
 const MainLogo = (props: LogoProps) => {
   return (
-    <div className={`${styles.container} ${styles[`container--${props.size}`]}`}>
+    <button className={`${styles.container} ${styles[`container--${props.size}`]}`} onClick={props.onClick}>
       <svg
         width="360"
         height="88"
@@ -62,7 +63,7 @@ const MainLogo = (props: LogoProps) => {
           fill="currentColor"
         />
       </svg>
-    </div>
+    </button>
   );
 };
 

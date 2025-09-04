@@ -1,9 +1,9 @@
+import styles from './EventTitle.module.scss';
 import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
-import BaseInfo from '../BaseInfo/BaseInfo';
-import styles from './ArticleTitle.module.scss';
+import BaseInfo from '@/components/molecules/BaseInfo/BaseInfo';
 import ShareIcon from '@/components/atoms/Icon/Material/ShareIcon';
 
-interface ArticleTitleProps {
+interface EventTitleProps {
     title: string;
     category: string;
     location: string;
@@ -14,7 +14,7 @@ interface ArticleTitleProps {
     updatedUnit: string;
 }
 
-const ArticleTitle = (props: ArticleTitleProps) => {
+const EventTitle = (props: EventTitleProps) => {
     return (
         <div className={styles.container}>
             <h1 className='title-serif-large'>{props.title}</h1>
@@ -32,4 +32,4 @@ const ArticleTitle = (props: ArticleTitleProps) => {
     )
 }
 
-export default ArticleTitle;
+export default EventTitle;

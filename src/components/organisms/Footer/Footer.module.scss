@@ -1,13 +1,18 @@
 .footer {
     background-color: var(--background-color);
     display: flex;
-    padding: 1.875rem 0rem;
+    padding: 1.875rem 1.25rem;
     flex-direction: column;
     align-items: center;
+
+    & > a:first-of-type {
+        height: 60px;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .bottomText {
-
     display: flex;
     padding: 1rem 1.25rem 0.625rem 1.25rem;
     flex-direction: column;
@@ -18,21 +23,7 @@
 
     p {
         color: var(--text-color-50);
-        font-family: var(--text-font);
-        font-size: 0.75rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
     }
-}
-
-.socialContainer {
-    display: flex;
-    padding: 0.625rem 0rem;
-    justify-content: center;
-    align-items: center;
-    gap: 1.875rem;
-    align-self: stretch;
 }
 
 .footerTextLinks {
@@ -44,4 +35,18 @@
     gap: 0.625rem;
     align-self: stretch;
     flex-wrap: wrap;
+
+    a {
+        text-decoration: none;
+        color: var(--text-color-50);
+    }
+}
+
+.socialContainer {
+    display: flex;
+    padding: 0.625rem 0rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1.875rem;
+    align-self: stretch;
 }

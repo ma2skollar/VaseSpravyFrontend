@@ -2,11 +2,11 @@
     display: flex;
     width: 100%;
     position: relative;
-    padding: var(--padding-lg) var(--padding-lg) var(--padding-xl) var(--padding-lg);
+    padding: var(--padding-sm) var(--padding-lg) var(--padding-xl) var(--padding-lg);
     box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
-    gap: var(--gap-md);
+    gap: var(--gap-xs);
     background-color: var(--highlight-color-inverse);
 
     a {
@@ -45,6 +45,10 @@
             justify-content: space-between;
             align-items: center;
             align-self: stretch;
+
+            & > p:last-child {
+                text-align: right;
+            }
 
             svg {
                 flex-shrink: 0;

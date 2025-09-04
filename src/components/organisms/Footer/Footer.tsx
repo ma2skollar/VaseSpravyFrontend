@@ -1,47 +1,40 @@
+'use client';
+
 import styles from "./Footer.module.scss";
-import LineSeparator from "../../atoms/LineSeparator/LineSeparator";
-import FooterLinkItem from "../../FooterLinkItem/FooterLinkItem";
-import MainLogo, { LogoSize } from "../../atoms/MainLogo/MainLogo";
-import ClickBox from "../../atoms/ClickBox/ClickBox";
-import FacebookIcon from "../../atoms/Icon/Social/FacebookIcon";
-import InstagramIcon from "../../atoms/Icon/Social/InstagramIcon";
-import LinkedInIcon from "../../atoms/Icon/Social/LinkedInIcon";
-import FooterLinkText from "../../FooterLinkText/FooterLinkText";
+import LineSeparator from "@/components/atoms/LineSeparator/LineSeparator";
+import MainLogo, { LogoSize } from "@/components/atoms/MainLogo/MainLogo";
+import ClickBox, { IconSize } from "@/components/atoms/ClickBox/ClickBox";
+import FacebookIcon from "@/components/atoms/Icon/Social/FacebookIcon";
+import InstagramIcon from "@/components/atoms/Icon/Social/InstagramIcon";
+import LinkedInIcon from "@/components/atoms/Icon/Social/LinkedInIcon";
+import NavMenuItem from "@/components/molecules/NavMenuItem/NavMenuItem";
 
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            <LineSeparator color={true} />
-            <FooterLinkItem centered={true} href={""}>
-                <MainLogo size={LogoSize.Small} />
-            </FooterLinkItem>
-            <FooterLinkItem href={""}>
-                <p>Odhlásiť sa z odberu</p>
-            </FooterLinkItem>
-            <LineSeparator color={false} />
-            <FooterLinkItem href={""}>
-                <p>Pomoc</p>
-            </FooterLinkItem>
-            <LineSeparator color={false} />
-            <FooterLinkItem href={""}>
-                <p>Časté otázky</p>
-            </FooterLinkItem>
+            <LineSeparator inNavMenu={false} isColored={true} />
+            <NavMenuItem linkText={<MainLogo size={LogoSize.Small} />} href="/" />
+            <NavMenuItem linkText="Odhlásiť sa z odberu" onClick={() => {}} />
+            <LineSeparator inNavMenu={false} isColored={false} />
+            <NavMenuItem linkText="Pomoc" href="/pomoc/" />
+            <LineSeparator inNavMenu={false} isColored={false} />
+            <NavMenuItem linkText="Časté otázky" href="/pomoc/#faq" />
             <div className={styles.socialContainer}>
-                <ClickBox icon={FacebookIcon} href={"https://www.facebook.com/vasespravy"}/>
-                <ClickBox icon={InstagramIcon} href={"https://www.instagram.com/vasespravyoz/"}/>
-                <ClickBox icon={LinkedInIcon} href={"https://www.linkedin.com/company/vase-spravy-oz"}/>
+                <ClickBox icon={FacebookIcon} href={"https://www.facebook.com/vasespravy"} iconSize={IconSize.Regular}/>
+                <ClickBox icon={InstagramIcon} href={"https://www.instagram.com/vasespravyoz/"} iconSize={IconSize.Regular}/>
+                <ClickBox icon={LinkedInIcon} href={"https://www.linkedin.com/company/vase-spravy-oz"} iconSize={IconSize.Regular}/>
             </div>
             <div className={styles.footerTextLinks}>
-                <FooterLinkText text={"O nás"} href={""} />
-                <FooterLinkText text={"Kontaktujte nás"} href={""} />
-                <FooterLinkText text={"Ako to funguje"} href={""} />
-                <FooterLinkText text={"Cookies"} href={""} />
-                <FooterLinkText text={"Pomôžte nám"} href={""} />
-                <FooterLinkText text={"Zásady ochrany osobných údajov"} href={""} />
-                <FooterLinkText text={"Mapa stránky"} href={""} />
+                <a className="link-text-sans-small" href={"/o-nas/"}>O nás</a>
+                <a className="link-text-sans-small" href={"/kontakt/"}>Kontaktujte nás</a>
+                <a className="link-text-sans-small" href={"/ako-to-funguje/"}>Ako to funguje</a>
+                <a className="link-text-sans-small" href={"/pravne/cookies/"}>Cookies</a>
+                <a className="link-text-sans-small" href={"/pomozte-nam/"}>Pomôžte nám</a>
+                <a className="link-text-sans-small" href={"/pravne/ochrana-osobnych-udajov/"}>Zásady ochrany osobných údajov</a>
+                <a className="link-text-sans-small" href={"/sitemap.xml"}>Mapa stránky</a>
             </div>
             <div className={styles.bottomText}>
-                <p>©2025 Vaše Správy o. z.</p>
+                <p className="text-sans-small">©2025 Vaše Správy o. z.</p>
             </div>
         </footer>
     );

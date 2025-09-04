@@ -1,0 +1,30 @@
+import EventImageContainer from '@/components/molecules/EventImageContainer/EventImageContainer';
+import styles from './EventContainer.module.scss';
+import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem';
+
+interface EventContainerProps {
+    title: string;
+    category: string;
+    location: string;
+    imageUrl: string;
+    altText: string;
+    distribution: {
+        liberal: number;
+        conservative: number;
+        center: number;
+    };
+    description: string;
+    onClick?: () => void;
+}
+
+const EventContainer = (props: EventContainerProps) => {
+    return (
+        <div className={styles.container} onClick={props.onClick}>
+            <TitleListItem article={false} title={props.title} category={props.category} location={props.location} />
+            <EventImageContainer imageUrl={props.imageUrl} altText={props.altText} distribution={props.distribution} />
+            <p className='text-sans-large'>{props.description}</p>
+        </div>
+    )
+}
+
+export default EventContainer;

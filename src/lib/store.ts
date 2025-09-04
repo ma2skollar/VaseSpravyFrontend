@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
+import headerReducer from './features/headerSlice'
 import singleArticleReducer from './features/singleArticleSlice'
-import headerResizeReducer from './features/headerResizeSlice'
 import navBarSwitchReducer from './features/navBarSwitchSlice'
+import sourcesFilterReducer from './features/sourcesFilterSlice'
 
 export const makeStore = () => {
     return configureStore({
         reducer: {
+            headerReducer,
             singleArticleReducer,
-            headerResizeReducer,
             navBarSwitchReducer,
+            sourcesFilterReducer,
         }
     })
 }

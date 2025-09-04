@@ -3,6 +3,7 @@ import { SummarySwitchKey } from "@/types/singleArticle";
 
 const initialState = {
     isUpdating: false,
+    isDistributionDetailOpen: false,
     summarySwitch: {
         liberal: false,
         center: true,
@@ -18,6 +19,12 @@ export const singleArticleSlice = createSlice({
         toggleUpdating: (state) => {
             state.isUpdating = !state.isUpdating;
         },
+        openDistributionDetail: (state) => {
+            state.isDistributionDetailOpen = true;
+        },
+        closeDistributionDetail: (state) => {
+            state.isDistributionDetailOpen = false;
+        },
         switchSummary: (state, action: PayloadAction<{ summaryType: SummarySwitchKey }>) => {
             const selected = action.payload.summaryType;
             for (const key in state.summarySwitch) {
@@ -27,5 +34,5 @@ export const singleArticleSlice = createSlice({
     },
 });
 
-export const { toggleUpdating, switchSummary } = singleArticleSlice.actions;
+export const { toggleUpdating, switchSummary, openDistributionDetail, closeDistributionDetail } = singleArticleSlice.actions;
 export default singleArticleSlice.reducer;

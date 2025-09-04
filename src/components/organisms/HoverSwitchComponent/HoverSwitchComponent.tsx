@@ -7,7 +7,6 @@ import SwitchComponentButton, { BiasMarkerType } from '@/components/atoms/Switch
 import { useEffect } from 'react';
 
 const HoverSwitchComponent = () => {
-
     const dispatch = useAppDispatch();
     // default to center summary on each render
     useEffect(() => {

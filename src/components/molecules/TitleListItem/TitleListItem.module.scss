@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-xs);
+    color: var(--text-color);
+    text-decoration: none;
+
+    .subtitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+
+        svg {
+            color: var(--text-color);
+        }
+    }
+}

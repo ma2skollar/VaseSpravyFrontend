@@ -8,8 +8,7 @@ export enum IconSize {
 }
 
 interface ClickBoxProps {
-    // TODO: Refator React.FC for svg icons so that it is cleaner and uses typescript correctly
-    icon: React.FC;
+    icon: React.ComponentType;
     iconSize: IconSize;
     href?: string;
     onClick?: () => void;

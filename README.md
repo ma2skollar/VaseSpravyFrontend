@@ -1,12 +1,31 @@
 # Development Notes
 
-## Implementing Redux
-
-### Links
+## Links
 
 - [Redux in Next.js](https://redux.js.org/usage/nextjs)
-- [Redux Fireship](https://www.youtube.com/watch?v=_shA5Xwe8_4)
+- [Motion for React](https://motion.dev/docs/react)
 
-molecules to do:
+## ToDo
 
-- AboutStoryCard
+- fix header disappear on modal
+- import all sources icons
+- populate all static pages
+- set up fetching of dynamic pages
+- animations using motion package
+
+static pages links:
+
+- /
+- /ako-to-funguje/
+- /pomozte-nam/
+- /kategorie/politika/domaca/
+- /kategorie/politika/zahranicna/
+- /regiony/zapadne/
+- /regiony/stredne/
+- /regiony/vychodne/
+- /o-nas/
+- /kontakt/
+- /pravne/ochrana-osobnych-udajov/
+- /pravne/cookies/
+- /pomoc/
+- /pomoc/#faq

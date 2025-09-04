@@ -1,5 +1,5 @@
 .container {
-    width: 440px;
+    width: calc(100% + var(--padding-lg) * 2);
     display: flex;
     padding: var(--padding-rg) var(--padding-lg);
     flex-direction: column;
