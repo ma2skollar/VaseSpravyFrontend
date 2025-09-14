@@ -1,6 +1,6 @@
 import CoverageDetail, { CoverageDetailType } from '@/components/molecules/CoverageDetail/CoverageDetail';
 import styles from './CoverageDetailContainer.module.scss';
-import { useAppDispatch } from '@/lib/hooks';
+// import { useAppDispatch } from '@/lib/hooks';
 // import { openDistributionDetail } from '@/lib/features/singleArticleSlice';
 
 interface CoverageDetailContainerProps {
