@@ -60,8 +60,8 @@ const CoverageDetail = (props: CoverageDetailProps) => {
 
     return (
         <div className={styles.container}>
-            {props.type === CoverageDetailType.Distribution ? <BlockTitle text={props.title} iconVisible={false} />
-            :<BlockTitle text={props.title} iconVisible={true} />}
+            {props.type === CoverageDetailType.Ownership ? <BlockTitle text={props.title} iconVisible={true} />
+            :<BlockTitle text={props.title} iconVisible={false} />}
             {props.type === CoverageDetailType.Distribution && <ClickBox icon={OpenFullIcon} iconSize={IconSize.Regular} onClick={props.onClick} />}
             <div className={styles.content}>
                 {props.type === CoverageDetailType.Distribution && <>
