@@ -16,19 +16,17 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 0.125rem; // 2px
-        align-self: stretch;
         min-height: var(--default-click-dimension);
 
         label {
-            align-self: stretch;
             color: var(--text-color-50);
             pointer-events: none;
         }
 
         input {
-            align-self: stretch;
             color: var(--text-color);
             height: 100%;
+            width: 100%;
         }
     }
 
@@ -36,7 +34,7 @@
         display: flex;
         align-items: center;
         flex-shrink: 0;
-        width: fit-content;
+        margin-right: calc(var(--padding-rg) * -1);
 
         div {
             display: flex;
