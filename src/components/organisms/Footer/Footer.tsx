@@ -8,6 +8,7 @@ import FacebookIcon from "@/components/atoms/Icon/Social/FacebookIcon";
 import InstagramIcon from "@/components/atoms/Icon/Social/InstagramIcon";
 import LinkedInIcon from "@/components/atoms/Icon/Social/LinkedInIcon";
 import NavMenuItem from "@/components/molecules/NavMenuItem/NavMenuItem";
+import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -25,13 +26,13 @@ const Footer = () => {
                 <ClickBox icon={LinkedInIcon} href={"https://www.linkedin.com/company/vase-spravy-oz"} iconSize={IconSize.Regular}/>
             </div>
             <div className={styles.footerTextLinks}>
-                <a className="link-text-sans-small" href={"/o-nas/"}>O nás</a>
-                <a className="link-text-sans-small" href={"/kontakt/"}>Kontaktujte nás</a>
-                <a className="link-text-sans-small" href={"/ako-to-funguje/"}>Ako to funguje</a>
-                <a className="link-text-sans-small" href={"/pravne/cookies/"}>Cookies</a>
-                <a className="link-text-sans-small" href={"/pomozte-nam/"}>Pomôžte nám</a>
-                <a className="link-text-sans-small" href={"/pravne/ochrana-osobnych-udajov/"}>Zásady ochrany osobných údajov</a>
-                <a className="link-text-sans-small" href={"/sitemap.xml"}>Mapa stránky</a>
+                <Link className="link-text-sans-small" href={"/o-nas/"}>O nás</Link>
+                <Link className="link-text-sans-small" href={"/kontakt/"}>Kontaktujte nás</Link>
+                <Link className="link-text-sans-small" href={"/ako-to-funguje/"}>Ako to funguje</Link>
+                <Link className="link-text-sans-small" href={"/pravne/cookies/"}>Cookies</Link>
+                <Link className="link-text-sans-small" href={"/pomozte-nam/"}>Pomôžte nám</Link>
+                <Link className="link-text-sans-small" href={"/pravne/ochrana-osobnych-udajov/"}>Zásady ochrany osobných údajov</Link>
+                <Link className="link-text-sans-small" href={"/sitemap.xml"}>Mapa stránky</Link>
             </div>
             <div className={styles.bottomText}>
                 <p className="text-sans-small">©2025 Vaše Správy o. z.</p>

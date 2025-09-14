@@ -7,6 +7,7 @@ import OnClickStatus from '@/components/molecules/OnClickStatus/OnClickStatus';
 import { useRef, useState } from 'react';
 import SendEmailButton from '@/components/atoms/SendEmailButton/SendEmailButton';
 import InputBar, { InputBarHandle } from '@/components/molecules/InputBar/InputBar';
+import Link from 'next/link';
 
 interface SubscriptionPopupProps {
     onClose: () => void;
@@ -39,7 +40,7 @@ const SubscriptionPopup = (props: SubscriptionPopupProps) => {
             <InputBar ref={formRef} action={'https://api.vasespravy.sk/subscribe/init'} promptText='Zadajte Váš e-mail'/>
             <SendEmailButton text={'Prihlásiť sa na odber'} isDisabled={false} onClick={handleSendEmailButtonClick}/>
             {statusVisible && <OnClickStatus success={subscribeSuccess} />}
-            <p className='text-sans-small'>Zadaním e-mailovej adresy a prihlásením sa na odber prehlasujete že ste dôkladne oboznámení a suhlasíte so <a href='' className={styles.textLink}>Zásadami ochrany osobných údajov</a> a <a href='' className={styles.textLink}>Pravidlami používania cookies</a>.</p>
+            <p className='text-sans-small'>Zadaním e-mailovej adresy a prihlásením sa na odber prehlasujete že ste dôkladne oboznámení a suhlasíte so <Link className={styles.textLink} href={"/pravne/ochrana-osobnych-udajov/"}>Zásadami ochrany osobných údajov</Link> a <Link className={styles.textLink} href={"/pravne/cookies/"}>Pravidlami používania cookies</Link>.</p>
         </div>
     )
 }
