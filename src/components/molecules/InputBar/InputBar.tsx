@@ -4,6 +4,7 @@ import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
 import styles from './InputBar.module.scss';
 import CloseIcon from '@/components/atoms/Icon/Material/CloseIcon';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import { submitMail } from '@/app/api/emailSubscribe';
 
 export type InputBarHandle = {
     submit: () => Promise<{ ok: boolean; status: number; data?: unknown }>;
@@ -21,18 +22,7 @@ const InputBar = forwardRef<InputBarHandle, InputBarProps>(({ action, promptText
 
     useImperativeHandle(ref, () => ({
         submit: async () => {
-            try {
-                const res = await fetch(action, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: inputValue }),
-                });
-                let data: unknown = undefined;
-                try { data = await res.json(); } catch {}
-                return { ok: res.ok, status: res.status, data };
-            } catch {
-                return { ok: false, status: 0 };
-            }
+            return await submitMail(action, inputValue);
         },
     }));
 

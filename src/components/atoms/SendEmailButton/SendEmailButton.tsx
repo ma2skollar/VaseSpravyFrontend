@@ -3,6 +3,7 @@ import styles from './SendEmailButton.module.scss';
 interface SendEmailButtonProps {
     text: string;
     isDisabled: boolean;
+    isDisabledText: string;
     onClick: () => void;
 };
 
@@ -13,7 +14,7 @@ const SendEmailButton = (props: SendEmailButtonProps) => {
             onClick={props.onClick}
             disabled={props.isDisabled}
         >
-            {props.text}
+            {props.isDisabled ? props.isDisabledText : props.text}
         </button>
     );
 }

@@ -1,65 +1,21 @@
-import styles from '@/app/FeedPage.module.scss'
-import EventContainer from '@/components/organisms/EventContainer/EventContainer'
-import NavBar from '@/components/molecules/NavBar/NavBar'
+import ClientHome, { ClientHomeProps } from "@/app/ClientHome";
 
-const Home = () => {
-  return (
-    <>
-      <NavBar canSwitchContent={false} contentPrimaryText={'Najnovšie udalosti'} />
-      <main className={styles.container}>
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-        <EventContainer title="Nice balls BIRB" category='BIRB balls' location='bird nest' imageUrl='https://i.redd.it/1bl2mi5gfevc1.jpeg' altText='Bird with MASSIVE balls' distribution={{
-          liberal: 20,
-          conservative: 45,
-          center: 1005
-        }} description='lorem ipsum dolor sit amet consectetur adipiscing elit' />
-      </main>
-    </>
-  )
+const Page = async (amount: number, startIndex: number) => {
+    const revalidate = 60;
+    const processed = false;
+    // TODO: Replace with amount and startIndex when pagination is implemented
+    const data = await fetch(`https://api.vasespravy.sk/events/all?processed=${processed}&amount=4&startIndex=0`, 
+        {
+            method: 'GET',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${process.env.BEARER_AUTH_TOKEN}`
+            },
+            next: { revalidate: revalidate },
+        }
+    ).then(res => res.json())
+
+    return <ClientHome eventsArray={data} />
 }
 
-export default Home;
+export default Page;

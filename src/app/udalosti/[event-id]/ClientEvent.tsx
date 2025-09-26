@@ -20,43 +20,52 @@ import { closeDistributionDetail } from '@/lib/features/singleArticleSlice'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { useState } from 'react'
 
-const Home = () => {
+const ClientEvent = ({ eventData }: { eventData: any }) => {
   const dispatch = useAppDispatch();
-
-  const eventData = {
-    id: 0,
-    title: "Prezident sa zúčastnil na inauguračnej omši pápeža Leva XIV.",
-    location: "Vatikán",
-    description: "string",
-    category: "Politika",
-    region: "Záhraničie",
-    createdAt: "2025-09-01T08:45:00.786Z",
-    latestUpdate: "2025-09-01T08:45:00.786Z",
-    firstPublication: "2025-09-01T08:45:00.786Z",
-    politicalBias: 0,
-    economicBias: 0,
-    summaryLiberal: {},
-    summaryConservative: {},
-    summaryCenter: {},
-    views: 0
-  }
 
   const [filterVisible, setFilterVisible] = useState(false);
 
   const distributionDetailVisible = useAppSelector(state => state.singleArticleReducer).isDistributionDetailOpen;
 
+  // TODO: Calculate time and units for "publishedAgo", "publishedUnit", "updatedAgo", "updatedUnit"
+  const calculateTime = ({
+    latestUpdateISOString,
+    firstPublicationISOString
+  }: {
+    latestUpdateISOString: string,
+    firstPublicationISOString: string
+  }) => {
+    const latestUpdate = new Date(latestUpdateISOString);
+    const firstPublication = new Date(firstPublicationISOString);
+    const now = new Date();
+
+    return {
+      published: {
+        ago: 0,
+        unit: 'unit'
+      },
+      updated: {
+        ago: 0,
+        unit: 'unit'
+      }
+    }
+  }
+
+  // "latestUpdate": "2025-09-26T15:35:34.273Z",
+  // "firstPublication": "2025-09-26T15:35:34.273Z",
+
   return (
     <main className={styles.container}>
-      {distributionDetailVisible && <OverlayContainer isNavBackdrop={false} onClose={() => {dispatch(closeDistributionDetail())}}>
+      {/* {distributionDetailVisible && <OverlayContainer isNavBackdrop={false} onClose={() => {dispatch(closeDistributionDetail())}}>
         <DistributionDetailPopup description={''} articleIndicators={[
           { id: 1, backgroundImageLink: './dennik-n_circle-icon.png', economicBias: -0.2, politicalBias: 0.8 },
           { id: 2, backgroundImageLink: './hn_circle-icon.png', economicBias: 0.4, politicalBias: -0.6 },
           { id: 3, backgroundImageLink: './sme_circle-icon.png', economicBias: 0.6, politicalBias: -0.4 },
           { id: 4, backgroundImageLink: './sme_circle-icon.png', economicBias: -0.8, politicalBias: 0.2 },
         ]} onClose={() => {dispatch(closeDistributionDetail())}} />
-      </OverlayContainer>}
+      </OverlayContainer>} */}
       <EventTitle title={eventData.title} category={eventData.category} location={eventData.location} onClick={() => alert('Shared event!')} publishedAgo={18} publishedUnit={'hodinami'} updatedAgo={24} updatedUnit={'minútami'} />
-      <ImageContainer imageUrl={'https://m.smedata.sk/api-media/media/image/sme/1/90/9095791/9095791_1200x.jpg?rev=4'} altText={'Pellé a papa spolu dohadujú program po ukončení oficiálneho programu.'} imageLabel={'Pellé a papa spolu dohadujú program po ukončení oficiálneho programu.'} />
+      <ImageContainer imageUrl={eventData.imageUrls[0]} altText={''} imageLabel={''} />
       <article className={styles.summary}>
         <ul>
           <li className='text-sans-large'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</li>
@@ -70,9 +79,9 @@ const Home = () => {
       {/* TODO: Make sticky */}
       <LineSeparator inNavMenu={false} isColored={false} />
       <CoverageDetailContainer eventName={eventData.title} distribution={{
-        liberal: 17,
-        conservative: 12,
-        center: 21
+        liberal: eventData.liberalCount,
+        conservative: eventData.conservativeCount,
+        center: eventData.centerCount
       }} publishedAgo={18} publishedUnit={'hodinami'} updatedAgo={24} updatedUnit={'minútami'} />
       <LineSeparator inNavMenu={false} isColored={false} />
       <div className={styles.sourceListContainer}>
@@ -104,4 +113,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default ClientEvent;
