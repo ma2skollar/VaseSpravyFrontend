@@ -1,21 +1,24 @@
-import ClientHome, { ClientHomeProps } from "@/app/ClientHome";
+import ClientHome from "@/app/ClientHome";
+import { PAGE_SIZE, revalidate } from "./api/events/route";
 
-const Page = async (amount: number, startIndex: number) => {
-    const revalidate = 60;
-    const processed = false;
-    // TODO: Replace with amount and startIndex when pagination is implemented
-    const data = await fetch(`https://api.vasespravy.sk/events/all?processed=${processed}&amount=4&startIndex=0`, 
-        {
-            method: 'GET',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.BEARER_AUTH_TOKEN}`
-            },
-            next: { revalidate: revalidate },
-        }
-    ).then(res => res.json())
+export default async function Page() {
+	const processed = false;
 
-    return <ClientHome eventsArray={data} />
+	const data = await fetch(
+		`https://api.vasespravy.sk/events/all?processed=${processed}&amount=${PAGE_SIZE}&startIndex=0`,
+		{
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${process.env.BEARER_AUTH_TOKEN}`,
+			},
+			next: { revalidate: revalidate },
+		}
+	).then(async (res) => {
+		if (res.status === 404) return [];
+		if (!res.ok) throw new Error(`Upstream error: ${res.status}`);
+		return res.json();
+	});
+
+	return <ClientHome eventsArray={data} pageSize={PAGE_SIZE} processed={processed} />;
 }
-
-export default Page;
