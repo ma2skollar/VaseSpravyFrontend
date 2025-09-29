@@ -79,8 +79,8 @@ const ClientEvent = (props: ClientEventProps) => {
 					...newArticles.filter((a) => !seenArticleIds.has(a.id)),
 				]);
 			}
-		} catch (e: any) {
-			setError(e?.message ?? "Unknown error");
+		} catch (e: unknown) {
+			setError((e as Error)?.message ?? "Unknown error");
 		} finally {
 			setIsLoading(false);
 		}

@@ -59,8 +59,8 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 					...newEvents.filter((e) => !seenIds.has(e.id)),
 				]);
 			}
-		} catch (e: any) {
-			setError(e?.message ?? "Unknown error");
+		} catch (e: unknown) {
+			setError((e as Error)?.message ?? "Unknown error");
 		} finally {
 			setIsLoading(false);
 		}
