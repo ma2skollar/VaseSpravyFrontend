@@ -1,11 +1,11 @@
+import { EVENT_PAGE_SIZE } from "@/app/page";
 import { NextRequest, NextResponse } from "next/server";
 
 export const revalidate = 60;
-export const PAGE_SIZE = 8;
 
 export async function GET(req: NextRequest) {
     const url = new URL(req.url);
-    const amount = url.searchParams.get("amount") ?? String(PAGE_SIZE);
+    const amount = url.searchParams.get("amount") ?? String(EVENT_PAGE_SIZE);
     const startIndex = url.searchParams.get("startIndex") ?? "0";
     const processed = url.searchParams.get("processed") ?? "false";
 

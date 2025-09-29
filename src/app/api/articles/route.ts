@@ -1,7 +1,7 @@
+import { ARTICLE_PAGE_SIZE } from "@/app/udalosti/[event-id]/page";
 import { NextRequest, NextResponse } from "next/server";
 
 export const revalidate = 60;
-export const PAGE_SIZE = 8;
 
 export async function GET(req: NextRequest) {
     const url = new URL(req.url);
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
             { status: 400 }
         );
     }
-    const amount = url.searchParams.get("amount") ?? String(PAGE_SIZE);
+    const amount = url.searchParams.get("amount") ?? String(ARTICLE_PAGE_SIZE);
     const startIndex = url.searchParams.get("startIndex") ?? "0";
     const processed = url.searchParams.get("processed") ?? "false";
 

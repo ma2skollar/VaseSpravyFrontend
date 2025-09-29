@@ -1,11 +1,13 @@
 import ClientHome from "@/app/ClientHome";
-import { PAGE_SIZE, revalidate } from "./api/events/route";
+import { revalidate } from "./api/events/route";
+
+export const EVENT_PAGE_SIZE = 8;
 
 export default async function Page() {
 	const processed = false;
 
 	const data = await fetch(
-		`https://api.vasespravy.sk/events/all?processed=${processed}&amount=${PAGE_SIZE}&startIndex=0`,
+		`https://api.vasespravy.sk/events/all?processed=${processed}&amount=${EVENT_PAGE_SIZE}&startIndex=0`,
 		{
 			method: "GET",
 			headers: {
@@ -20,5 +22,5 @@ export default async function Page() {
 		return res.json();
 	});
 
-	return <ClientHome eventsArray={data} pageSize={PAGE_SIZE} processed={processed} />;
+	return <ClientHome eventsArray={data} pageSize={EVENT_PAGE_SIZE} processed={processed} />;
 }

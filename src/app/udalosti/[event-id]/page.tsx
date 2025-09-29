@@ -1,10 +1,12 @@
 import ClientEvent from './ClientEvent';
 import { notFound } from 'next/navigation';
-import { PAGE_SIZE, revalidate } from '@/app/api/articles/route';
+import {  revalidate } from '@/app/api/articles/route';
 
 interface EventPageProps {
 	params: { 'event-id': string }
 }
+
+export const ARTICLE_PAGE_SIZE = 8;
 
 const fetchEventData = async (eventId: string) => {
 	const res = await fetch(`https://api.vasespravy.sk/events/${eventId}`,{
@@ -23,7 +25,7 @@ const fetchEventArticles = async (eventId: string) => {
 	const processed = false;
 	// TODO: switch to true for production
 
-	const res = await fetch(`https://api.vasespravy.sk/events/${eventId}/articles/all?processed=${processed}&amount=${PAGE_SIZE}&startIndex=0`,{
+	const res = await fetch(`https://api.vasespravy.sk/events/${eventId}/articles/all?processed=${processed}&amount=${ARTICLE_PAGE_SIZE}&startIndex=0`,{
 			method: 'GET',
 			headers: { 
 				'Content-Type': 'application/json',
