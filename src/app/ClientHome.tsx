@@ -1,41 +1,20 @@
 "use client";
 
 import styles from "@/app/FeedPage.module.scss";
-import EventContainer, { EventCategory, EventRegion } from "@/components/organisms/EventContainer/EventContainer";
+import EventContainer from "@/components/organisms/EventContainer/EventContainer";
 import NavBar from "@/components/molecules/NavBar/NavBar";
 import LineSeparator from "@/components/atoms/LineSeparator/LineSeparator";
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Event } from "@/types/event";
 
-export interface EventItem {
-	id: number;
-	title: string;
-	location: string;
-	description: string;
-	imageUrls: string[];
-	category: EventCategory;
-	region: EventRegion;
-	createdAt: string;
-	latestUpdate: string;
-	firstPublication: string;
-	liberalCount: number;
-	conservativeCount: number;
-	centerCount: number;
-	summaryLiberal: string | null;
-	summaryConservative: string | null;
-	summaryCenter: string | null;
-	processed: boolean;
-	processedArticleCount: number;
-	totalArticleCount: number;
-}
-
-export interface ClientHomeProps {
-	eventsArray: EventItem[];
+interface ClientHomeProps {
+	eventsArray: Event[];
 	pageSize: number;
 	processed: boolean;
 }
 
 const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
-	const [events, setEvents] = useState<EventItem[]>(eventsArray);
+	const [events, setEvents] = useState<Event[]>(eventsArray);
 	const [isLoading, setIsLoading] = useState(false);
 	const [hasMore, setHasMore] = useState(true);
 	const [error, setError] = useState<string | null>(null);
@@ -70,7 +49,7 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 				throw new Error(`Fetch failed: ${res.status}`);
 			}
 
-			const { events: newEvents } = (await res.json()) as { events: EventItem[] };
+			const { events: newEvents } = (await res.json()) as { events: Event[] };
 
 			if (!newEvents || newEvents.length === 0) {
 				setHasMore(false);
@@ -139,7 +118,7 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 						<LineSeparator inNavMenu={false} isColored={false} />
 						<div className={styles.error}>
 							<p className="label-sans-heavy">
-								Nepodarilo sa nám načítať články
+								Nepodarilo sa nám načítať udalosti.
 							</p>
 							<button onClick={loadMore}>
 								<p className="label-sans-heavy">Skúsiť znova</p>

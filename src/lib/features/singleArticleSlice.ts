@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { SummarySwitchKey } from "@/types/singleArticle";
+import { SummarySwitchKey } from "@/types/summarySwitchType";
 
 const initialState = {
     isUpdating: false,

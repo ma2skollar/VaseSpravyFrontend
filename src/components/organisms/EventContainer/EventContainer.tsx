@@ -1,20 +1,7 @@
 import EventImageContainer from '@/components/molecules/EventImageContainer/EventImageContainer';
 import styles from './EventContainer.module.scss';
 import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem';
-
-export enum EventCategory {
-    zahranicna_politika = "zahranicna_politika",
-    domaca_politika = "domaca_politika",
-    ekonomika = "ekonomika",
-    kultura = "kultura",
-    sport = "sport",
-}
-
-export enum EventRegion {
-    zapadne_slovensko = "zapadne_slovensko",
-    stredne_slovensko = "stredne_slovensko",
-    vychodne_slovensko = "vychodne_slovensko",
-}
+import { EventCategory } from '@/types/event';
 
 interface EventContainerProps {
     title: string;

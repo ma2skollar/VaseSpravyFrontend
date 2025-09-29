@@ -1,39 +1,39 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  padding: var(--padding-lg);
-  gap: var(--gap-md);
-  position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: var(--padding-lg);
+	gap: var(--gap-md);
+	position: relative;
 
-  .error {
-    color: var(--indicator-color-negative);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--padding-lg);
-    gap: var(--gap-lg);
+	.error {
+		color: var(--indicator-color-negative);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: var(--padding-lg);
+		gap: var(--gap-lg);
 
-    button {
-      color: var(--background-color);
-      padding: var(--padding-md) var(--padding-lg);
-      cursor: pointer;
-      background-color: var(--secondary-color-salmon);
-    }
-  }
+		button {
+			color: var(--background-color);
+			padding: var(--padding-md) var(--padding-lg);
+			cursor: pointer;
+			background-color: var(--secondary-color-salmon);
+		}
+	}
 
-  .end {
-    padding: var(--padding-lg);
-    color: var(--text-color-50);
-  }
+	.end {
+		padding: var(--padding-lg);
+		color: var(--text-color-50);
+	}
 
-  .sentinel {
-    padding: var(--padding-lg);
-    color: var(--text-color-50);
-  }
+	.sentinel {
+		padding: var(--padding-lg);
+		color: var(--text-color-50);
+	}
 }
