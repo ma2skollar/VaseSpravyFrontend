@@ -1,7 +1,7 @@
 import ClientSearch from './ClientSearch';
 
 interface SearchPageProps {
-    searchParams: { q: string }
+    searchParams: Promise<{ q?: string }>;
 }
 
 const fetchSearchEvents = async (query: string) => {
@@ -21,11 +21,10 @@ const fetchSearchEvents = async (query: string) => {
 }
 
 const SearchPage = async (props: SearchPageProps) => {
-    const queryPreload = await props.searchParams;
-    const query = await queryPreload.q;
-    const data = await fetchSearchEvents(query);
-    if (data) return <ClientSearch events={data} searchQuery={query} />;
-    else return <ClientSearch noResults={true} searchQuery={query} />;
+    const { q = '' } = await props.searchParams;
+    const data = await fetchSearchEvents(q);
+    if (data) return <ClientSearch events={data} searchQuery={q} />;
+    else return <ClientSearch noResults searchQuery={q} />;
 }
 
 export default SearchPage;
