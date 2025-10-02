@@ -1,6 +1,6 @@
-// TODO: Page explaining how the service works in detail
+// TODO: privacy policy page
 
-const HowItWorksPage = () => {
+const PrivacyPolicyPage = () => {
     return (
         <div>
             <h1>Ako to funguje</h1>
@@ -9,4 +9,4 @@ const HowItWorksPage = () => {
     );
 }
 
-export default HowItWorksPage;
+export default PrivacyPolicyPage;
