@@ -1,6 +1,6 @@
 import ClientEvent from './ClientEvent';
 import { notFound } from 'next/navigation';
-import {  revalidate } from '@/app/api/articles/route';
+import { revalidate } from '@/app/api/articles/route';
 
 interface EventPageProps {
 	params: { 'event-id': string }
@@ -10,13 +10,13 @@ export const ARTICLE_PAGE_SIZE = 8;
 
 const fetchEventData = async (eventId: string) => {
 	const res = await fetch(`https://api.vasespravy.sk/events/${eventId}`,{
-			method: 'GET',
-			headers: { 
-				'Content-Type': 'application/json',
-				'Authorization': `Bearer ${process.env.BEARER_AUTH_TOKEN}`
-			},
-			next: { revalidate: 60 },
-		});
+		method: 'GET',
+		headers: { 
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${process.env.BEARER_AUTH_TOKEN}`
+		},
+		next: { revalidate: 60 },
+	});
 	if (!res.ok) return null;
 	return res.json();
 }

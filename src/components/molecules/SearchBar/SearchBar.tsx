@@ -7,12 +7,17 @@ import SearchIcon from '@/components/atoms/Icon/Material/SearchIcon';
 import { useRef, useState } from 'react';
 
 interface SearchBarProps {
-    action: string;
+    action?: string;
     promptText?: string;
+    value?: string;
 }
 
-const SearchBar = ({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }: SearchBarProps) => {
-    const [inputValue, setInputValue] = useState('');
+const SearchBar = ({ 
+    value = '',
+    action = '/udalosti/vyhladavanie', 
+    promptText = 'Hľadaj udalosť alebo kategóriu', 
+}: SearchBarProps) => {
+    const [inputValue, setInputValue] = useState(value);
     const [isFocused, setIsFocused] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -26,11 +31,11 @@ const SearchBar = ({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }:
     return (
         <form className={styles.container} role="search" method="get" action={action}>
             <div className={styles.content}>
-                {(isFocused || inputValue) && <label htmlFor="input" className="label-sans-light">{promptText}</label>}
+                {(isFocused || inputValue) && <label htmlFor="q" className="label-sans-light">{promptText}</label>}
                 <input ref={inputRef}
                     type="text"
-                    name="input"
-                    id="input"
+                    name="q"
+                    id="q"
                     className="input-sans-regular"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
@@ -72,39 +77,3 @@ const SearchBar = ({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }:
 }
 
 export default SearchBar;
-
-/**<span className={styles.icons}>
-    {showClearButton ?
-        <>
-            <ClickBox
-                icon={CloseIcon}
-                iconSize={IconSize.Regular}
-                onClick={handleClearSearch}
-            />
-            <div></div>
-            <button type='submit'>
-                <ClickBox
-                    icon={SearchIcon}
-                    iconSize={IconSize.Regular}
-                />
-            </button>
-        </> :
-—————- done until here ————
-        <button onClick={(e) => {
-                        e.preventDefault();
-                        inputRef.current?.focus();
-                    }}>
-                    <ClickBox icon={SearchIcon} iconSize={IconSize.Regular} />
-                </button>}
-</span> */
-
-// Fetch data from your backend (can be REST or GraphQL)
-// const results = await fetch(`https://api.example.com/search?q=${encodeURIComponent(query)}`).then(res => res.json());
-
-// Recommended Implementation
-// 1. Form submits with GET to /search page
-
-// You let the browser do the navigation with query params like /search?query=concert.
-// 2. The /search page (or API) then fetches the real data
-
-// This is where your backend comes in — you call it from a Next.js server component or getServerSideProps.
