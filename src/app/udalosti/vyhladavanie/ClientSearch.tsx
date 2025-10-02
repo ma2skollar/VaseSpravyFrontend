@@ -6,7 +6,7 @@ import SearchBar from '@/components/molecules/SearchBar/SearchBar';
 import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem';
 import { Event } from '@/types/event'
 import { getTimeDiff } from '@/util/getTimeDiff';
-import { Fragment, use } from 'react';
+import { Fragment } from 'react';
 
 interface ClientSearchProps {
     searchQuery: string;
@@ -23,7 +23,7 @@ const ClientSearch = (props: ClientSearchProps) => {
             <div className={styles.searchInfo}>
                 <h2 className='title-sans-regular'>Všetky výsledky vyhľadávania</h2>
                 <h3 className='subtitle-sans-regular'>
-                    <span style={{ fontWeight: '600' }}>{resultsCount}</span> {resultSpelling} pre "{props.searchQuery}"
+                    <span style={{ fontWeight: '600' }}>{resultsCount}</span> {resultSpelling} pre {`"${props.searchQuery}"`}
                 </h3>
             </div>
             {props.noResults ? 
