@@ -1,6 +1,6 @@
 'use client'
 
-import styles from '@/app/SearchPage.module.scss'
+import styles from './SearchPage.module.scss'
 import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator';
 import SearchBar from '@/components/molecules/SearchBar/SearchBar';
 import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem';

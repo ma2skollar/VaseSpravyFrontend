@@ -1,6 +1,6 @@
 'use client'
 
-import styles from '@/app/EventPage.module.scss'
+import styles from './EventPage.module.scss'
 import { BiasMarkerType } from '@/components/atoms/BiasMarker/BiasMarker'
 import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox'
 import SmeCustomIcon from '@/components/atoms/Icon/Custom/SmeCustomIcon'

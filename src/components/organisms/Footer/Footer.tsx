@@ -26,11 +26,11 @@ const Footer = () => {
                 <ClickBox icon={LinkedInIcon} href={"https://www.linkedin.com/company/vase-spravy-oz"} iconSize={IconSize.Regular}/>
             </div>
             <div className={styles.footerTextLinks}>
-                <Link className="link-text-sans-small" href={"/o-nas/"}>O nás</Link>
-                <Link className="link-text-sans-small" href={"/kontakt/"}>Kontaktujte nás</Link>
+                <Link className="link-text-sans-small" href={"/o-nas/#"}>O nás</Link>
+                <Link className="link-text-sans-small" href={"/o-nas/#kontakt"}>Kontaktujte nás</Link>
                 <Link className="link-text-sans-small" href={"/ako-to-funguje/"}>Ako to funguje</Link>
                 <Link className="link-text-sans-small" href={"/pravne/cookies/"}>Cookies</Link>
-                <Link className="link-text-sans-small" href={"/pomozte-nam/"}>Pomôžte nám</Link>
+                <Link className="link-text-sans-small" href={"/o-nas/#podpora"}>Pomôžte nám</Link>
                 <Link className="link-text-sans-small" href={"/pravne/ochrana-osobnych-udajov/"}>Zásady ochrany osobných údajov</Link>
                 <Link className="link-text-sans-small" href={"/sitemap.xml"}>Mapa stránky</Link>
             </div>

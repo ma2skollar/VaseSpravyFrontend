@@ -7,25 +7,22 @@
 
 ## ToDo
 
-- fix header disappear on modal
 - import all sources icons
 - populate all static pages
-- set up fetching of dynamic pages
 - animations using motion package
 
 static pages links:
 
-- /
-- /ako-to-funguje/
-- /pomozte-nam/
 - /kategorie/politika/domaca/
 - /kategorie/politika/zahranicna/
 - /regiony/zapadne/
 - /regiony/stredne/
 - /regiony/vychodne/
-- /o-nas/
-- /kontakt/
 - /pravne/ochrana-osobnych-udajov/
 - /pravne/cookies/
 - /pomoc/
 - /pomoc/#faq
+
+- share button is not working
+- on the single event page, make the search filters disabled (the filters for articles)
+- make the navbar small when the threshold is reached, and not based on scroll
