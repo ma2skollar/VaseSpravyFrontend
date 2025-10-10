@@ -9,6 +9,7 @@ import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator';
 // import { useState } from 'react';
 import { useAppSelector } from '@/lib/hooks';
 import { LogoSize } from '@/components/atoms/MainLogo/MainLogo';
+import { GLOBAL_LINKS } from '@/util/globalLinks';
 
 const NavMenu = () => {
     const headerHeight = useAppSelector(state => state.headerReducer).headerSize === LogoSize.Large ? 149 : 61;
@@ -36,13 +37,13 @@ const NavMenu = () => {
                 </div>
                 <ul className={styles.itemGroup}>
                     <li>
-                        <NavMenuItem linkText={"Domov"} iconVisible={true} href='/' />
+                        <NavMenuItem linkText={"Domov"} iconVisible={true} href={GLOBAL_LINKS.HOME} />
                     </li>
                     <li>
-                        <NavMenuItem linkText={"Ako to funguje?"} href='/ako-to-funguje/' />
+                        <NavMenuItem linkText={"Ako to funguje?"} href={GLOBAL_LINKS.HOW_IT_WORKS} />
                     </li>
                     <li>
-                        <NavMenuItem linkText={"Pomôžte nám"} href='/pomozte-nam/' />
+                        <NavMenuItem linkText={"Pomôžte nám"} href={GLOBAL_LINKS.SUPPORT} />
                     </li>
                 </ul>
                 <LineSeparator inNavMenu={true} isColored={false} />
@@ -79,10 +80,10 @@ const NavMenu = () => {
                 <LineSeparator inNavMenu={true} isColored={false} /> */}
                 <ul>
                     <li>
-                        <NavMenuItem linkText={"O nás"} href='/o-nas/' />
+                        <NavMenuItem linkText={"O nás"} href={GLOBAL_LINKS.ABOUT} />
                     </li>
                     <li>
-                        <NavMenuItem linkText={"Kontaktujte nás"} href='/kontakt/' />
+                        <NavMenuItem linkText={"Kontaktujte nás"} href={GLOBAL_LINKS.CONTACT} />
                     </li>
                 </ul>
                 <LineSeparator inNavMenu={true} isColored={true} />

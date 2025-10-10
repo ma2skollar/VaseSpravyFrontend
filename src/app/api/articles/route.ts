@@ -1,4 +1,5 @@
 import { ARTICLE_PAGE_SIZE } from "@/app/udalosti/[event-id]/page";
+import { GLOBAL_PROCESSED_EVENTS } from "@/util/globalEventsBool";
 import { NextRequest, NextResponse } from "next/server";
 
 export const revalidate = 60;
@@ -14,7 +15,7 @@ export async function GET(req: NextRequest) {
     }
     const amount = url.searchParams.get("amount") ?? String(ARTICLE_PAGE_SIZE);
     const startIndex = url.searchParams.get("startIndex") ?? "0";
-    const processed = url.searchParams.get("processed") ?? "false";
+    const processed = url.searchParams.get("processed") ?? GLOBAL_PROCESSED_EVENTS;
 
     const upstream = await fetch(
         `https://api.vasespravy.sk/events/${eventId}/articles/all?processed=${processed}&amount=${amount}&startIndex=${startIndex}`,

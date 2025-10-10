@@ -1,0 +1,16 @@
+export const GLOBAL_LINKS = {
+    UNSUBSCRIBE: "/pravne/odhlasit-odber/",
+    SUPPORT_US: "/o-nas/#podpora",
+    FAQ: "/pomoc/#faq",
+    FACEBOOK: "https://www.facebook.com/vasespravy",
+    INSTAGRAM: "https://www.instagram.com/vasespravyoz/",
+    LINKEDIN: "https://www.linkedin.com/company/vase-spravy-oz",
+    ABOUT: "/o-nas/#",
+    CONTACT: "/o-nas/#kontakt",
+    HOW_IT_WORKS: "/ako-to-funguje/",
+    COOKIES: "/pravne/cookies/",
+    SUPPORT: "/pomoc/",
+    PRIVACY_POLICY: "/pravne/osobne-udaje/",
+    SITEMAP: "/sitemap.xml",
+    HOME: "/",
+}

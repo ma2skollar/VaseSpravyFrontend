@@ -18,13 +18,13 @@
 		justify-content: center;
 		padding: var(--padding-lg);
 		gap: var(--gap-lg);
+	}
 
-		button {
-			color: var(--background-color);
-			padding: var(--padding-md) var(--padding-lg);
-			cursor: pointer;
-			background-color: var(--secondary-color-salmon);
-		}
+	.button {
+		color: var(--background-color);
+		padding: var(--padding-md) var(--padding-lg);
+		cursor: pointer;
+		background-color: var(--secondary-color-salmon);
 	}
 
 	.end {
@@ -33,7 +33,12 @@
 	}
 
 	.sentinel {
-		padding: var(--padding-lg);
+		// padding: 0 var(--padding-lg);
 		color: var(--text-color-50);
+	}
+
+	.sentinelText {
+		padding: var(--padding-md) var(--padding-lg);
+		margin-top: var(--gap-md);
 	}
 }

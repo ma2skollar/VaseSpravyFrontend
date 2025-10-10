@@ -9,30 +9,43 @@ import InstagramIcon from "@/components/atoms/Icon/Social/InstagramIcon";
 import LinkedInIcon from "@/components/atoms/Icon/Social/LinkedInIcon";
 import NavMenuItem from "@/components/molecules/NavMenuItem/NavMenuItem";
 import Link from "next/link";
+import { GLOBAL_LINKS } from "@/util/globalLinks";
 
 const Footer = () => {
     return (
         <footer className={styles.footer}>
             <LineSeparator inNavMenu={false} isColored={true} />
-            <NavMenuItem linkText={<MainLogo size={LogoSize.Small} />} href="/" />
-            <NavMenuItem linkText="Odhlásiť sa z odberu" onClick={() => {}} />
+            <NavMenuItem linkText={<MainLogo size={LogoSize.Small} />} href={GLOBAL_LINKS.HOME} />
+            <NavMenuItem linkText="Odhlásiť sa z odberu" href={GLOBAL_LINKS.UNSUBSCRIBE} />
             <LineSeparator inNavMenu={false} isColored={false} />
-            <NavMenuItem linkText="Pomoc" href="/pomoc/" />
+            <NavMenuItem linkText="Pomôžte nám" href={GLOBAL_LINKS.SUPPORT} />
             <LineSeparator inNavMenu={false} isColored={false} />
-            <NavMenuItem linkText="Časté otázky" href="/pomoc/#faq" />
+            <NavMenuItem linkText="Časté otázky" href={GLOBAL_LINKS.FAQ} />
             <div className={styles.socialContainer}>
-                <ClickBox icon={FacebookIcon} href={"https://www.facebook.com/vasespravy"} iconSize={IconSize.Regular}/>
-                <ClickBox icon={InstagramIcon} href={"https://www.instagram.com/vasespravyoz/"} iconSize={IconSize.Regular}/>
-                <ClickBox icon={LinkedInIcon} href={"https://www.linkedin.com/company/vase-spravy-oz"} iconSize={IconSize.Regular}/>
+                <ClickBox 
+                    icon={FacebookIcon} 
+                    href={GLOBAL_LINKS.FACEBOOK} 
+                    iconSize={IconSize.Regular}
+                />
+                <ClickBox 
+                    icon={InstagramIcon} 
+                    href={GLOBAL_LINKS.INSTAGRAM} 
+                    iconSize={IconSize.Regular}
+                />
+                <ClickBox 
+                    icon={LinkedInIcon} 
+                    href={GLOBAL_LINKS.LINKEDIN} 
+                    iconSize={IconSize.Regular}
+                />
             </div>
             <div className={styles.footerTextLinks}>
-                <Link className="link-text-sans-small" href={"/o-nas/#"}>O nás</Link>
-                <Link className="link-text-sans-small" href={"/o-nas/#kontakt"}>Kontaktujte nás</Link>
-                <Link className="link-text-sans-small" href={"/ako-to-funguje/"}>Ako to funguje</Link>
-                <Link className="link-text-sans-small" href={"/pravne/cookies/"}>Cookies</Link>
-                <Link className="link-text-sans-small" href={"/o-nas/#podpora"}>Pomôžte nám</Link>
-                <Link className="link-text-sans-small" href={"/pravne/ochrana-osobnych-udajov/"}>Zásady ochrany osobných údajov</Link>
-                <Link className="link-text-sans-small" href={"/sitemap.xml"}>Mapa stránky</Link>
+                <Link className="link-text-sans-small" href={GLOBAL_LINKS.ABOUT}>O nás</Link>
+                <Link className="link-text-sans-small" href={GLOBAL_LINKS.CONTACT}>Kontaktujte nás</Link>
+                <Link className="link-text-sans-small" href={GLOBAL_LINKS.HOW_IT_WORKS}>Ako to funguje?</Link>
+                <Link className="link-text-sans-small" href={GLOBAL_LINKS.COOKIES}>Cookies</Link>
+                <Link className="link-text-sans-small" href={GLOBAL_LINKS.SUPPORT}>Podpora</Link>
+                <Link className="link-text-sans-small" href={GLOBAL_LINKS.PRIVACY_POLICY}>Zásady ochrany osobných údajov</Link>
+                <Link className="link-text-sans-small" href={GLOBAL_LINKS.SITEMAP}>Mapa stránky</Link>
             </div>
             <div className={styles.bottomText}>
                 <p className="text-sans-small">©2025 Vaše Správy o. z.</p>

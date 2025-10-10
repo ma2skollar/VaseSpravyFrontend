@@ -1,6 +1,7 @@
 import ClientEvent from './ClientEvent';
 import { notFound } from 'next/navigation';
 import { revalidate } from '@/app/api/articles/route';
+import { GLOBAL_PROCESSED_EVENTS } from '@/util/globalEventsBool';
 
 interface EventPageProps {
 	params: { 'event-id': string }
@@ -22,10 +23,7 @@ const fetchEventData = async (eventId: string) => {
 }
 
 const fetchEventArticles = async (eventId: string) => {
-	const processed = false;
-	// TODO: switch to true for production
-
-	const res = await fetch(`https://api.vasespravy.sk/events/${eventId}/articles/all?processed=${processed}&amount=${ARTICLE_PAGE_SIZE}&startIndex=0`,{
+	const res = await fetch(`https://api.vasespravy.sk/events/${eventId}/articles/all?processed=${GLOBAL_PROCESSED_EVENTS}&amount=${ARTICLE_PAGE_SIZE}&startIndex=0`,{
 			method: 'GET',
 			headers: { 
 				'Content-Type': 'application/json',
@@ -42,9 +40,11 @@ const EventPage = async (props: EventPageProps) => {
 	const { 'event-id': eventId } = await props.params;
 	const data = await fetchEventData(eventId);
 	const articlesArray = await fetchEventArticles(eventId);
-	// TODO: uncomment and replace for production
-	// if (!data || !data.processed) return notFound();
-	if (!data) return notFound();
+	if (GLOBAL_PROCESSED_EVENTS) {
+		if (!data || !data.processed) return notFound()
+	} else {
+		if (!data) return notFound()
+	}
 	return <ClientEvent eventData={data} eventArticles={articlesArray} />;
 }
 

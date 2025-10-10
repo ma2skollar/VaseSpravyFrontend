@@ -19,6 +19,7 @@ import { Event } from '@/types/event'
 import { Article } from '@/types/article'
 import { useAppSelector } from '@/lib/hooks'
 import { getTimeDiff } from '@/util/getTimeDiff'
+import { GLOBAL_PROCESSED_EVENTS } from '@/util/globalEventsBool'
 
 interface ClientEventProps {
 	eventData: Event;
@@ -52,7 +53,7 @@ const ClientEvent = (props: ClientEventProps) => {
 				eventId: props.eventData.id,
 				amount: String(8),
 				startIndex: String(startIndex),
-				processed: String(false),
+				processed: String(GLOBAL_PROCESSED_EVENTS),
 			});
 
 			const res = await fetch(`/api/articles?${params.toString()}`, {
