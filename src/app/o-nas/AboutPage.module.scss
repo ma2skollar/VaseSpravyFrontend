@@ -18,6 +18,30 @@
         gap: var(--gap-sm);
         align-self: stretch;
 
+        .stats {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--gap-md);
+
+            .statBox {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                span {
+                    font-size: 6rem !important;
+                    font-weight: 500;
+                    color: var(--text-color);
+                }
+
+                & > p {
+                    color: var(--text-color-50);
+                }
+            }
+        }
+
         .styledBox {
             background-color: var(--highlight-color-inverse);
             display: flex;

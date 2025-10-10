@@ -43,7 +43,7 @@ const NavMenu = () => {
                         <NavMenuItem linkText={"Ako to funguje?"} href={GLOBAL_LINKS.HOW_IT_WORKS} />
                     </li>
                     <li>
-                        <NavMenuItem linkText={"Pomôžte nám"} href={GLOBAL_LINKS.SUPPORT} />
+                        <NavMenuItem linkText={"Pomôžte nám"} href={GLOBAL_LINKS.SUPPORT_US} />
                     </li>
                 </ul>
                 <LineSeparator inNavMenu={true} isColored={false} />
