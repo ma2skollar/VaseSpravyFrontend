@@ -4,7 +4,7 @@ import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox';
 import styles from './InputBar.module.scss';
 import CloseIcon from '@/components/atoms/Icon/Material/CloseIcon';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
-import { submitMail } from '@/app/api/emailSubscribe';
+import submitMail from '@/app/api/emailSubscribe';
 
 export type InputBarHandle = {
     submit: () => Promise<{ ok: boolean; status: number; data?: unknown }>;
@@ -15,7 +15,7 @@ interface InputBarProps {
     promptText?: string;
 }
 
-const InputBar = forwardRef<InputBarHandle, InputBarProps>(({ action, promptText = 'Hľadaj udalosť alebo kategóriu' }, ref) => {
+const InputBar = forwardRef<InputBarHandle, InputBarProps>(({ action, promptText = 'Zadajte Váš e-mail' }, ref) => {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -46,7 +46,9 @@ const InputBar = forwardRef<InputBarHandle, InputBarProps>(({ action, promptText
                     onChange={(e) => setInputValue(e.target.value)}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
-                    placeholder={isFocused ? '' : promptText}/>
+                    placeholder={isFocused ? '' : promptText}
+                    autoComplete="email"
+                />
             </div>
             <span className={styles.icons}>
                 {showClearButton && <>

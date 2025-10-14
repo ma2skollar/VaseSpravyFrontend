@@ -1,6 +1,6 @@
 "use server"
 
-export async function submitMail(action: string, inputValue: string) {
+const submitMail = async (action: string, inputValue: string) => {
 	try {
 		const res = await fetch(action, {
 			method: "POST",

@@ -41,7 +41,6 @@ const SubscriptionPopup = (props: SubscriptionPopupProps) => {
     }, []);
 
     return(
-        // TODO: change text to make it clear its not a newsletter so far, only collecting emails for future updates
         <div className={styles.container}>
             <ClickBox 
                 icon={CloseIcon} 
@@ -52,7 +51,7 @@ const SubscriptionPopup = (props: SubscriptionPopupProps) => {
             <p className='text-sans-small'>Pomocou svojej e-mailovej adresy sa prihlásite na odber.</p>
             <InputBar 
                 ref={formRef} 
-                action={'https://api.vasespravy.sk/mail/subscribe'} promptText='Zadajte Váš e-mail'
+                action={'https://api.vasespravy.sk/mail/subscribe'}
             />
             <SendEmailButton 
                 text={'Prihlásiť sa na odber'} 
@@ -63,15 +62,6 @@ const SubscriptionPopup = (props: SubscriptionPopupProps) => {
             {statusVisible && <OnClickStatus success={subscribeSuccess} />}
             <p className='text-sans-small'>Zadaním e-mailovej adresy a prihlásením sa na odber prehlasujete že ste dôkladne oboznámení a suhlasíte so <Link className={styles.textLink} href={GLOBAL_LINKS.PRIVACY_POLICY}>Zásadami ochrany osobných údajov</Link> a <Link className={styles.textLink} href={GLOBAL_LINKS.COOKIES}>Pravidlami používania cookies</Link>.</p>
         </div>
-        // <div className={styles.container}>
-        //     <ClickBox icon={CloseIcon} iconSize={IconSize.Regular} onClick={props.onClose} />
-        //     <h2 className='title-sans-regular'>Chcete aby sme Vás informovali o nových udalostiach a prehľade ich politickej zaujatosti?</h2>
-        //     <p className='text-sans-small'>Pomocou svojej e-mailovej adresy sa prihlásite na odber.</p>
-        //     <InputBar ref={formRef} action={'https://api.vasespravy.sk/mail/subscribe'} promptText='Zadajte Váš e-mail'/>
-        //     <SendEmailButton text={'Prihlásiť sa na odber'} isDisabled={submitting} isDisabledText={'Pracujem...'} onClick={handleSendEmailButtonClick}/>
-        //     {statusVisible && <OnClickStatus success={subscribeSuccess} />}
-        //     <p className='text-sans-small'>Zadaním e-mailovej adresy a prihlásením sa na odber prehlasujete že ste dôkladne oboznámení a suhlasíte so <Link className={styles.textLink} href={"/pravne/ochrana-osobnych-udajov/"}>Zásadami ochrany osobných údajov</Link> a <Link className={styles.textLink} href={"/pravne/cookies/"}>Pravidlami používania cookies</Link>.</p>
-        // </div>
     )
 }
 
