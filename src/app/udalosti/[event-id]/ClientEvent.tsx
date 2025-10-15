@@ -3,7 +3,6 @@
 import styles from './EventPage.module.scss'
 import { BiasMarkerType } from '@/components/atoms/BiasMarker/BiasMarker'
 import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox'
-import SmeCustomIcon from '@/components/atoms/Icon/Custom/SmeCustomIcon'
 import FilterIcon from '@/components/atoms/Icon/Material/FilterIcon'
 import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator'
 import EventTitle from '@/components/molecules/EventTitle/EventTitle'
@@ -16,7 +15,7 @@ import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventS
 import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
 import { Fragment, JSX, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Event } from '@/types/event'
-import { Article } from '@/types/article'
+import { Article, ArticleSource } from '@/types/article'
 import { useAppSelector } from '@/lib/hooks'
 import { getTimeDiff } from '@/util/getTimeDiff'
 import { GLOBAL_PROCESSED_EVENTS } from '@/util/globalEventsBool'
@@ -116,6 +115,7 @@ const ClientEvent = (props: ClientEventProps) => {
 		updated: getTimeDiff(new Date(props.eventData.firstPublication), new Date()),
 	}
 
+	// TODO: NEED FIX, NOT WORKING
 	const copyToClipboard = async (url: string) => {
 		try {
 			await navigator.clipboard.writeText(url);
@@ -242,7 +242,7 @@ const ClientEvent = (props: ClientEventProps) => {
 										publishedUnit={articleTimeInfo.unit}
 										// TODO: add map for source bias and source logo based on article.source and article.politicalBias
 										sourceBias={BiasMarkerType.Liberal}
-										sourceLogo={SmeCustomIcon}
+										sourceLogo={article.source as ArticleSource}
 										link={article.link}
 									/>
 								</li>
