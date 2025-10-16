@@ -13,7 +13,7 @@
 
     h1 {
         color: var(--text-color);
-        padding-bottom: var(--padding-xl);
+        padding-bottom: var(--padding-lg);
     }
 
     ul {
@@ -21,7 +21,7 @@
         display: flex;
         flex-direction: column;
         gap: var(--gap-md);
-        padding: var(--padding-lg) 0;
+        padding: var(--padding-xl) 0 var(--padding-lg) 0;
 
         li {
             color: var(--text-color);
@@ -35,5 +35,32 @@
 
     p {
         color: var(--text-color-50);
+    }
+
+    & > p {
+        align-self: flex-end;
+    }
+
+    ol {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-lg);
+        list-style-type: decimal;
+        box-sizing: border-box;
+
+        li {
+            margin-left: var(--padding-lg);
+            list-style-type: decimal;
+            color: var(--text-color);
+            
+            h2 {
+                margin-bottom: var(--padding-sm);
+            }
+
+            p {
+                color: var(--text-color);
+            }
+        }
     }
 }

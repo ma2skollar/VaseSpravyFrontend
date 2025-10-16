@@ -1,16 +1,11 @@
 .containerSearchResult {
     display: flex;
     width: 100%;
-    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
 
     svg {
         height: var(--icon-cs);
-    }
-
-    & > :first-child {
-        order: 1;
     }
 }
 

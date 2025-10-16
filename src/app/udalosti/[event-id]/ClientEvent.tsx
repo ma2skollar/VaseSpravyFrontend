@@ -1,7 +1,6 @@
 'use client'
 
 import styles from './EventPage.module.scss'
-import { BiasMarkerType } from '@/components/atoms/BiasMarker/BiasMarker'
 import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox'
 import FilterIcon from '@/components/atoms/Icon/Material/FilterIcon'
 import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator'
@@ -15,7 +14,7 @@ import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventS
 import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
 import { Fragment, JSX, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Event } from '@/types/event'
-import { Article, ArticleSource } from '@/types/article'
+import { Article, ArticleBias, ArticleSource } from '@/types/article'
 import { useAppSelector } from '@/lib/hooks'
 import { getTimeDiff } from '@/util/getTimeDiff'
 import { GLOBAL_PROCESSED_EVENTS } from '@/util/globalEventsBool'
@@ -165,7 +164,7 @@ const ClientEvent = (props: ClientEventProps) => {
 		);
 	};
 
-	const summary = useMemo(() => renderSummary(), [summarySwitchState, props.eventData]);
+	const summary = renderSummary();
 
 	return (
 		<main className={styles.container}>
@@ -180,7 +179,7 @@ const ClientEvent = (props: ClientEventProps) => {
 				updatedUnit={timeInfo.updated.unit}
 			/>
 			<ImageContainer
-				imageUrl={props.eventData.imageUrls[0]}
+				imageUrls={props.eventData.imageUrls}
 				altText={''}
 				imageLabel={''}
 			/>
@@ -240,8 +239,7 @@ const ClientEvent = (props: ClientEventProps) => {
 										title={article.title}
 										publishedAgo={articleTimeInfo.ago}
 										publishedUnit={articleTimeInfo.unit}
-										// TODO: add map for source bias and source logo based on article.source and article.politicalBias
-										sourceBias={BiasMarkerType.Liberal}
+										sourceBias={article.politicalBias as ArticleBias}
 										sourceLogo={article.source as ArticleSource}
 										link={article.link}
 									/>

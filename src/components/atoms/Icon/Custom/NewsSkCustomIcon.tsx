@@ -9,7 +9,7 @@ const NewsSkCustomIcon = () => {
 				backgroundColor: "white",
 			}}
 		>
-			<Image height={18.5} width={97} src="NewsSkCustomIcon.png" alt="News.sk Logo"/>
+			<Image height={18.5} width={97} src="/NewsSkCustomIcon.png" alt="News.sk Logo"/>
 		</div>
 	);
 };

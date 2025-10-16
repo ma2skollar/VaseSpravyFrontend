@@ -9,7 +9,7 @@ const HospodarskeCustomIcon = () => {
 				backgroundColor: "white",
 			}}
 		>
-			<Image height={18} width={82} src="HospodarskeNovinyCustomIcon.png" alt="Hospodarske Noviny Logo"/>
+			<Image height={18} width={82} src="/HospodarskeNovinyCustomIcon.png" alt="Hospodarske Noviny Logo"/>
 		</div>
 	);
 };

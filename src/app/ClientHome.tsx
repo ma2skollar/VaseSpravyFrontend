@@ -89,7 +89,7 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 
 		observer.observe(sentinelRef.current);
 		return () => observer.disconnect();
-	}, [loadMore]);
+	}, [loadMore, events.length]);
 
 	return (
 		<>
@@ -101,7 +101,7 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 							title={event.title}
 							category={event.category}
 							location={event.location}
-							imageUrl={event.imageUrls?.[0]}
+							imageUrls={event.imageUrls}
 							altText={event.title}
 							distribution={{
 								liberal: event.liberalCount ?? 0,

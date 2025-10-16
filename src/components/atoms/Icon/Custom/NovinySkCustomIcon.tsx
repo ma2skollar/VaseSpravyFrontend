@@ -9,7 +9,7 @@ const NovinySkCustomIcon = () => {
 				backgroundColor: "white",
 			}}
 		>
-			<Image height={18} width={80} src="NovinyCustomIcon.png" alt="Noviny SK Logo"/>
+			<Image height={18} width={80} src="/NovinyCustomIcon.png" alt="Noviny SK Logo"/>
 		</div>
 	);
 };

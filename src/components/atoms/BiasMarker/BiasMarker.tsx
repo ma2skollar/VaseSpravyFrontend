@@ -1,13 +1,8 @@
+import { ArticleBias } from '@/types/article';
 import styles from './BiasMarker.module.scss';
 
-export enum BiasMarkerType {
-    Center = 'Stredný',
-    Conservative = 'Konzervatívny',
-    Liberal = 'Liberálny',
-}
-
 interface BiasMarkerProps {
-    bias: BiasMarkerType;
+    bias: ArticleBias;
 };
 
 const BiasMarker = (props: BiasMarkerProps) => {

@@ -9,7 +9,7 @@ const DobreNovinyCustomIcon = () => {
 				backgroundColor: "white",
 			}}
 		>
-			<Image height={18.5} width={97} src="DobreNovinyCustomIcon.png" alt="Dobre Noviny Logo"/>
+			<Image height={18.5} width={97} src="/DobreNovinyCustomIcon.png" alt="Dobre Noviny Logo"/>
 		</div>
 	);
 };

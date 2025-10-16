@@ -7,7 +7,7 @@ interface EventContainerProps {
     title: string;
     category: EventCategory;
     location: string;
-    imageUrl: string;
+    imageUrls: string[];
     altText: string;
     distribution: {
         liberal: number;
@@ -22,7 +22,7 @@ const EventContainer = (props: EventContainerProps) => {
     return (
         <div className={styles.container} onClick={props.onClick}>
             <TitleListItem article={false} title={props.title} category={props.category} location={props.location} />
-            <EventImageContainer imageUrl={props.imageUrl} altText={props.altText} distribution={props.distribution} />
+            <EventImageContainer imageUrls={props.imageUrls} distribution={props.distribution} />
             <p className='text-sans-large'>{props.description}</p>
         </div>
     )

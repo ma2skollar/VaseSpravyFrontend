@@ -1,9 +1,8 @@
 import styles from './TitleListItem.module.scss';
-import { BiasMarkerType } from '@/components/atoms/BiasMarker/BiasMarker';
 import BaseInfo from '@/components/molecules/BaseInfo/BaseInfo';
 import OpenNewIcon from '@/components/atoms/Icon/Material/OpenNewIcon';
 import { EventCategory } from '@/types/event';
-import { Article, ArticleSource } from '@/types/article';
+import { ArticleBias, ArticleSource } from '@/types/article';
 import TVNovinyCustomIcon from '@/components/atoms/Icon/Custom/TVNovinyCustomIcon';
 import AktualityCustomIcon from '@/components/atoms/Icon/Custom/AktualityCustomIcon';
 import HlavneSpravyCustomIcon from '@/components/atoms/Icon/Custom/HlavneSpravyCustomIcon';
@@ -16,6 +15,8 @@ import HospodarskeCustomIcon from '@/components/atoms/Icon/Custom/HospodarskeCus
 import NewsSkCustomIcon from '@/components/atoms/Icon/Custom/NewsSkCustomIcon';
 import NovinySkCustomIcon from '@/components/atoms/Icon/Custom/NovinySkCustomIcon';
 import TopkyCustomIcon from '@/components/atoms/Icon/Custom/TopkyCustomIcon';
+import NovyCasCustomIcon from '@/components/atoms/Icon/Custom/NovyCasCustomIcon';
+import PostojCustomIcon from '@/components/atoms/Icon/Custom/PostojCustomIcon';
 
 interface TitleListItemProps {
     article: boolean;
@@ -25,7 +26,7 @@ interface TitleListItemProps {
     publishedAgo?: number;
     publishedUnit?: string;
     sourceLogo?: ArticleSource;
-    sourceBias?: BiasMarkerType;
+    sourceBias?: ArticleBias;
     category?: EventCategory;
     location?: string;
 }
@@ -42,27 +43,41 @@ const TitleListItem = (props: TitleListItemProps) => {
 
     const sourceMap: Record<ArticleSource, React.ComponentType> = {
         [ArticleSource.aktuality]: AktualityCustomIcon,
-        [ArticleSource.dobrenoviny]: DobreNovinyCustomIcon,
+        [ArticleSource.cas]: NovyCasCustomIcon,
         [ArticleSource.dennikn]: DennikNCustomIcon,
+        [ArticleSource.dobrenoviny]: DobreNovinyCustomIcon,
         [ArticleSource.hlavnespravy]: HlavneSpravyCustomIcon,
         [ArticleSource.hn]: HospodarskeCustomIcon,
         [ArticleSource.newssk]: NewsSkCustomIcon,
         [ArticleSource.novinysk]: NovinySkCustomIcon,
-        // novycas
-        // postoj
+        [ArticleSource.postoj]: PostojCustomIcon,
         [ArticleSource.pravda]: PravdaCustomIcon,
         [ArticleSource.sme]: SmeCustomIcon,
         [ArticleSource.standard]: StandardCustomIcon,
-        // [ArticleSource.stvr]: StvrCustomIcon,
+        [ArticleSource.stvr]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            STVR
+        </div>,
         [ArticleSource.topky]: TopkyCustomIcon,
         [ArticleSource.tvnoviny]: TVNovinyCustomIcon,
-        // add  more later
+    }
+
+    const biasMap: Record<ArticleBias, string> = {
+        [ArticleBias.liberal]: 'Liberálny',
+        [ArticleBias.conservative]: 'Konzervatívny',
+        [ArticleBias.center]: 'Stred', 
     }
 
     if (props.article) {
         return (
             <a className={styles.container} href={props.link} target='_blank' rel='noreferrer'>
-                <BaseInfo searchResult={false} sourceLogo={sourceMap[props.sourceLogo as ArticleSource]} sourceBias={props.sourceBias} />
+                <BaseInfo searchResult={false} sourceLogo={sourceMap[props.sourceLogo as ArticleSource]} sourceBias={biasMap[props.sourceBias as ArticleBias]} />
                 <h2 className='title-serif-medium'>{props.title}</h2>
                 <div className={styles.subtitle}>
                     <p className='subtitle-sans-light'>Publikované pred {props.publishedAgo} {props.publishedUnit}</p>

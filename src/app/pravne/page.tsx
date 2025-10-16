@@ -2,6 +2,8 @@ import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator';
 import styles from './LegalPage.module.scss';
 import Link from "next/link";
 
+export const lastUpdated = "16.10.2025";
+
 const LegalPage = () => {
     return (
         <main className={styles.container}>
@@ -12,14 +14,14 @@ const LegalPage = () => {
                 </li>
                 <LineSeparator isColored={false} inNavMenu={false} />
                 <li>
-                    <Link href="/pravne/ochrana-osobnych-udajov" className='link-text-sans-medium'>Zásady ochrany osobných údajov</Link>
+                    <Link href="/pravne/osobne-udaje" className='link-text-sans-medium'>Zásady ochrany osobných údajov</Link>
                 </li>
                 <LineSeparator isColored={false} inNavMenu={false} />
                 <li>
-                    <Link href="/pravne/odhlasenie-z-newslettera" className='link-text-sans-medium'>Odhlásenie z odberu</Link>
+                    <Link href="/pravne/odhlasit-odber" className='link-text-sans-medium'>Odhlásenie z odberu</Link>
                 </li>
             </ul>
-            <p className='label-sans-light'>Naposledy aktualizované 10.10.2025</p>
+            <p className='label-sans-light'>Naposledy aktualizované {lastUpdated}</p>
         </main>
     );
 }
