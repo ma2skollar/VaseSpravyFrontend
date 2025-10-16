@@ -1,8 +1,7 @@
 import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator';
 import styles from './LegalPage.module.scss';
 import Link from "next/link";
-
-export const lastUpdated = "16.10.2025";
+import { LAST_UPDATED } from '@/util/constants';
 
 const LegalPage = () => {
     return (
@@ -21,7 +20,7 @@ const LegalPage = () => {
                     <Link href="/pravne/odhlasit-odber" className='link-text-sans-medium'>Odhlásenie z odberu</Link>
                 </li>
             </ul>
-            <p className='label-sans-light'>Naposledy aktualizované {lastUpdated}</p>
+            <p className='label-sans-light'>Naposledy aktualizované {LAST_UPDATED}</p>
         </main>
     );
 }

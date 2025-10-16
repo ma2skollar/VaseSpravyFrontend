@@ -9,7 +9,7 @@ import InstagramIcon from "@/components/atoms/Icon/Social/InstagramIcon";
 import LinkedInIcon from "@/components/atoms/Icon/Social/LinkedInIcon";
 import NavMenuItem from "@/components/molecules/NavMenuItem/NavMenuItem";
 import Link from "next/link";
-import { GLOBAL_LINKS } from "@/util/globalLinks";
+import { GLOBAL_LINKS } from "@/util/constants";
 
 const Footer = () => {
     return (

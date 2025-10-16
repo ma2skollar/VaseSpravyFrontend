@@ -1,3 +1,6 @@
+export const GLOBAL_PROCESSED_EVENTS = false;
+// Set to true for production
+
 export const GLOBAL_LINKS = {
     UNSUBSCRIBE: "/pravne/odhlasit-odber/",
     SUPPORT_US: "/o-nas/#podpora",
@@ -14,3 +17,6 @@ export const GLOBAL_LINKS = {
     SITEMAP: "/sitemap.xml",
     HOME: "/",
 }
+
+export const LAST_UPDATED = "16.10.2025";
+// Date of last update of legal documents (cookies, privacy policy)

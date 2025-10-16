@@ -1,4 +1,4 @@
-import { lastUpdated } from '../page';
+import { LAST_UPDATED } from '@/util/constants';
 import styles from './../LegalPage.module.scss';
 
 const CookiesPage = () => {
@@ -53,7 +53,7 @@ const CookiesPage = () => {
                     </li>
                 ))}
             </ol>
-            <p className='label-sans-light'>Naposledy aktualizované {lastUpdated}</p>
+            <p className='label-sans-light'>Naposledy aktualizované {LAST_UPDATED}</p>
         </main>
     );
 }

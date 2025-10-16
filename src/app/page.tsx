@@ -1,6 +1,6 @@
 import ClientHome from "@/app/ClientHome";
 import { revalidate } from "./api/events/route";
-import { GLOBAL_PROCESSED_EVENTS } from "@/util/globalEventsBool";
+import { GLOBAL_PROCESSED_EVENTS } from "@/util/constants";
 
 export const EVENT_PAGE_SIZE = 8;
 

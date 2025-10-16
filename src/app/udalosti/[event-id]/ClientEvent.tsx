@@ -17,7 +17,7 @@ import { Event } from '@/types/event'
 import { Article, ArticleBias, ArticleSource } from '@/types/article'
 import { useAppSelector } from '@/lib/hooks'
 import { getTimeDiff } from '@/util/getTimeDiff'
-import { GLOBAL_PROCESSED_EVENTS } from '@/util/globalEventsBool'
+import { GLOBAL_PROCESSED_EVENTS } from '@/util/constants'
 
 interface ClientEventProps {
 	eventData: Event;

@@ -1,7 +1,7 @@
 import ClientEvent from './ClientEvent';
 import { notFound } from 'next/navigation';
 import { revalidate } from '@/app/api/articles/route';
-import { GLOBAL_PROCESSED_EVENTS } from '@/util/globalEventsBool';
+import { GLOBAL_PROCESSED_EVENTS } from '@/util/constants';
 
 interface EventPageProps {
 	params: { 'event-id': string }

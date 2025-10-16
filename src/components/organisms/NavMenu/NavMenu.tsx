@@ -9,7 +9,7 @@ import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator';
 // import { useState } from 'react';
 import { useAppSelector } from '@/lib/hooks';
 import { LogoSize } from '@/components/atoms/MainLogo/MainLogo';
-import { GLOBAL_LINKS } from '@/util/globalLinks';
+import { GLOBAL_LINKS } from '@/util/constants';
 
 const NavMenu = () => {
     const headerHeight = useAppSelector(state => state.headerReducer).headerSize === LogoSize.Large ? 149 : 61;

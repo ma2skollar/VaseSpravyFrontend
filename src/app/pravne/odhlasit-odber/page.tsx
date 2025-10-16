@@ -5,7 +5,7 @@ import styles from './UnsubscribePage.module.scss';
 import SendEmailButton from '@/components/atoms/SendEmailButton/SendEmailButton';
 import { useEffect, useRef, useState } from 'react';
 import OnClickStatus from '@/components/molecules/OnClickStatus/OnClickStatus';
-import { GLOBAL_LINKS } from '@/util/globalLinks';
+import { GLOBAL_LINKS } from '@/util/constants';
 import Link from 'next/link';
 
 const UnsubscribePage = () => {

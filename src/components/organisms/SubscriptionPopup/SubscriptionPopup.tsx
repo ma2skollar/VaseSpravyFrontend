@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import SendEmailButton from '@/components/atoms/SendEmailButton/SendEmailButton';
 import InputBar, { InputBarHandle } from '@/components/molecules/InputBar/InputBar';
 import Link from 'next/link';
-import { GLOBAL_LINKS } from '@/util/globalLinks';
+import { GLOBAL_LINKS } from '@/util/constants';
 
 interface SubscriptionPopupProps {
     onClose: () => void;

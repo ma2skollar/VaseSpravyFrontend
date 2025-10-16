@@ -1,5 +1,5 @@
 import { ARTICLE_PAGE_SIZE } from "@/app/udalosti/[event-id]/page";
-import { GLOBAL_PROCESSED_EVENTS } from "@/util/globalEventsBool";
+import { GLOBAL_PROCESSED_EVENTS } from "@/util/constants";
 import { NextRequest, NextResponse } from "next/server";
 
 export const revalidate = 60;
