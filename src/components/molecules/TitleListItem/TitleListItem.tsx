@@ -68,16 +68,10 @@ const TitleListItem = (props: TitleListItemProps) => {
         [ArticleSource.tvnoviny]: TVNovinyCustomIcon,
     }
 
-    const biasMap: Record<ArticleBias, string> = {
-        [ArticleBias.liberal]: 'Liberálny',
-        [ArticleBias.conservative]: 'Konzervatívny',
-        [ArticleBias.center]: 'Stred', 
-    }
-
     if (props.article) {
         return (
             <a className={styles.container} href={props.link} target='_blank' rel='noreferrer'>
-                <BaseInfo searchResult={false} sourceLogo={sourceMap[props.sourceLogo as ArticleSource]} sourceBias={biasMap[props.sourceBias as ArticleBias]} />
+                <BaseInfo searchResult={false} sourceLogo={sourceMap[props.sourceLogo as ArticleSource]} sourceBias={props.sourceBias} />
                 <h2 className='title-serif-medium'>{props.title}</h2>
                 <div className={styles.subtitle}>
                     <p className='subtitle-sans-light'>Publikované pred {props.publishedAgo} {props.publishedUnit}</p>
