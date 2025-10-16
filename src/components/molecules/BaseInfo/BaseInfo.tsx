@@ -1,12 +1,13 @@
-import BiasMarker, { BiasMarkerType } from '@/components/atoms/BiasMarker/BiasMarker';
+import BiasMarker from '@/components/atoms/BiasMarker/BiasMarker';
 import styles from './BaseInfo.module.scss';
+import { ArticleBias } from '@/types/article';
 
 interface BaseInfoProps {
     searchResult: boolean;
     category?: string;
     location?: string;
     sourceLogo?: React.ComponentType;
-    sourceBias?: BiasMarkerType;
+    sourceBias?: ArticleBias;
 }
 
 const BaseInfo = (props: BaseInfoProps) => {
