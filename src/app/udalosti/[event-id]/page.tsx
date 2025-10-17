@@ -33,7 +33,7 @@ const fetchEventArticles = async (eventId: string) => {
 }
 
 const EventPage = async (props: EventPageProps) => {
-	const { 'event-id': eventId } = await props.params;
+	const { 'event-id': eventId } = props.params;
 	const data = await fetchEventData(eventId);
 	const articlesArray = await fetchEventArticles(eventId);
 	if (GLOBAL_PROCESSED_EVENTS) {
