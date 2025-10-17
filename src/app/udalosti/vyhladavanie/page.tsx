@@ -1,7 +1,7 @@
 import ClientSearch from './ClientSearch';
 
 interface SearchPageProps {
-    searchParams: Promise<{ q?: string }>;
+    params: Promise<{ q?: string }>;
 }
 
 const fetchSearchEvents = async (query: string) => {
@@ -21,7 +21,7 @@ const fetchSearchEvents = async (query: string) => {
 }
 
 const SearchPage = async (props: SearchPageProps) => {
-    const { q = '' } = await props.searchParams;
+    const { q = '' } = await props.params;
     const data = await fetchSearchEvents(q);
     if (data) return <ClientSearch events={data} searchQuery={q} />;
     else return <ClientSearch noResults searchQuery={q} />;
