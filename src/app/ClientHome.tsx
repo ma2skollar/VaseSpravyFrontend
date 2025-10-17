@@ -4,7 +4,7 @@ import styles from "@/app/FeedPage.module.scss";
 import EventContainer from "@/components/organisms/EventContainer/EventContainer";
 import NavBar from "@/components/molecules/NavBar/NavBar";
 import LineSeparator from "@/components/atoms/LineSeparator/LineSeparator";
-import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Event } from "@/types/event";
 import { MAX_LOAD_EVENTS_AUTO } from "@/util/constants";
 

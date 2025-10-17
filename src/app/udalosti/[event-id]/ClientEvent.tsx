@@ -12,7 +12,7 @@ import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem'
 import CoverageDetailContainer from '@/components/organisms/CoverageDetailContainer/CoverageDetailContainer'
 import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventSourcesFilter'
 import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
-import { Fragment, JSX, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, JSX, useCallback, useEffect, useRef, useState } from 'react'
 import { Event } from '@/types/event'
 import { Article, ArticleBias, ArticleSource } from '@/types/article'
 import { useAppSelector } from '@/lib/hooks'
@@ -120,7 +120,7 @@ const ClientEvent = (props: ClientEventProps) => {
 
 		observer.observe(sentinelRef.current);
 		return () => observer.disconnect();
-	}, [loadMore, isLoading, hasMore])
+	}, [loadMore, isLoading, hasMore, articles.length])
 
 	const timeInfo = {
 		published: getTimeDiff(new Date(props.eventData.firstPublication), new Date()),
@@ -128,14 +128,9 @@ const ClientEvent = (props: ClientEventProps) => {
 	}
 
 	const handleCopyCurrentUrl = async () => {
-		try {
-			await navigator.clipboard.writeText(window.location.href);
-		} catch (err) {
-			console.error("Failed to copy: ", err);
-		}
 		console.log('Copying current URL to clipboard...');
-		// const ok = await copy(window.location.href);
-		// console.log('Copy URL:', ok ? 'Success' : 'Failed');
+		const ok = await copy(window.location.href);
+		console.log('Copy URL:', ok ? 'Success' : 'Failed');
 	};
 
 	const formatSummary = (summary: string | null) => {

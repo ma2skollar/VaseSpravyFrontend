@@ -1,26 +1,28 @@
 // utils/copy.ts
 export async function copy(text: string): Promise<boolean> {
   try {
-    // Only use async Clipboard API if we can prove it exists *and* we're secure.
-    if (
-      typeof window !== 'undefined' &&
-      typeof navigator !== 'undefined' &&
-      'isSecureContext' in window &&
-      (window as any).isSecureContext &&
-      'clipboard' in navigator
-    ) {
-      const clip = (navigator as any).clipboard;
-      if (clip && typeof clip.writeText === 'function') {
-        await clip.writeText(text);
-        return true;
+    if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+      // Secure + async Clipboard API
+      const isSecure = !!window.isSecureContext;
+      const hasClipboard = 'clipboard' in navigator;
+
+      if (isSecure && hasClipboard) {
+        const clip = (navigator as Navigator & { clipboard: Clipboard }).clipboard;
+        if (typeof clip?.writeText === 'function') {
+          await clip.writeText(text);
+          return true;
+        }
+      }
+
+      // iOS Web Share sheet (has a "Copy" option)
+      type NavigatorWithShare = Navigator & { share?: (data: ShareData) => Promise<void> };
+      const nav = navigator as NavigatorWithShare;
+      if (typeof nav.share === 'function') {
+        await nav.share({ url: window.location.href });
       }
     }
 
-    if ('share' in navigator) {
-      await (navigator as any).share({ url: window.location.href }); // opens iOS share sheet w/ "Copy" option
-    }
-
-    // Fallback (works on iOS Safari when triggered by a user gesture)
+    // Fallback: execCommand-based copy (requires user gesture)
     const ta = document.createElement('textarea');
     ta.value = text;
     ta.setAttribute('readonly', '');
@@ -29,7 +31,6 @@ export async function copy(text: string): Promise<boolean> {
     ta.style.left = '-9999px';
     document.body.appendChild(ta);
 
-    // iOS selection quirks
     const range = document.createRange();
     range.selectNodeContents(ta);
     const sel = window.getSelection();
