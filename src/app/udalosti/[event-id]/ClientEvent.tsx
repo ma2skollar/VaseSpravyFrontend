@@ -18,6 +18,7 @@ import { Article, ArticleBias, ArticleSource } from '@/types/article'
 import { useAppSelector } from '@/lib/hooks'
 import { getTimeDiff } from '@/util/getTimeDiff'
 import { GLOBAL_PROCESSED_EVENTS, MAX_LOAD_ARTICLES_AUTO } from '@/util/constants'
+import { copy } from '@/util/copy'
 
 interface ClientEventProps {
 	eventData: Event;
@@ -126,21 +127,15 @@ const ClientEvent = (props: ClientEventProps) => {
 		updated: getTimeDiff(new Date(props.eventData.latestUpdate), new Date()),
 	}
 
-	const copyToClipboard = async (url: string) => {
+	const handleCopyCurrentUrl = async () => {
 		try {
-			if (navigator?.clipboard?.writeText) {
-				await navigator.clipboard.writeText(url);
-			} else {
-				const ta = document.createElement('textarea');
-				ta.value = url;
-				document.body.appendChild(ta);
-				ta.select();
-				document.execCommand('copy');
-				document.body.removeChild(ta);
-			}
+			await navigator.clipboard.writeText(window.location.href);
 		} catch (err) {
 			console.error("Failed to copy: ", err);
 		}
+		console.log('Copying current URL to clipboard...');
+		// const ok = await copy(window.location.href);
+		// console.log('Copy URL:', ok ? 'Success' : 'Failed');
 	};
 
 	const formatSummary = (summary: string | null) => {
@@ -192,7 +187,7 @@ const ClientEvent = (props: ClientEventProps) => {
 				title={props.eventData.title}
 				category={props.eventData.category}
 				location={props.eventData.location}
-				onClick={() => copyToClipboard(window.location.href)}
+				onClick={handleCopyCurrentUrl}
 				publishedAgo={timeInfo.published.ago}
 				publishedUnit={timeInfo.published.unit}
 				updatedAgo={timeInfo.updated.ago}

@@ -26,7 +26,7 @@ const EventTitle = (props: EventTitleProps) => {
                     <p className='subtitle-sans-small'>Publikované pred {props.publishedAgo} {props.publishedUnit}</p>
                     <p className='subtitle-sans-small'>Aktualizované pred {props.updatedAgo} {props.updatedUnit}</p>
                 </div>
-                <ClickBox icon={ShareIcon} iconSize={IconSize.Regular} />
+                <ClickBox icon={ShareIcon} iconSize={IconSize.Regular} onClick={props.onClick} />
             </div>
         </div>
     )
