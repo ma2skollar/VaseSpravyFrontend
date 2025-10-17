@@ -6,6 +6,8 @@ import NavBar from "@/components/molecules/NavBar/NavBar";
 import LineSeparator from "@/components/atoms/LineSeparator/LineSeparator";
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Event } from "@/types/event";
+import { MAX_LOAD_EVENTS_AUTO } from "@/util/constants";
+
 
 interface ClientHomeProps {
 	eventsArray: Event[];
@@ -18,10 +20,7 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [hasMore, setHasMore] = useState(true);
 	const [error, setError] = useState<string | null>(null);
-
-	const MAX_LOAD_EVENTS_AUTO = 24;
-
-	const seenIds = useMemo(() => new Set(events.map((e) => e.id)), [events]);
+	const [nextStartIndex, setNextStartIndex] = useState(() => eventsArray.length);
 
 	const loadMore = useCallback(async () => {
 		if (isLoading || !hasMore) return;
@@ -29,10 +28,9 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 		setError(null);
 
 		try {
-			const startIndex = events.length;
 			const params = new URLSearchParams({
 				amount: String(pageSize),
-				startIndex: String(startIndex),
+				startIndex: String(nextStartIndex),
 				processed: String(processed),
 			});
 
@@ -53,20 +51,31 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 
 			const { events: newEvents } = (await res.json()) as { events: Event[] };
 
+			const serverCount = newEvents?.length ?? 0;
+			setNextStartIndex((prev) => prev + serverCount);
+
 			if (!newEvents || newEvents.length === 0) {
 				setHasMore(false);
-			} else {
-				setEvents((prev) => [
-					...prev,
-					...newEvents.filter((e) => !seenIds.has(e.id)),
-				]);
+				return;
+			}
+
+			let appended = 0
+			setEvents(prev => {
+				const seen = new Set(prev.map(e => e.id));
+				const deduped = newEvents.filter(e => !seen.has(e.id));
+				appended = deduped.length;
+				return [...prev, ...deduped];
+			});
+			
+			if (appended === 0) {
+				setHasMore(false);
 			}
 		} catch (e: unknown) {
 			setError((e as Error)?.message ?? "Unknown error");
 		} finally {
 			setIsLoading(false);
 		}
-	}, [events.length, hasMore, isLoading, pageSize, processed, seenIds]);
+	}, [hasMore, isLoading, nextStartIndex, pageSize, processed]);
 
 	const sentinelRef = useRef<HTMLDivElement | null>(null);
 
@@ -76,7 +85,12 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				const first = entries[0];
-				if (first.isIntersecting && events.length < MAX_LOAD_EVENTS_AUTO) {
+				if (
+					first.isIntersecting &&
+					!isLoading &&
+					hasMore &&
+					events.length < MAX_LOAD_EVENTS_AUTO
+				) {
 					loadMore();
 				}
 			},
@@ -89,7 +103,7 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 
 		observer.observe(sentinelRef.current);
 		return () => observer.disconnect();
-	}, [loadMore, events.length]);
+	}, [loadMore, isLoading, hasMore, events.length]);
 
 	return (
 		<>
@@ -111,47 +125,54 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 							description={event.description || ""}
 							onClick={() => (window.location.href = `/udalosti/${event.id}`)}
 						/>
-						{(
-							error || 
-							hasMore || 
-							!isLoading || 
-							index !== events.length - 1
-						) && 
+						{index !== events.length - 1 && (
 							<LineSeparator inNavMenu={false} isColored={false} />
-						}
+						)}
 					</Fragment>
 				))}
 
 				{error && (
-					<div className={styles.error}>
-						<p className="label-sans-heavy">
-							Nepodarilo sa nám načítať udalosti.
-						</p>
-						<button className={styles.button} onClick={loadMore}>
-							<p className="label-sans-heavy">Skúsiť znova</p>
-						</button>
-					</div>
+					<>
+						<LineSeparator inNavMenu={false} isColored={false} />
+						<div className={styles.error}>
+							<p className="label-sans-heavy">
+								Nepodarilo sa nám načítať udalosti.
+							</p>
+							<button className={styles.button} onClick={loadMore}>
+								<p className="label-sans-heavy">Skúsiť znova</p>
+							</button>
+						</div>
+					</>
 				)}
 
 				{events.length >= MAX_LOAD_EVENTS_AUTO && hasMore && !isLoading && !error && (
-					<button className={styles.button} onClick={loadMore}>
-						<p className="label-sans-heavy">Načítaj viac udalostí</p>
-					</button>
+					<>
+						<LineSeparator inNavMenu={false} isColored={false} />
+						<button className={styles.button} onClick={loadMore}>
+							<p className="label-sans-heavy">Načítaj viac udalostí</p>
+						</button>
+					</>
 				)}
 
 				{(!hasMore && !isLoading) && (
-					<div className={styles.end}>
-						<p className="label-sans-heavy">Žiadne ďalšie udalosti.</p>
-					</div>
+					<>
+						<LineSeparator inNavMenu={false} isColored={false} />
+						<div className={styles.end}>
+							<p className="label-sans-heavy">Žiadne ďalšie udalosti.</p>
+						</div>
+					</>
 				)}
 
 				{hasMore && (
 					<div ref={sentinelRef} className={styles.sentinel}>
 						{isLoading ? (
-							<div className={styles.sentinelText}>
-								{/* Add some kind of visual element maybe? */}
-								<p className="label-sans-heavy">Načítavam...</p>
-							</div>
+							<>
+								<LineSeparator inNavMenu={false} isColored={false} />
+								<div className={styles.sentinelText}>
+									{/* Add some kind of visual element maybe? */}
+									<p className="label-sans-heavy">Načítavam...</p>
+								</div>
+							</>
 						) : null}
 					</div>
 				)}

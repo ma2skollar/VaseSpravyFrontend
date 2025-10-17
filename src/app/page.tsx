@@ -1,8 +1,5 @@
 import ClientHome from "@/app/ClientHome";
-import { revalidate } from "./api/events/route";
-import { GLOBAL_PROCESSED_EVENTS } from "@/util/constants";
-
-export const EVENT_PAGE_SIZE = 8;
+import { GLOBAL_PROCESSED_EVENTS, EVENTS_REVALIDATE, EVENT_PAGE_SIZE } from "@/util/constants";
 
 export default async function Page() {
 	const data = await fetch(
@@ -13,7 +10,7 @@ export default async function Page() {
 				"Content-Type": "application/json",
 				Authorization: `Bearer ${process.env.BEARER_AUTH_TOKEN}`,
 			},
-			next: { revalidate: revalidate },
+			next: { revalidate: EVENTS_REVALIDATE },
 		}
 	).then(async (res) => {
 		if (res.status === 404) return [];

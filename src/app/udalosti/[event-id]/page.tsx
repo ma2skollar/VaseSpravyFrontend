@@ -1,13 +1,10 @@
 import ClientEvent from './ClientEvent';
 import { notFound } from 'next/navigation';
-import { revalidate } from '@/app/api/articles/route';
-import { GLOBAL_PROCESSED_EVENTS } from '@/util/constants';
+import { GLOBAL_PROCESSED_EVENTS, ARTICLES_REVALIDATE, ARTICLE_PAGE_SIZE, EVENTS_REVALIDATE } from '@/util/constants';
 
 interface EventPageProps {
 	params: { 'event-id': string }
 }
-
-export const ARTICLE_PAGE_SIZE = 8;
 
 const fetchEventData = async (eventId: string) => {
 	const res = await fetch(`https://api.vasespravy.sk/events/${eventId}`,{
@@ -16,7 +13,7 @@ const fetchEventData = async (eventId: string) => {
 			'Content-Type': 'application/json',
 			'Authorization': `Bearer ${process.env.BEARER_AUTH_TOKEN}`
 		},
-		next: { revalidate: 60 },
+		next: { revalidate: EVENTS_REVALIDATE },
 	});
 	if (!res.ok) return null;
 	return res.json();
@@ -29,14 +26,13 @@ const fetchEventArticles = async (eventId: string) => {
 				'Content-Type': 'application/json',
 				'Authorization': `Bearer ${process.env.BEARER_AUTH_TOKEN}`
 			},
-			next: { revalidate: revalidate},
+			next: { revalidate: ARTICLES_REVALIDATE },
 		});
 	if (!res.ok) return null;
 	return res.json();
 }
 
 const EventPage = async (props: EventPageProps) => {
-	// Nextjs async params
 	const { 'event-id': eventId } = await props.params;
 	const data = await fetchEventData(eventId);
 	const articlesArray = await fetchEventArticles(eventId);
@@ -45,7 +41,7 @@ const EventPage = async (props: EventPageProps) => {
 	} else {
 		if (!data) return notFound()
 	}
-	return <ClientEvent eventData={data} eventArticles={articlesArray} />;
+	return <ClientEvent eventData={data} eventArticles={articlesArray ?? []} />;
 }
 
 export default EventPage;

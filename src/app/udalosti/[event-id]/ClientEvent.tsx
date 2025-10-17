@@ -17,7 +17,7 @@ import { Event } from '@/types/event'
 import { Article, ArticleBias, ArticleSource } from '@/types/article'
 import { useAppSelector } from '@/lib/hooks'
 import { getTimeDiff } from '@/util/getTimeDiff'
-import { GLOBAL_PROCESSED_EVENTS } from '@/util/constants'
+import { GLOBAL_PROCESSED_EVENTS, MAX_LOAD_ARTICLES_AUTO } from '@/util/constants'
 
 interface ClientEventProps {
 	eventData: Event;
@@ -31,14 +31,12 @@ const ClientEvent = (props: ClientEventProps) => {
     const conservativeSelected = summarySwitchState.conservative;
     const comparisonSelected = summarySwitchState.comparison;
 
-
 	const [filterVisible, setFilterVisible] = useState(false);
 	const [articles, setArticles] = useState<Article[]>(props.eventArticles);
 	const [isLoading, setIsLoading] = useState(false);
 	const [hasMore, setHasMore] = useState(true);
 	const [error, setError] = useState<string | null>(null);
-
-	const seenArticleIds = useMemo(() => new Set(articles.map((a) => a.id)), [articles]);
+	const [nextStartIndex, setNextStartIndex] = useState(() => props.eventArticles.length);
 
 	const loadMore = useCallback(async () => {
 		if (isLoading || !hasMore) return;
@@ -46,11 +44,10 @@ const ClientEvent = (props: ClientEventProps) => {
 		setError(null);
 
 		try {
-			const startIndex = articles.length;
 			const params = new URLSearchParams({
 				eventId: props.eventData.id,
 				amount: String(8),
-				startIndex: String(startIndex),
+				startIndex: String(nextStartIndex),
 				processed: String(GLOBAL_PROCESSED_EVENTS),
 			});
 
@@ -71,20 +68,30 @@ const ClientEvent = (props: ClientEventProps) => {
 
 			const { articles: newArticles } = (await res.json()) as { articles: Article[] };
 
+			setNextStartIndex(prev => prev + (newArticles?.length ?? 0));
+
 			if (!newArticles || newArticles.length === 0) {
 				setHasMore(false);
-			} else {
-				setArticles((prev) => [
-					...prev,
-					...newArticles.filter((a) => !seenArticleIds.has(a.id)),
-				]);
+				return;
+			} 
+			
+			let appended = 0;
+			setArticles(prev => {
+				const seen = new Set(prev.map(a => a.id));
+				const deduped = newArticles.filter(a => !seen.has(a.id));
+				appended = deduped.length;
+				return [...prev, ...deduped];
+			});
+
+			if (appended === 0) {
+				setHasMore(false);
 			}
 		} catch (e: unknown) {
 			setError((e as Error)?.message ?? "Unknown error");
 		} finally {
 			setIsLoading(false);
 		}
-	}, [articles.length, hasMore, isLoading, seenArticleIds, props.eventData.id]);
+	}, [hasMore, isLoading, nextStartIndex, props.eventData.id]);
 
 	const sentinelRef = useRef<HTMLDivElement | null>(null);
 
@@ -92,9 +99,14 @@ const ClientEvent = (props: ClientEventProps) => {
 		if (!sentinelRef.current) return;
 
 		const observer = new IntersectionObserver(
-			(entries) => {
+			entries => {
 				const first = entries[0];
-				if (first.isIntersecting) {
+				if (
+					first.isIntersecting && 
+					!isLoading && 
+					hasMore &&
+					articles.length < MAX_LOAD_ARTICLES_AUTO
+				) {
 					loadMore();
 				}
 			},
@@ -107,21 +119,29 @@ const ClientEvent = (props: ClientEventProps) => {
 
 		observer.observe(sentinelRef.current);
 		return () => observer.disconnect();
-	}, [loadMore])
+	}, [loadMore, isLoading, hasMore])
 
 	const timeInfo = {
-		published: getTimeDiff(new Date(props.eventData.latestUpdate), new Date()),
-		updated: getTimeDiff(new Date(props.eventData.firstPublication), new Date()),
+		published: getTimeDiff(new Date(props.eventData.firstPublication), new Date()),
+		updated: getTimeDiff(new Date(props.eventData.latestUpdate), new Date()),
 	}
 
-	// TODO: NEED FIX, NOT WORKING
 	const copyToClipboard = async (url: string) => {
 		try {
-			await navigator.clipboard.writeText(url);
+			if (navigator?.clipboard?.writeText) {
+				await navigator.clipboard.writeText(url);
+			} else {
+				const ta = document.createElement('textarea');
+				ta.value = url;
+				document.body.appendChild(ta);
+				ta.select();
+				document.execCommand('copy');
+				document.body.removeChild(ta);
+			}
 		} catch (err) {
 			console.error("Failed to copy: ", err);
 		}
-	}
+	};
 
 	const formatSummary = (summary: string | null) => {
 		if (!summary) {
