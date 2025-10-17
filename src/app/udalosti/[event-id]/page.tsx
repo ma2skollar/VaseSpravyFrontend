@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { GLOBAL_PROCESSED_EVENTS, ARTICLES_REVALIDATE, ARTICLE_PAGE_SIZE, EVENTS_REVALIDATE } from '@/util/constants';
 
 interface EventPageProps {
-	params: { 'event-id': string }
+	eventParams: Promise<{ 'event-id': string }>;
 }
 
 const fetchEventData = async (eventId: string) => {
@@ -33,7 +33,7 @@ const fetchEventArticles = async (eventId: string) => {
 }
 
 const EventPage = async (props: EventPageProps) => {
-	const { 'event-id': eventId } = props.params;
+	const { 'event-id': eventId } = await props.eventParams;
 	const data = await fetchEventData(eventId);
 	const articlesArray = await fetchEventArticles(eventId);
 	if (GLOBAL_PROCESSED_EVENTS) {
