@@ -17,7 +17,7 @@ import { Event } from '@/types/event'
 import { Article, ArticleBias, ArticleSource } from '@/types/article'
 import { useAppSelector } from '@/lib/hooks'
 import { getTimeDiff } from '@/util/getTimeDiff'
-import { GLOBAL_PROCESSED_EVENTS, MAX_LOAD_ARTICLES_AUTO } from '@/util/constants'
+import { ARTICLE_PAGE_SIZE, GLOBAL_PROCESSED_EVENTS, MAX_LOAD_ARTICLES_AUTO } from '@/util/constants'
 import { copy } from '@/util/copy'
 
 interface ClientEventProps {
@@ -47,7 +47,7 @@ const ClientEvent = (props: ClientEventProps) => {
 		try {
 			const params = new URLSearchParams({
 				eventId: props.eventData.id,
-				amount: String(8),
+				amount: String(ARTICLE_PAGE_SIZE),
 				startIndex: String(nextStartIndex),
 				processed: String(GLOBAL_PROCESSED_EVENTS),
 			});
@@ -59,7 +59,6 @@ const ClientEvent = (props: ClientEventProps) => {
 
 			if (res.status === 404) {
 				setHasMore(false);
-				setIsLoading(false);
 				return;
 			}
 
@@ -68,23 +67,22 @@ const ClientEvent = (props: ClientEventProps) => {
 			}
 
 			const { articles: newArticles } = (await res.json()) as { articles: Article[] };
+			const serverCount = newArticles?.length ?? 0;
 
-			setNextStartIndex(prev => prev + (newArticles?.length ?? 0));
+			setNextStartIndex(prev => prev + ARTICLE_PAGE_SIZE);
 
-			if (!newArticles || newArticles.length === 0) {
+			if (serverCount === 0) {
 				setHasMore(false);
 				return;
 			} 
 			
-			let appended = 0;
 			setArticles(prev => {
 				const seen = new Set(prev.map(a => a.id));
 				const deduped = newArticles.filter(a => !seen.has(a.id));
-				appended = deduped.length;
 				return [...prev, ...deduped];
 			});
 
-			if (appended === 0) {
+			if (serverCount < ARTICLE_PAGE_SIZE) {
 				setHasMore(false);
 			}
 		} catch (e: unknown) {
@@ -128,16 +126,12 @@ const ClientEvent = (props: ClientEventProps) => {
 	}
 
 	const handleCopyCurrentUrl = async () => {
-		console.log('Copying current URL to clipboard...');
-		const ok = await copy(window.location.href);
-		console.log('Copy URL:', ok ? 'Success' : 'Failed');
+		await copy(window.location.href);
 	};
 
 	const formatSummary = (summary: string | null) => {
 		if (!summary) {
 			return null;
-		} else {
-
 		}
 		return summary?.split('\n').map((line, index) => (
 			<li key={index} className='text-sans-large'>{line}</li>
@@ -237,9 +231,8 @@ const ClientEvent = (props: ClientEventProps) => {
 					promptText='Hľadaj článok alebo zdroj'
 				/>
 				<ul className={styles.sourceList}>
-					{props.eventArticles.map((article, index) => {
+					{articles.map((article, index) => {
 						const articleTimeInfo = getTimeDiff(new Date(article.publicationDate), new Date())
-						
 						return (
 							<Fragment key={article.id}>
 								{index !== 0 && <LineSeparator inNavMenu={false} isColored={false} />}

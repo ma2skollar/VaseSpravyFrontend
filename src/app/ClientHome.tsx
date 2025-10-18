@@ -8,7 +8,6 @@ import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Event } from "@/types/event";
 import { MAX_LOAD_EVENTS_AUTO } from "@/util/constants";
 
-
 interface ClientHomeProps {
 	eventsArray: Event[];
 	pageSize: number;
@@ -33,41 +32,30 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 				startIndex: String(nextStartIndex),
 				processed: String(processed),
 			});
-
 			const res = await fetch(`/api/events?${params.toString()}`, {
 				method: "GET",
 				cache: "no-store",
 			});
-
 			if (res.status === 404) {
 				setHasMore(false);
-				setIsLoading(false);
 				return;
 			}
-
 			if (!res.ok) {
 				throw new Error(`Fetch failed: ${res.status}`);
 			}
-
 			const { events: newEvents } = (await res.json()) as { events: Event[] };
-
 			const serverCount = newEvents?.length ?? 0;
-			setNextStartIndex((prev) => prev + serverCount);
-
-			if (!newEvents || newEvents.length === 0) {
+			setNextStartIndex((prev) => prev + pageSize);
+			if (serverCount === 0) {
 				setHasMore(false);
 				return;
 			}
-
-			let appended = 0
 			setEvents(prev => {
-				const seen = new Set(prev.map(e => e.id));
-				const deduped = newEvents.filter(e => !seen.has(e.id));
-				appended = deduped.length;
+				const seen = new Set(prev.map((e) => e.id));
+				const deduped = newEvents.filter((e) => !seen.has(e.id));
 				return [...prev, ...deduped];
 			});
-			
-			if (appended === 0) {
+			if (serverCount < pageSize) {
 				setHasMore(false);
 			}
 		} catch (e: unknown) {
@@ -81,7 +69,6 @@ const ClientHome = ({ eventsArray, pageSize, processed }: ClientHomeProps) => {
 
 	useEffect(() => {
 		if (!sentinelRef.current) return;
-
 		const observer = new IntersectionObserver(
 			(entries) => {
 				const first = entries[0];
