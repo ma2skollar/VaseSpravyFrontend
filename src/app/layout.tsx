@@ -25,18 +25,18 @@ export const viewport: Viewport = {
   ]
 };
 
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode
-}) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+const RootLayout = (props: RootLayoutProps) => {
   return (
     <html lang="sk" className={`${EBGaramond.variable} ${Inter.variable}`}>
       <body>
         <StoreProvider>
           <ClientTransition>
             <ClientLayout>
-              {children}
+              {props.children}
             </ClientLayout>
           </ClientTransition>
         </StoreProvider>
@@ -46,3 +46,5 @@ export default function RootLayout({
     </html>
   )
 };
+
+export default RootLayout;

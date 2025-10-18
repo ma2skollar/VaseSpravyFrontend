@@ -22,7 +22,7 @@ const OverlayContainer = (props: OverlayContainerProps) => {
     // return (
     //     <div className={`${styles.container} ${props.isNavBackdrop ? '' : styles.centered}`} style={{ display: props.isVisible ? 'flex' : 'none' }} onClick={handleBackdropClick}>
     //         {props.isNavBackdrop && <Header onMenuClick={() => dispatch(toggleNavMenu())} onSubscribeClick={() => dispatch(openSubscribePopup())} onLogoClick={() => window.location.href = '/'} />}
-    //         <RemoveScroll enabled={props.isVisible} removeScrollBar={true}>
+    //         <RemoveScroll enabled={props.isVisible} removeScrollBar={false}>
     //             {props.children}
     //         </RemoveScroll>
     //     </div>
@@ -37,7 +37,7 @@ const OverlayContainer = (props: OverlayContainerProps) => {
                 onMenuClick={() => dispatch(toggleNavMenu())} 
                 onSubscribeClick={() => dispatch(openSubscribePopup())}
                 onLogoClick={() => window.location.href = '/'} />
-            <RemoveScroll removeScrollBar={true}>
+            <RemoveScroll removeScrollBar={false}>
                 {props.children}
             </RemoveScroll>
         </div>

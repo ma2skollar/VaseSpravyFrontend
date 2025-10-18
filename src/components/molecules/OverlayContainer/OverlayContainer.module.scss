@@ -1,10 +1,9 @@
 .container {
-    width: 100vw;
-    height: 100vh;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     z-index: 10;
+    width: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

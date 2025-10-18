@@ -1,8 +1,8 @@
 .container {
-    display: flex;
     box-sizing: border-box;
-    width: clamp(350px, 90%, 500px);
+    width: 100%;
     padding: var(--padding-lg) 0 var(--padding-xl) 0;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -34,6 +34,7 @@
 }
 
 .scrollContainer {
-    overflow-y: scroll;
+    overflow-y: auto;
     width: clamp(350px, 90%, 500px);
+    scrollbar-gutter: stable;
 }
