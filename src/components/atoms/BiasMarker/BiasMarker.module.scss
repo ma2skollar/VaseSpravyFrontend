@@ -5,21 +5,21 @@
     align-items: center;
     border-radius: var(--border-radius-sm);
 
-    &--S {
+    &--r {
         background-color: var(--bias-color-center);
         .content {
             color: var(--bias-label-text-black);
         }
     }
 
-    &--K {
+    &--e {
         background-color: var(--bias-color-conservative);
         .content {
             color: var(--bias-label-text-white);
         }
     }
 
-    &--L {
+    &--l {
         background-color: var(--bias-color-liberal);
         .content {
             color: var(--bias-label-text-white);

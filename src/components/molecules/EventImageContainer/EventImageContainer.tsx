@@ -29,7 +29,7 @@ const EventImageContainer = (props: EventImageContainerProps) => {
     const getHightestDistribution = () => {
         const values = Object.values(props.distribution);
         const maxValue = Math.max(...values);
-        const distributionTitle = maxValue === props.distribution.center ? 'stred' : (maxValue === props.distribution.conservative ? 'konzervatívne' : 'liberálne');
+        const distributionTitle = maxValue === props.distribution.center ? 'neutrálne' : (maxValue === props.distribution.conservative ? 'konzervatívne' : 'liberálne');
 
         return { maxValue: maxValue, distributionTitle: distributionTitle};
     }

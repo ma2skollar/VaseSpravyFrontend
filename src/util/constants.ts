@@ -1,4 +1,4 @@
-export const GLOBAL_PROCESSED_EVENTS = false;
+export const GLOBAL_PROCESSED_EVENTS = true;
 // Set to true for production
 
 export const GLOBAL_LINKS = {

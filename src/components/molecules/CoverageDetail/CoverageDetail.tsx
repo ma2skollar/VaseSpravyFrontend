@@ -52,7 +52,7 @@ const CoverageDetail = (props: CoverageDetailProps) => {
         const centerPercentage = (center / total) * 100;
         const rightPercentage = (right / total) * 100;
 
-        return Math.max(leftPercentage, centerPercentage, rightPercentage);
+        return Math.round(Math.max(leftPercentage, centerPercentage, rightPercentage));
     }
 
     // calculate width of the compass = 1/4 of the available width = 100% minus padding / 4
@@ -76,7 +76,7 @@ const CoverageDetail = (props: CoverageDetailProps) => {
                         <p className='text-sans-large-important'>{props.distribution.center + props.distribution.liberal + props.distribution.conservative}</p>
                     </div>
                     <div className={styles.contentRow}>
-                        <p className='text-sans-large'>Stredné zdroje</p>
+                        <p className='text-sans-large'>Neutrálne zdroje</p>
                         <p className='text-sans-large-important'>{props.distribution.center}</p>
                     </div>
                     <div className={styles.contentRow}>

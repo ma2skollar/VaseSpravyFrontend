@@ -1,17 +1,17 @@
 'use client'
 
 import styles from './EventPage.module.scss'
-import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox'
-import FilterIcon from '@/components/atoms/Icon/Material/FilterIcon'
+// import ClickBox, { IconSize } from '@/components/atoms/ClickBox/ClickBox'
+// import FilterIcon from '@/components/atoms/Icon/Material/FilterIcon'
 import LineSeparator from '@/components/atoms/LineSeparator/LineSeparator'
 import EventTitle from '@/components/molecules/EventTitle/EventTitle'
 import ImageContainer from '@/components/molecules/ImageContainer/ImageContainer'
-import InformationDescriptionLabel from '@/components/molecules/InformationDescriptionLabel/InformationDescriptionLabel'
-import SearchBar from '@/components/molecules/SearchBar/SearchBar'
+// import InformationDescriptionLabel from '@/components/molecules/InformationDescriptionLabel/InformationDescriptionLabel'
+// import SearchBar from '@/components/molecules/SearchBar/SearchBar'
 import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem'
 import CoverageDetailContainer from '@/components/organisms/CoverageDetailContainer/CoverageDetailContainer'
-import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventSourcesFilter'
-import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
+// import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventSourcesFilter'
+// import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
 import { Fragment, JSX, useCallback, useEffect, useRef, useState } from 'react'
 import { Event } from '@/types/event'
 import { Article, ArticleBias, ArticleSource } from '@/types/article'
@@ -32,7 +32,7 @@ const ClientEvent = (props: ClientEventProps) => {
     const conservativeSelected = summarySwitchState.conservative;
     const comparisonSelected = summarySwitchState.comparison;
 
-	const [filterVisible, setFilterVisible] = useState(false);
+	// const [filterVisible, setFilterVisible] = useState(false);
 	const [articles, setArticles] = useState<Article[]>(props.eventArticles);
 	const [isLoading, setIsLoading] = useState(false);
 	const [hasMore, setHasMore] = useState(true);
@@ -168,7 +168,7 @@ const ClientEvent = (props: ClientEventProps) => {
 		);
 	};
 
-	const summary = renderSummary();
+	// const summary = renderSummary();
 
 	return (
 		<main className={styles.container}>
@@ -187,15 +187,15 @@ const ClientEvent = (props: ClientEventProps) => {
 				altText={''}
 				imageLabel={''}
 			/>
-			<article className={styles.summary}>
+			{/* <article className={styles.summary}>
 				<ul>
 					{summary}
 				</ul>
 				{<InformationDescriptionLabel
 					label={'Zhrnutia sú vytvorené pomocou umelej inteligencie.'}description={'Na zhrnutia článkov využívame vlastné modely umelej inteligencie. Neustále pracujeme na ich zlepšovaní a vyvíjame presnejšie metódy na sumarizáciu. Ak si všimnete chybu, dajte nám vedieť.'}
 				/>}
-			</article>
-			<HoverSwitchComponent />
+			</article> */}
+			{/* <HoverSwitchComponent /> */}
 			<LineSeparator 
 				inNavMenu={false}
 				isColored={false}
@@ -219,17 +219,17 @@ const ClientEvent = (props: ClientEventProps) => {
 			<div className={styles.sourceListContainer}>
 				<div className={styles.sourceListTitle}>
 					<h2 className='title-sans-large'>Všetky články</h2>
-					<ClickBox
+					{/* <ClickBox
 						icon={FilterIcon}
 						iconSize={IconSize.Regular}
 						onClick={() => setFilterVisible(!filterVisible)}
-					/>
+					/> */}
 				</div>
-				{filterVisible && <EventSourcesFilter />}
-				<SearchBar
+				{/* {filterVisible && <EventSourcesFilter />} */}
+				{/* <SearchBar
 					action={'https://api.vasespravy.sk/events/{eventId}/article/all'}
 					promptText='Hľadaj článok alebo zdroj'
-				/>
+				/> */}
 				<ul className={styles.sourceList}>
 					{articles.map((article, index) => {
 						const articleTimeInfo = getTimeDiff(new Date(article.publicationDate), new Date())

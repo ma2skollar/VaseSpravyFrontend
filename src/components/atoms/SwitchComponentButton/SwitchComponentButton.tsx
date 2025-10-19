@@ -3,7 +3,7 @@ import BackgroundLogoInitials from '@/components/atoms/BackgroundLogoInitials/Ba
 
 export enum BiasMarkerType {
     Liberal = 'Liberálne',
-    Center = 'Stred',
+    Center = 'Neutrálne',
     Conservative = 'Konzervatívne',
     Compare = 'Porovnanie'
 }

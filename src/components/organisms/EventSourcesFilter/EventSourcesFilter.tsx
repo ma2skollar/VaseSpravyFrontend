@@ -14,7 +14,7 @@ const EventSourcesFilter = () => {
     const biasOptions = [
         {option: 'Liberálne', selected: filterState.biasOptions.liberalSelection, onClick: () => {dispatch(toggleLiberal())}},
         {option: 'Konzervatívne', selected: filterState.biasOptions.conservativeSelection, onClick: () => {dispatch(toggleConservative())}},
-        {option: 'Stred', selected: filterState.biasOptions.centerSelection, onClick: () => {dispatch(toggleCenter())}},
+        {option: 'Neutrálne', selected: filterState.biasOptions.centerSelection, onClick: () => {dispatch(toggleCenter())}},
     ];
 
     const ownershipOptions = [{ option: "Placeholder", selected: false, onClick: () => {} }];
