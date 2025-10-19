@@ -36,3 +36,46 @@
         z-index: 2;
     }
 }
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .container {
+        position: relative;
+        width: 1080px;
+        display: flex;
+        padding: var(--padding-rg) var(--padding-lg);
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        flex-shrink: 0;
+        aspect-ratio: 225/150;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .image {
+            object-fit: fill;
+            z-index: 0;
+        }
+
+        .imageOverlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(6, 4, 0, 0) 68.16%, #060400 100%);
+            z-index: 1;
+        }
+
+        p {
+            color: var(--bias-label-text-white);
+            text-align: center;
+            z-index: 2;
+        }
+    }
+}

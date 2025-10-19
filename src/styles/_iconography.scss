@@ -1,11 +1,21 @@
 :root {
-    
     // Icon Variables
-
     --icon-rg: 1.5rem; // 24px
     --icon-sm: 1.25rem; // 20px
     --icon-xs: 1.125rem; // 18px
 
     --icon-cs: 1.25rem; // 20px
-    
+}
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    :root {
+        // Icon Variables
+        --icon-rg: 2rem; // 36px
+        --icon-sm: 1.75rem; // 28px
+        --icon-xs: 1.6rem; // 24px
+
+        --icon-cs: 1.75rem; // 28px
+    }
 }

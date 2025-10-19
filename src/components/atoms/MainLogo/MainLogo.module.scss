@@ -35,3 +35,16 @@
         width: auto;
     }
 }
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .container {
+        padding-top: 2.75rem;
+    }
+
+    .logo {
+        &--sm, &--md, &--lg {
+            height: 5.5rem;
+        }
+    }
+}

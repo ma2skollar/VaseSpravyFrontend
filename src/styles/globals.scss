@@ -94,3 +94,19 @@ input {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100svh; 
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        // light mode
+        background-color: var(--background-color);
+    }
+}
