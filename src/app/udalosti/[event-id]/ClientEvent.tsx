@@ -12,10 +12,10 @@ import TitleListItem from '@/components/molecules/TitleListItem/TitleListItem'
 import CoverageDetailContainer from '@/components/organisms/CoverageDetailContainer/CoverageDetailContainer'
 // import EventSourcesFilter from '@/components/organisms/EventSourcesFilter/EventSourcesFilter'
 // import HoverSwitchComponent from '@/components/organisms/HoverSwitchComponent/HoverSwitchComponent'
-import { Fragment, JSX, useCallback, useEffect, useRef, useState } from 'react'
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import { Event } from '@/types/event'
 import { Article, ArticleBias, ArticleSource } from '@/types/article'
-import { useAppSelector } from '@/lib/hooks'
+// import { useAppSelector } from '@/lib/hooks'
 import { getTimeDiff } from '@/util/getTimeDiff'
 import { ARTICLE_PAGE_SIZE, GLOBAL_PROCESSED_EVENTS, MAX_LOAD_ARTICLES_AUTO } from '@/util/constants'
 import { copy } from '@/util/copy'
@@ -26,11 +26,11 @@ interface ClientEventProps {
 }
 
 const ClientEvent = (props: ClientEventProps) => {
-	const summarySwitchState = useAppSelector(state => state.singleArticleReducer.summarySwitch);
-	const liberalSelected = summarySwitchState.liberal;
-    const centerSelected = summarySwitchState.center;
-    const conservativeSelected = summarySwitchState.conservative;
-    const comparisonSelected = summarySwitchState.comparison;
+	// const summarySwitchState = useAppSelector(state => state.singleArticleReducer.summarySwitch);
+	// const liberalSelected = summarySwitchState.liberal;
+    // const centerSelected = summarySwitchState.center;
+    // const conservativeSelected = summarySwitchState.conservative;
+    // const comparisonSelected = summarySwitchState.comparison;
 
 	// const [filterVisible, setFilterVisible] = useState(false);
 	const [articles, setArticles] = useState<Article[]>(props.eventArticles);
@@ -129,14 +129,14 @@ const ClientEvent = (props: ClientEventProps) => {
 		await copy(window.location.href);
 	};
 
-	const formatSummary = (summary: string | null) => {
-		if (!summary) {
-			return null;
-		}
-		return summary?.split('\n').map((line, index) => (
-			<li key={index} className='text-sans-large'>{line}</li>
-		));
-	}
+	// const formatSummary = (summary: string | null) => {
+	// 	if (!summary) {
+	// 		return null;
+	// 	}
+	// 	return summary?.split('\n').map((line, index) => (
+	// 		<li key={index} className='text-sans-large'>{line}</li>
+	// 	));
+	// }
 
 	// const renderSummary = (): JSX.Element | JSX.Element[]  => {
 	// 	switch (true) {
