@@ -138,35 +138,35 @@ const ClientEvent = (props: ClientEventProps) => {
 		));
 	}
 
-	const renderSummary = (): JSX.Element | JSX.Element[]  => {
-		switch (true) {
-			case liberalSelected: {
-				const s = formatSummary(props.eventData.summaryLiberal);
-				if (s) return s;
-				break;
-			}
-			case centerSelected: {
-				const s = formatSummary(props.eventData.summaryCenter);
-				if (s) return s;
-				break;
-			}
-			case conservativeSelected: {
-				const s = formatSummary(props.eventData.summaryConservative);
-				if (s) return s;
-				break;
-			}
-			case comparisonSelected: {
-				const s = formatSummary(props.eventData.summaryComparison);
-				if (s) return s;
-				break;
-			}
-		}
-		return (
-			<li className="text-sans-large" style={{ listStyleType: "none" }}>
-				Zhrnutie momentálne nie je k dispozícii.
-			</li>
-		);
-	};
+	// const renderSummary = (): JSX.Element | JSX.Element[]  => {
+	// 	switch (true) {
+	// 		case liberalSelected: {
+	// 			const s = formatSummary(props.eventData.summaryLiberal);
+	// 			if (s) return s;
+	// 			break;
+	// 		}
+	// 		case centerSelected: {
+	// 			const s = formatSummary(props.eventData.summaryCenter);
+	// 			if (s) return s;
+	// 			break;
+	// 		}
+	// 		case conservativeSelected: {
+	// 			const s = formatSummary(props.eventData.summaryConservative);
+	// 			if (s) return s;
+	// 			break;
+	// 		}
+	// 		case comparisonSelected: {
+	// 			const s = formatSummary(props.eventData.summaryComparison);
+	// 			if (s) return s;
+	// 			break;
+	// 		}
+	// 	}
+	// 	return (
+	// 		<li className="text-sans-large" style={{ listStyleType: "none" }}>
+	// 			Zhrnutie momentálne nie je k dispozícii.
+	// 		</li>
+	// 	);
+	// };
 
 	// const summary = renderSummary();
 
