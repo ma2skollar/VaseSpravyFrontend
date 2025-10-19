@@ -1,11 +1,19 @@
 :root {
-    
     // Stroke Variables
-
     --stroke-rg: 0.03125rem; // 0.5px
 
     // Line Variables
+    --line-rg: 0.03125rem; // 0.5px    
+}
 
-    --line-rg: 0.03125rem; // 0.5px
 
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    :root {
+        // Stroke Variables
+        --stroke-rg: 0.0625rem; // 1px
+
+        // Line Variables
+        --line-rg: 0.0625rem; // 1px
+    }
 }

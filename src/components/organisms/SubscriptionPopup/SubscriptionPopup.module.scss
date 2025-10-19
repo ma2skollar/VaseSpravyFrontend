@@ -28,3 +28,11 @@
         cursor: pointer;
     }
 }
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .container {
+        width: 600px;
+    }
+}

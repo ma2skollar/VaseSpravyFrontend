@@ -176,3 +176,117 @@
     font-weight: 400;
     font-family: var(--sans-font);
 }
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    // Title Typography Styles
+    .title-serif-large {
+        font-size: 2rem; // 32px
+    }
+
+    .title-sans-large {
+        font-size: 2rem; // 32px
+    }
+
+    .title-serif-medium {
+        font-size: 1.875rem; // 30px
+    }
+
+    .title-serif-regular {
+        font-size: 1.75rem; // 28px
+    }
+
+    .title-sans-regular {
+        font-size: 1.625rem; // 26px
+    }
+
+    .title-sans-small {
+        font-size: 1.5rem; // 24px
+    }
+
+    // Subtitle Typography Styles
+    .subtitle-sans-regular-important {
+        font-size: 1.375rem; // 22px
+    }
+
+    .subtitle-sans-regular {
+        font-size: 1.375rem; // 22px
+    }
+
+    .subtitle-sans-light {
+        font-size: 1.375rem; // 22px
+    }
+
+    .subtitle-sans-small {
+        font-size: 1.25rem; // 20px
+    }
+
+    // Link Text Typography Styles
+    .link-text-sans-large {
+        font-size: 1.625rem; // 26px
+    }
+
+    .link-text-sans-medium {
+        font-size: 1.5rem; // 24px
+    }
+
+    .link-text-sans-regular {
+        font-size: 1.375rem; // 22px
+    }
+
+    .link-text-sans-small {
+        font-size: 0.875rem; // 20px
+    }
+
+    // Label Typography Styles
+    .label-sans-heavy {
+        font-size: 1.375rem; // 22px
+    }
+
+    .label-sans-large {
+        font-size: 1.375rem; // 22px
+    }
+
+    .label-sans-regular {
+        font-size: 1.25rem; // 20px
+    }
+
+    .label-sans-light {
+        font-size: 1rem; // 20px
+    }
+
+    .label-sans-small {
+        font-size: 1.125rem; // 18px
+    }
+
+    // Text Typography Styles
+    .text-sans-large-important {
+        font-size: 1.5rem; // 24px
+    }
+
+    .text-sans-large {
+        font-size: 1.5rem; // 24px
+    }
+
+    .text-sans-regular-selected {
+        font-size: 1.375rem; // 22px
+    }
+
+    .text-sans-regular {
+        font-size: 1.375rem; // 22px
+    }
+
+    .text-sans-regular-unselected {
+        font-size: 1.375rem; // 22px
+    }
+
+    .text-sans-small {
+        font-size: 0.875rem; // 20px
+    }
+
+    // Input Typography Styles
+    .input-sans-regular {
+        font-size: 1.25rem; // 20px
+    }
+}

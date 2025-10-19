@@ -11,3 +11,13 @@
     top: 0;
     z-index: 5;
 }
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .header {
+        width: 1080px;
+        padding: 2rem 0.625rem 0.5rem 0.625rem;
+        border-bottom: 1px solid var(--text-color-20);
+    }
+}

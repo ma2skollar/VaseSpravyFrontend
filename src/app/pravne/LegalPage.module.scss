@@ -64,3 +64,13 @@
         }
     }
 }
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .container {
+        width: 1080px;
+		height: auto;
+		padding: var(--padding-xl) 0 var(--padding-lg) 0;
+    }
+}
