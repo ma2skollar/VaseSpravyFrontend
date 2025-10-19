@@ -12,7 +12,6 @@ const BiasMarker = (props: BiasMarkerProps) => {
         [ArticleBias.conservative]: 'Konzervatívny',
         [ArticleBias.center]: 'Neutrálny', 
     }
-    console.log(props.bias.slice(-1))
 
     return (
         <div className={`${styles.container} ${styles[`container--${props.bias.slice(-1)}`]}`}>

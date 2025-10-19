@@ -1,10 +1,10 @@
 export const GLOBAL_PROCESSED_EVENTS = true;
-// Set to true for production
 
 export const GLOBAL_LINKS = {
     UNSUBSCRIBE: "/pravne/odhlasit-odber/",
     SUPPORT_US: "/o-nas/#podpora",
-    FAQ: "/pomoc/#faq",
+    // FAQ: "/pomoc/#faq",
+    FAQ: "https://forms.gle/DWFk3fNUsVB84LSQA",
     FACEBOOK: "https://www.facebook.com/vasespravy",
     INSTAGRAM: "https://www.instagram.com/vasespravyoz/",
     LINKEDIN: "https://www.linkedin.com/company/vase-spravy-oz",
@@ -12,9 +12,11 @@ export const GLOBAL_LINKS = {
     CONTACT: "/o-nas/#kontakt",
     HOW_IT_WORKS: "/ako-to-funguje/",
     COOKIES: "/pravne/cookies/",
-    SUPPORT: "/pomoc/",
+    // SUPPORT: "/pomoc/",
+    SUPPORT: "/o-nas/#podpora",
     PRIVACY_POLICY: "/pravne/osobne-udaje/",
-    SITEMAP: "/sitemap.xml",
+    // SITEMAP: "/sitemap.xml",
+    SITEMAP: "/",
     HOME: "/",
 }
 
