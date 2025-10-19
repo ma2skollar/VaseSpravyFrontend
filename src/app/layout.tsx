@@ -10,7 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: 'Vaše Správy',
-  description: 'Description will be here...',
+  description: 'Platforma pre Slovákov, kde si vie každý pozrieť objektívne a nezaujaté správy.',
   appleWebApp: {
     title: 'Vaše Správy'
   },
