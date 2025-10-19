@@ -1,0 +1,22 @@
+import { configureStore } from '@reduxjs/toolkit'
+import headerReducer from './features/headerSlice'
+import singleArticleReducer from './features/singleArticleSlice'
+import navBarSwitchReducer from './features/navBarSwitchSlice'
+import sourcesFilterReducer from './features/sourcesFilterSlice'
+
+export const makeStore = () => {
+    return configureStore({
+        reducer: {
+            headerReducer,
+            singleArticleReducer,
+            navBarSwitchReducer,
+            sourcesFilterReducer,
+        }
+    })
+}
+
+// Infer the type of makeStore
+export type AppStore = ReturnType<typeof makeStore>
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<AppStore['getState']>
+export type AppDispatch = AppStore['dispatch']

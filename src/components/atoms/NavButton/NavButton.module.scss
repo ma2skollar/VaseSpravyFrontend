@@ -1,0 +1,37 @@
+.navButton {
+    display: flex;
+    height: var(--default-click-dimension);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    color: var(--text-color);
+    border-top: var(--border-bottom-rg) solid transparent;
+    border-bottom: var(--border-bottom-rg) solid transparent;
+
+    &.active {
+        border-bottom: var(--border-bottom-rg) solid var(--highlight-color);
+    }
+}
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .navButton {
+        display: flex;
+        height: 60px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        cursor: pointer;
+        color: var(--text-color);
+        border-top: var(--border-bottom-rg) solid transparent;
+        border-bottom: var(--border-bottom-rg) solid transparent;
+
+        &.active {
+            border-bottom: var(--border-bottom-rg) solid var(--highlight-color);
+        }
+    }
+}

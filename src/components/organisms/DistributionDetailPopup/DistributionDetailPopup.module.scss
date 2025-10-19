@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    position: relative;
+    width: calc(100vw - 3.75rem);
+    box-sizing: border-box;
+    padding: var(--padding-lg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-sm);
+    background-color: var(--highlight-color-alt);
+    color: var(--text-color);
+
+    h2 {
+        width: calc(100% - 1.5rem);
+        hyphens: auto;
+        align-self: flex-start;
+    }
+
+    .compassContainer {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+
+        div {
+            position: absolute;
+            z-index: 1;
+            background-color: aquamarine;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-position: center;
+            background-origin: no-repeat;
+            background-size: contain;
+        }
+
+        & > svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 100%;
+        }
+    }
+
+    & > a {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    & > div:last-child {
+        align-self: flex-end;
+    }
+
+    span {
+        color: var(--text-color-50);
+        position: absolute;
+
+        &.labelLiberal {
+            bottom: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &.labelConservative {
+            top: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &.labelLeft {
+            left: 3%;
+            top: 65%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: left center;
+        }
+
+        &.labelRight {
+            right: 3%;
+            top: 65%;
+            transform: translateY(-50%) rotate(90deg);
+            transform-origin: right center;
+        }
+    }
+}

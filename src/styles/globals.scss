@@ -1,0 +1,112 @@
+@use 'borders';
+@use 'colors';
+@use 'iconography';
+@use 'lines-strokes';
+@use 'spacing';
+
+:root {
+    // default padding
+    --default-padding: 1.25rem; // 20px
+}
+
+// mobile style
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: auto;
+    max-width: 100%;
+    min-height: 100svh; 
+    box-sizing: border-box;
+    
+    // light mode
+    background-color: var(--background-color);
+}
+
+// Button Reset Styles
+
+button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    line-height: normal;
+    letter-spacing: normal;
+
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+// Typography Reset Styles
+
+p,
+h1, h2, h3, h4, h5, h6,
+dl, dt, dd,
+blockquote,
+figure,
+pre,
+hr,
+table,
+th, td,
+caption,
+address {
+    margin: 0;
+    padding: 0;
+}
+
+// List Reset Styles
+
+ul, ol, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+// Form Element Reset Styles
+
+form,
+label,
+input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: inherit;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100svh; 
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        // light mode
+        background-color: var(--background-color);
+    }
+}

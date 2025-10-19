@@ -1,0 +1,124 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: var(--padding-lg);
+	gap: var(--gap-md);
+	position: relative;
+    color: var(--text-color);
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--gap-sm);
+        align-self: stretch;
+
+        .stats {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--gap-md);
+
+            .statBox {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                span {
+                    font-size: 6rem !important;
+                    font-weight: 500;
+                    color: var(--text-color);
+                }
+
+                & > p {
+                    color: var(--text-color-50);
+                }
+            }
+        }
+
+        .styledBox {
+            background-color: var(--highlight-color-inverse);
+            display: flex;
+            padding: var(--padding-lg);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--gap-md);
+            align-self: stretch;
+            border-radius: var(--border-radius-rg);
+            background-image: url('/hearts-bg-light.svg');
+            background-repeat: repeat-x;
+            background-position: center;
+            background-size: cover;
+            
+            @media (prefers-color-scheme: dark) {
+                background-image: url('/hearts-bg-dark.svg');
+            }
+
+            a {
+                color: var(--text-color);
+                text-decoration: none;
+            }
+        }
+
+        .emailCardsContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            align-self: stretch;
+
+            .emailCard {
+                display: flex;
+                width: 100%;
+                align-items: flex-start;
+                gap: var(--gap-xs);
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                & > div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: var(--gap-xs);
+                    flex: 1 0 0;
+
+                    .emailTitles {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        align-self: stretch;
+
+                        p {
+                            color: var(--text-color-50);
+                        }
+                    }
+
+                    a {
+                        color: var(--text-color);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .container {
+        width: 1080px;
+		height: auto;
+		padding: var(--padding-xl) 0 var(--padding-lg) 0;
+    }
+}

@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    padding: var(--padding-xs) var(--padding-rg);
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-sm);
+
+    &--r {
+        background-color: var(--bias-color-center);
+        .content {
+            color: var(--bias-label-text-black);
+        }
+    }
+
+    &--e {
+        background-color: var(--bias-color-conservative);
+        .content {
+            color: var(--bias-label-text-white);
+        }
+    }
+
+    &--l {
+        background-color: var(--bias-color-liberal);
+        .content {
+            color: var(--bias-label-text-white);
+        }
+    }
+}

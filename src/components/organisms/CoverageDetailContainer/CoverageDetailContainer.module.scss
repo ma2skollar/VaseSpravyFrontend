@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-sm);
+}
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+	.container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--gap-sm);
+    }
+}

@@ -1,0 +1,75 @@
+:root {
+    
+    // Light Mode Colors
+
+    --text-color: #060400;
+    --text-color-50: #828179;
+    --text-color-20: #CDCCC2;
+
+    --background-color: #FFFEF3;
+
+    --highlight-color: #635E83;
+    --highlight-color-alt: #FEE5BF;
+    --highlight-color-tint: #ECEBE6;
+    --highlight-color-inverse: #FFEFD7;
+    --secondary-color-salmon: #FFCDBC;
+
+    --indicator-color-positive: #0B8500;
+    --indicator-color-negative: #E22828;
+    
+    --bias-color-center: #FFFEF3;
+    --bias-color-liberal: #166DFC;
+    --bias-color-conservative: #FA2F3D;
+    --bias-label-text-black: #060400;
+    --bias-label-text-white: #FFFEF3;
+
+    --compass-color-top-left: #FA6661;
+    --compass-color-top-right: #8DBEFF;
+    --compass-color-bottom-left: #A5D38C;
+    --compass-color-bottom-right: #BE8EC8;
+
+    --disabled-btn-color: #9B9A92;
+    
+    --glass-border-color: #CDCBBE;
+    
+    --bg-overlay-color: #0604004D;
+    --glass-overlay-color: #FFEFD780;
+
+    @media (prefers-color-scheme: dark) {
+
+        // Dark Mode Colors
+
+        --text-color: #FFFEF3;
+        --text-color-50: #828179;
+        --text-color-20: #383631;
+
+        --background-color: #060400;
+
+        --highlight-color: #FFC485;
+        --highlight-color-alt: #201F25;
+        --highlight-color-tint: #241B10;
+        --highlight-color-inverse: #1D1A21;
+        --secondary-color-salmon: #FFCDBC;
+
+        --indicator-color-positive: #0CCA4A;
+        --indicator-color-negative: #E32E2E;
+        
+        --bias-color-center: #FFFEF3;
+        --bias-color-liberal: #166DFC;
+        --bias-color-conservative: #FA2F3D;
+        --bias-label-text-black: #060400;
+        --bias-label-text-white: #FFFEF3;
+
+        --compass-color-top-left: #FA6661;
+        --compass-color-top-right: #8DBEFF;
+        --compass-color-bottom-left: #A5D38C;
+        --compass-color-bottom-right: #BE8EC8;
+
+        --disabled-btn-color: #9B9A92;
+
+        --glass-border-color: #383631;
+        
+        --bg-overlay-color: #FFFEF34D;
+        --glass-overlay-color: #1D1A2180;
+    }
+}

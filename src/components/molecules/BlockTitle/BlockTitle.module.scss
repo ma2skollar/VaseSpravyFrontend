@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    min-height: 44px;
+    
+    svg {
+        color: var(--text-color);
+        width: var(--icon-xs);
+        cursor: pointer;
+    }
+
+    .content {
+        color: var(--text-color);
+    }
+}
+

@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    max-width: calc(100vw - 6.75rem);
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+
+    &--lg {
+        padding-top: 2.75rem;
+    }
+}
+
+.logo {
+    color: var(--text-color);
+    display: flex;
+    width: auto;
+    height: var(--default-click-dimension);
+    flex-shrink: 0;
+    transition: all 0.3s ease-in-out;
+    
+
+    &--sm {
+        height: 2.25rem;
+        width: auto;
+    }
+
+    &--md {
+        height: var(--default-click-dimension);
+        width: auto;
+    }
+
+    &--lg {
+        height: 5.5rem;
+        width: auto;
+    }
+}
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .container {
+        padding-top: 2.75rem;
+    }
+
+    .logo {
+        &--sm, &--md, &--lg {
+            height: 5.5rem;
+        }
+    }
+}

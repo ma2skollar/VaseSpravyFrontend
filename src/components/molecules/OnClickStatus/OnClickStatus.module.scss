@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-xs);
+
+    &.success {
+        color: var(--indicator-color-positive);
+        svg {
+            color: var(--indicator-color-positive);
+        }
+    }
+
+    &.error {
+        color: var(--indicator-color-negative);
+        svg {
+            color: var(--indicator-color-negative);
+        }
+    }
+}

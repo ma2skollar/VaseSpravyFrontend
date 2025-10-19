@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: var(--default-click-dimension);
+    padding: 0rem var(--padding-lg);
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-lg);
+    box-sizing: border-box;
+    border-top: var(--line-rg) solid transparent;
+    border-bottom: var(--line-rg) solid var(--text-color-20);
+    background-color: var(--background-color);
+}
+
+
+/* Large devices (laptops, desktops) */
+@media screen and (min-width: 1079.99px) {
+    .container {
+        width: 1080px;
+        height: auto;
+    }
+}

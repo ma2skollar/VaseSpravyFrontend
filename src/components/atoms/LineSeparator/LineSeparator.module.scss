@@ -1,0 +1,17 @@
+.line {
+    all: unset;
+    width: 100%;
+    height: var(--line-rg);
+
+    &.padded {
+        width: calc(100% - (var(--padding-lg) * 2));
+    }
+}
+
+.default {
+    background-color: var(--text-color-20);
+}
+
+.colored {
+    background-color: var(--highlight-color);
+}

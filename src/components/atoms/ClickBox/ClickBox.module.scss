@@ -1,0 +1,31 @@
+.clickBox {
+    all: unset;
+    display: flex;
+    width: var(--default-click-dimension);
+    height: var(--default-click-dimension);
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    cursor: pointer;
+
+    &.icon-rg > svg {
+        width: var(--icon-rg);
+        height: var(--icon-rg);
+    }
+
+    &.icon-sm > svg {
+        width: var(--icon-sm);
+        height: var(--icon-sm);
+    }
+
+    &.icon-xs > svg {
+        width: var(--icon-xs);
+        height: var(--icon-xs);
+    }
+
+    &.icon-cs > svg {
+        width: var(--icon-cs);
+        height: var(--icon-cs);
+    }
+}
