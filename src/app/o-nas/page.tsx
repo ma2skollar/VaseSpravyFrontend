@@ -9,6 +9,7 @@ const AboutPage = async () => {
             headers: {
                 "Content-Type": "application/json",
             },
+            cache: 'no-store',
         }
     ).then(async (res) => {
         if (res.status === 404) return null;
