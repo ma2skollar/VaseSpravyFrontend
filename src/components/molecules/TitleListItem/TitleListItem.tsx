@@ -3,20 +3,20 @@ import BaseInfo from '@/components/molecules/BaseInfo/BaseInfo';
 import OpenNewIcon from '@/components/atoms/Icon/Material/OpenNewIcon';
 import { EventCategory } from '@/types/event';
 import { ArticleBias, ArticleSource } from '@/types/article';
-import TVNovinyCustomIcon from '@/components/atoms/Icon/Custom/TVNovinyCustomIcon';
-import AktualityCustomIcon from '@/components/atoms/Icon/Custom/AktualityCustomIcon';
-import HlavneSpravyCustomIcon from '@/components/atoms/Icon/Custom/HlavneSpravyCustomIcon';
-import PravdaCustomIcon from '@/components/atoms/Icon/Custom/PravdaCustomIcon';
-import SmeCustomIcon from '@/components/atoms/Icon/Custom/SmeCustomIcon';
-import StandardCustomIcon from '@/components/atoms/Icon/Custom/StandardCustomIcon';
-import DobreNovinyCustomIcon from '@/components/atoms/Icon/Custom/DobreNovinyCustomIcon';
-import DennikNCustomIcon from '@/components/atoms/Icon/Custom/DennikNCustomIcon';
-import HospodarskeCustomIcon from '@/components/atoms/Icon/Custom/HospodarskeCustomIcon';
-import NewsSkCustomIcon from '@/components/atoms/Icon/Custom/NewsSkCustomIcon';
-import NovinySkCustomIcon from '@/components/atoms/Icon/Custom/NovinySkCustomIcon';
-import TopkyCustomIcon from '@/components/atoms/Icon/Custom/TopkyCustomIcon';
-import NovyCasCustomIcon from '@/components/atoms/Icon/Custom/NovyCasCustomIcon';
-import PostojCustomIcon from '@/components/atoms/Icon/Custom/PostojCustomIcon';
+// import TVNovinyCustomIcon from '@/components/atoms/Icon/Custom/TVNovinyCustomIcon';
+// import AktualityCustomIcon from '@/components/atoms/Icon/Custom/AktualityCustomIcon';
+// import HlavneSpravyCustomIcon from '@/components/atoms/Icon/Custom/HlavneSpravyCustomIcon';
+// import PravdaCustomIcon from '@/components/atoms/Icon/Custom/PravdaCustomIcon';
+// import SmeCustomIcon from '@/components/atoms/Icon/Custom/SmeCustomIcon';
+// import StandardCustomIcon from '@/components/atoms/Icon/Custom/StandardCustomIcon';
+// import DobreNovinyCustomIcon from '@/components/atoms/Icon/Custom/DobreNovinyCustomIcon';
+// import DennikNCustomIcon from '@/components/atoms/Icon/Custom/DennikNCustomIcon';
+// import HospodarskeCustomIcon from '@/components/atoms/Icon/Custom/HospodarskeCustomIcon';
+// import NewsSkCustomIcon from '@/components/atoms/Icon/Custom/NewsSkCustomIcon';
+// import NovinySkCustomIcon from '@/components/atoms/Icon/Custom/NovinySkCustomIcon';
+// import TopkyCustomIcon from '@/components/atoms/Icon/Custom/TopkyCustomIcon';
+// import NovyCasCustomIcon from '@/components/atoms/Icon/Custom/NovyCasCustomIcon';
+// import PostojCustomIcon from '@/components/atoms/Icon/Custom/PostojCustomIcon';
 
 interface TitleListItemProps {
     article: boolean;
@@ -42,18 +42,138 @@ const TitleListItem = (props: TitleListItemProps) => {
     }
 
     const sourceMap: Record<ArticleSource, React.ComponentType> = {
-        [ArticleSource.aktuality]: AktualityCustomIcon,
-        [ArticleSource.cas]: NovyCasCustomIcon,
-        [ArticleSource.dennikn]: DennikNCustomIcon,
-        [ArticleSource.dobrenoviny]: DobreNovinyCustomIcon,
-        [ArticleSource.hlavnespravy]: HlavneSpravyCustomIcon,
-        [ArticleSource.hn]: HospodarskeCustomIcon,
-        [ArticleSource.newssk]: NewsSkCustomIcon,
-        [ArticleSource.novinysk]: NovinySkCustomIcon,
-        [ArticleSource.postoj]: PostojCustomIcon,
-        [ArticleSource.pravda]: PravdaCustomIcon,
-        [ArticleSource.sme]: SmeCustomIcon,
-        [ArticleSource.standard]: StandardCustomIcon,
+        // [ArticleSource.aktuality]: AktualityCustomIcon,
+        [ArticleSource.aktuality]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            Aktuality
+        </div>,
+        // [ArticleSource.cas]: NovyCasCustomIcon,
+        [ArticleSource.cas]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            Nový Čas
+        </div>,
+        // [ArticleSource.dennikn]: DennikNCustomIcon,
+        [ArticleSource.dennikn]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            DennikN
+        </div>,
+        // [ArticleSource.dobrenoviny]: DobreNovinyCustomIcon,
+        [ArticleSource.dobrenoviny]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            Dobré Noviny
+        </div>,
+        // [ArticleSource.hlavnespravy]: HlavneSpravyCustomIcon,
+        [ArticleSource.hlavnespravy]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            Hlavné Správy
+        </div>,
+        // [ArticleSource.hn]: HospodarskeCustomIcon,
+        [ArticleSource.hn]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            HNonline
+        </div>,
+        // [ArticleSource.newssk]: NewsSkCustomIcon,
+        [ArticleSource.newssk]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            news.sk
+        </div>,
+        // [ArticleSource.novinysk]: NovinySkCustomIcon,
+        [ArticleSource.novinysk]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            noviny.sk
+        </div>,
+        // [ArticleSource.postoj]: PostojCustomIcon,
+        [ArticleSource.postoj]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            Postoj
+        </div>,
+        // [ArticleSource.pravda]: PravdaCustomIcon,
+        [ArticleSource.pravda]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            Pravda
+        </div>,
+        // [ArticleSource.sme]: SmeCustomIcon,
+        [ArticleSource.sme]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            SME
+        </div>,
+        // [ArticleSource.standard]: StandardCustomIcon,
+        [ArticleSource.standard]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            Štandard
+        </div>,
         [ArticleSource.stvr]: () => <div style={{
             height: '20px',
             padding: '0 4px',
@@ -64,8 +184,28 @@ const TitleListItem = (props: TitleListItemProps) => {
         }} className='label-sans-small'>
             STVR
         </div>,
-        [ArticleSource.topky]: TopkyCustomIcon,
-        [ArticleSource.tvnoviny]: TVNovinyCustomIcon,
+        // [ArticleSource.topky]: TopkyCustomIcon,
+        [ArticleSource.topky]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            Topky
+        </div>,
+        // [ArticleSource.tvnoviny]: TVNovinyCustomIcon,
+        [ArticleSource.tvnoviny]: () => <div style={{
+            height: '20px',
+            padding: '0 4px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }} className='label-sans-small'>
+            TVNoviny.sk
+        </div>,
     }
 
     if (props.article) {
