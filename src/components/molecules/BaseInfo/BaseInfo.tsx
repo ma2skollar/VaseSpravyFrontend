@@ -15,8 +15,8 @@ const BaseInfo = (props: BaseInfoProps) => {
         return (
             <div className={styles.containerArticle}>
                 <p className='subtitle-sans-light'>{props.category}</p>
-                <p className='subtitle-sans-light'>∙</p>
-                <p className='subtitle-sans-light'>{props.location}</p>
+                {/* <p className='subtitle-sans-light'>∙</p>
+                <p className='subtitle-sans-light'>{props.location}</p> */}
             </div>
         )
     } else {

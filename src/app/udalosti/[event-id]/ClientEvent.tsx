@@ -183,9 +183,9 @@ const ClientEvent = (props: ClientEventProps) => {
 				updatedUnit={timeInfo.updated.unit}
 			/>
 			<ImageContainer
-				imageUrls={props.eventData.imageUrls}
-				altText={''}
-				imageLabel={''}
+				// imageUrls={props.eventData.imageUrls}
+				// altText={''}
+				imageLabel={'Illustračné foto'}
 			/>
 			{/* <article className={styles.summary}>
 				<ul>

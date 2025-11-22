@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// import { useEffect, useState } from 'react';
+// import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import styles from './EventImageContainer.module.scss';
 import LabelDistribution, { LabelDistributionBias } from '@/components/atoms/LabelDistribution/LabelDistribution';
 
 interface EventImageContainerProps {
-    imageUrls: string[];
+    // imageUrls: string[];
     distribution: {
         liberal: number;
         conservative: number;
@@ -16,15 +16,23 @@ interface EventImageContainerProps {
 }
 
 const EventImageContainer = (props: EventImageContainerProps) => {
-    const intervalMs = 4000;
-    const [index, setIndex] = useState(0);
-    const images = props.imageUrls.filter(Boolean);
+    // const intervalMs = 4000;
+    // const [index, setIndex] = useState(0);
+    // const images = props.imageUrls.filter(Boolean);
 
-    useEffect(() => {
-        if (images.length <= 1) return;
-        const id = setInterval(() => setIndex((i) => (i + 1) % images.length), Math.max(1500, intervalMs));
-        return () => clearInterval(id);
-    }, [images.length, intervalMs]);
+    // useEffect(() => {
+    //     if (images.length <= 1) return;
+    //     const id = setInterval(() => setIndex((i) => (i + 1) % images.length), Math.max(1500, intervalMs));
+    //     return () => clearInterval(id);
+    // }, [images.length, intervalMs]);
+
+    const imageUrls = [
+        '/placeholder1.jpg',
+        '/placeholder2.jpg',
+        '/placeholder3.jpg',
+        '/placeholder4.jpg',
+        '/placeholder5.jpg',
+    ]
     
     const getHightestDistribution = () => {
         const values = Object.values(props.distribution);
@@ -50,7 +58,7 @@ const EventImageContainer = (props: EventImageContainerProps) => {
     
     return (
         <div className={styles.container} aria-live="polite">
-            <AnimatePresence mode="wait">
+            {/* <AnimatePresence mode="wait">
                 {images.length > 0 && (
                     <motion.div
                         key={images[index]}
@@ -69,7 +77,14 @@ const EventImageContainer = (props: EventImageContainerProps) => {
                         />
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
+            <Image
+                src={imageUrls[Math.floor(Math.random() * imageUrls.length)]}
+                alt={`Illustračná snímka`}
+                fill
+                unoptimized
+                className={styles.image}
+            />
             <div className={styles.imageOverlay} />
             <div className={styles.distribution}>
                 <div className={styles.distributionVisual}>

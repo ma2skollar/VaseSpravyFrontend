@@ -35,7 +35,8 @@ const TitleListItem = (props: TitleListItemProps) => {
 
     const categoryMap: Record<EventCategory, string> = {
         [EventCategory.zahranicna_politika]: "Zahraničná politika",
-        [EventCategory.domaca_politika]: "Domáca politika",
+        // [EventCategory.domaca_politika]: "Domáca politika",
+        [EventCategory.domaca_politika]: "Vaše Správy",
         [EventCategory.ekonomika]: "Ekonomika",
         [EventCategory.kultura]: "Kultúra",
         [EventCategory.sport]: "Šport",

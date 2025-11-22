@@ -21,8 +21,16 @@ interface EventContainerProps {
 const EventContainer = (props: EventContainerProps) => {
     return (
         <div className={styles.container} onClick={props.onClick}>
-            <TitleListItem article={false} title={props.title} category={props.category} location={props.location} />
-            <EventImageContainer imageUrls={props.imageUrls} distribution={props.distribution} />
+            <TitleListItem 
+                article={false} 
+                title={props.title} 
+                category={props.category} 
+                location={props.location}
+            />
+            <EventImageContainer 
+                // imageUrls={props.imageUrls} 
+                distribution={props.distribution}
+            />
             <p className='text-sans-large' style={{ visibility: 'hidden'}}>{props.description}</p>
         </div>
     )
